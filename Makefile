@@ -2,16 +2,15 @@
 # Makefile para gestionar infraestructura ML con control de espacio
 # -----------------------------------------------------------------------------
 
-COMPOSE = docker compose -f deployment/mlflow/docker-compose.yaml -f deployment/redis/docker-compose.yaml
+COMPOSE = docker compose -f deployment/mlflow/docker-compose.yaml
 
 .PHONY: up down restart logs ps clean rebuild help
 
 ## Levanta toda la infraestructura ML (limpia antes)
 up: clean-unused
 	$(COMPOSE) up -d --build
-	@echo "🎉 Infraestructura completa iniciada:"
+	@echo "🎉 Infraestructura MLflow iniciada:"
 	@echo "📊 MLflow: http://localhost:5555"
-	@echo "🔄 Redis UI: http://localhost:8081"
 
 ## Detiene toda la infraestructura
 down:
@@ -60,9 +59,9 @@ disk-usage:
 ## Muestra esta ayuda
 help:
 	@echo "Comandos disponibles:"
-	@echo "  make up          -> Levanta MLflow + Redis (limpia antes)"
-	@echo "  make down        -> Detiene toda la infraestructura"
-	@echo "  make restart     -> Reinicia toda la infraestructura"
+	@echo "  make up          -> Levanta MLflow (limpia antes)"
+	@echo "  make down        -> Detiene MLflow"
+	@echo "  make restart     -> Reinicia MLflow"
 	@echo "  make logs        -> Ver logs en tiempo real"
 	@echo "  make ps          -> Estado de contenedores"
 	@echo "  make clean       -> Limpieza ligera de Docker"

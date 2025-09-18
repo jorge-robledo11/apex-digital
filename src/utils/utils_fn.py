@@ -3,14 +3,12 @@
 from scipy import stats
 from sklearn.metrics import roc_curve, auc
 from sklearn.metrics import confusion_matrix
-import toml
-import os
+# import fireducks.pandas as pd
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 import empiricaldist
-import yaml
 import json
 import xgboost as xgb
 sns.set_theme(context='notebook', style=plt.style.use('dark_background')) # type: ignore
@@ -122,9 +120,9 @@ def class_distribution(data: pd.DataFrame, target: str) -> None:
     )
 
     # Definir título y etiquetas de los ejes
-    ax.set_title('Distribución de clases\n', fontsize=14)
-    ax.set_xlabel('Porcentajes', fontsize=12)
-    ax.set_ylabel(f'{target}'.capitalize(), fontsize=12)
+    ax.set_title('Distribución de clases\n', fontsize=12)
+    ax.set_xlabel('Porcentajes', fontsize=10)
+    ax.set_ylabel(f'{target}'.capitalize(), fontsize=10)
 
     # Mostrar el gráfico
     plt.grid(color='white', linestyle='-', linewidth=0.1)
@@ -149,7 +147,7 @@ def continuous_correlation_matrix(data: pd.DataFrame, continuous: list) -> None:
     correlations = data[continuous].corr(method='pearson', numeric_only=True)
     plt.figure(figsize=(17, 10))
     sns.heatmap(correlations, vmax=1, annot=True, cmap='gist_yarg', linewidths=1, square=True)
-    plt.title('Matriz de Correlaciones\n', fontsize=14)
+    plt.title('Matriz de Correlaciones\n', fontsize=12)
     plt.xticks(fontsize=10, rotation=25)
     plt.yticks(fontsize=10, rotation=25)
     plt.tight_layout()
@@ -219,8 +217,8 @@ def categoricals_correlation_matrix(data: pd.DataFrame, categoricals: list) -> N
                 corr_matrix.iloc[j, i] = val
 
     # Graficar la matriz con Seaborn
-    plt.figure(figsize=(17, 12))
-    sns.heatmap(corr_matrix, annot=True, vmin=0, vmax=1, cmap='YlGnBu', linewidths=1)
+    plt.figure(figsize=(17, 10))
+    sns.heatmap(corr_matrix, annot=True, vmin=0, vmax=1, cmap='YlGnBu', linewidths=1, square=True)
     plt.title("Matriz de Asociación Cramér's V", fontsize=14)
     plt.xticks(rotation=45, ha='right')
     plt.yticks(rotation=0)
@@ -308,7 +306,7 @@ def diagnostic_plots(data: pd.DataFrame, variables: list) -> None:
         plt.xlabel(var)
         plt.tick_params(labelbottom=False)
         plt.ylabel('Unidades')
-        plt.legend(fontsize=10, loc='upper right')
+        plt.legend(fontsize=8, loc='upper right')
         plt.grid(color='white', linestyle='-', linewidth=0.1)
         fig.tight_layout()
         

@@ -1,0 +1,100 @@
+2025-09-17 20:14:23|SUCCESS |50602|config.settings.get_settings:42|✅ Configuración cargada y validada con éxito.
+2025-09-17 20:14:23|INFO    |50602|src.utils.elt.run:157|🚀 Iniciando pipeline ELT
+2025-09-17 20:14:23|INFO    |50602|src.utils.elt.read_parquet_folder:37|📁 Archivos encontrados: ['part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet', 'part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet', 'part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet', 'part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet', 'part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet', 'part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet', 'part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet', 'part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet']
+2025-09-17 20:14:23|DEBUG   |50602|src.utils.elt.read_parquet_folder:47|part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-17 20:14:23|DEBUG   |50602|src.utils.elt.read_parquet_folder:47|part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-17 20:14:23|DEBUG   |50602|src.utils.elt.read_parquet_folder:47|part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-17 20:14:23|DEBUG   |50602|src.utils.elt.read_parquet_folder:47|part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-17 20:14:23|DEBUG   |50602|src.utils.elt.read_parquet_folder:47|part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-17 20:14:23|DEBUG   |50602|src.utils.elt.read_parquet_folder:47|part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-17 20:14:23|DEBUG   |50602|src.utils.elt.read_parquet_folder:47|part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-17 20:14:23|DEBUG   |50602|src.utils.elt.read_parquet_folder:47|part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet: 156,368 filas × 14 columnas
+2025-09-17 20:14:23|INFO    |50602|src.utils.elt.read_parquet_folder:50|==================================================
+2025-09-17 20:14:23|INFO    |50602|src.utils.elt.read_parquet_folder:51|CONCATENANDO ARCHIVOS
+2025-09-17 20:14:23|INFO    |50602|src.utils.elt.read_parquet_folder:52|==================================================
+2025-09-17 20:14:23|INFO    |50602|src.utils.elt.read_parquet_folder:57|Total esperado: 1,250,000 filas
+2025-09-17 20:14:23|INFO    |50602|src.utils.elt.read_parquet_folder:58|Dataset final: 1,250,000 filas × 14 columnas
+2025-09-17 20:14:23|SUCCESS |50602|src.utils.elt.read_parquet_folder:60|✅ Concatenación exitosa - todas las filas conservadas
+2025-09-17 20:14:23|INFO    |50602|src.utils.elt.read_parquet_folder:67|Clientes únicos: 149,960
+2025-09-17 20:14:23|INFO    |50602|src.utils.elt.read_parquet_folder:68|Total registros: 1,250,000
+2025-09-17 20:14:23|INFO    |50602|src.utils.elt.read_parquet_folder:69|Promedio registros por cliente: 8.3
+2025-09-17 20:14:23|SUCCESS |50602|src.utils.elt.validate_and_cast:98|✅ Validación y casting completados
+2025-09-17 20:14:23|SUCCESS |50602|src.utils.elt.aggregate_to_customer:131|✅ Agregación completada: 149,960 clientes únicos
+2025-09-17 20:14:23|INFO    |50602|src.utils.elt.write_processed:145|💾 Archivo procesado guardado en: data/processed/processed/2025-09-17/clientes_agg_20250918T011423Z.parquet
+2025-09-17 20:14:23|SUCCESS |50602|src.utils.elt.run:162|🎉 Pipeline ELT completada
+2025-09-17 20:14:23|SUCCESS |50602|__main__.main:24|🎯 Pipeline ejecutada con éxito. Registros procesados: 149,960
+2025-09-17 20:22:02|SUCCESS |55828|config.settings.get_settings:41|✅ Configuración cargada y validada con éxito.
+2025-09-17 20:22:02|INFO    |55828|src.utils.elt.run:157|🚀 Iniciando pipeline ELT
+2025-09-17 20:22:02|INFO    |55828|src.utils.elt.read_parquet_folder:37|📁 Archivos encontrados: ['part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet', 'part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet', 'part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet', 'part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet', 'part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet', 'part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet', 'part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet', 'part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet']
+2025-09-17 20:22:02|DEBUG   |55828|src.utils.elt.read_parquet_folder:47|part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-17 20:22:02|DEBUG   |55828|src.utils.elt.read_parquet_folder:47|part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-17 20:22:02|DEBUG   |55828|src.utils.elt.read_parquet_folder:47|part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-17 20:22:02|DEBUG   |55828|src.utils.elt.read_parquet_folder:47|part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-17 20:22:02|DEBUG   |55828|src.utils.elt.read_parquet_folder:47|part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-17 20:22:02|DEBUG   |55828|src.utils.elt.read_parquet_folder:47|part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-17 20:22:02|DEBUG   |55828|src.utils.elt.read_parquet_folder:47|part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-17 20:22:02|DEBUG   |55828|src.utils.elt.read_parquet_folder:47|part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet: 156,368 filas × 14 columnas
+2025-09-17 20:22:02|INFO    |55828|src.utils.elt.read_parquet_folder:50|==================================================
+2025-09-17 20:22:02|INFO    |55828|src.utils.elt.read_parquet_folder:51|CONCATENANDO ARCHIVOS
+2025-09-17 20:22:02|INFO    |55828|src.utils.elt.read_parquet_folder:52|==================================================
+2025-09-17 20:22:02|INFO    |55828|src.utils.elt.read_parquet_folder:57|Total esperado: 1,250,000 filas
+2025-09-17 20:22:02|INFO    |55828|src.utils.elt.read_parquet_folder:58|Dataset final: 1,250,000 filas × 14 columnas
+2025-09-17 20:22:02|SUCCESS |55828|src.utils.elt.read_parquet_folder:60|✅ Concatenación exitosa - todas las filas conservadas
+2025-09-17 20:22:02|INFO    |55828|src.utils.elt.read_parquet_folder:67|Clientes únicos: 149,960
+2025-09-17 20:22:02|INFO    |55828|src.utils.elt.read_parquet_folder:68|Total registros: 1,250,000
+2025-09-17 20:22:02|INFO    |55828|src.utils.elt.read_parquet_folder:69|Promedio registros por cliente: 8.3
+2025-09-17 20:22:02|SUCCESS |55828|src.utils.elt.validate_and_cast:98|✅ Validación y casting completados
+2025-09-17 20:22:02|SUCCESS |55828|src.utils.elt.aggregate_to_customer:131|✅ Agregación completada: 149,960 clientes únicos
+2025-09-17 20:22:02|INFO    |55828|src.utils.elt.write_processed:145|💾 Archivo procesado guardado en: data/processed/processed/2025-09-17/clientes_agg_20250918T012202Z.parquet
+2025-09-17 20:22:02|SUCCESS |55828|src.utils.elt.run:162|🎉 Pipeline ELT completada
+2025-09-17 20:22:02|SUCCESS |55828|__main__.main:24|🎯 Pipeline ejecutada con éxito. Registros procesados: 149,960
+2025-09-17 20:30:55|SUCCESS |62035|config.settings.get_settings:41|✅ Configuración cargada y validada con éxito.
+2025-09-17 20:30:55|INFO    |62035|src.utils.elt.run:153|🚀 Iniciando pipeline ELT
+2025-09-17 20:30:55|INFO    |62035|src.utils.elt.read_parquet_folder:35|📁 Archivos encontrados: ['part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet', 'part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet', 'part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet', 'part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet', 'part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet', 'part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet', 'part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet', 'part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet']
+2025-09-17 20:30:55|DEBUG   |62035|src.utils.elt.read_parquet_folder:45|part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-17 20:30:56|DEBUG   |62035|src.utils.elt.read_parquet_folder:45|part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-17 20:30:56|DEBUG   |62035|src.utils.elt.read_parquet_folder:45|part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-17 20:30:56|DEBUG   |62035|src.utils.elt.read_parquet_folder:45|part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-17 20:30:56|DEBUG   |62035|src.utils.elt.read_parquet_folder:45|part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-17 20:30:56|DEBUG   |62035|src.utils.elt.read_parquet_folder:45|part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-17 20:30:56|DEBUG   |62035|src.utils.elt.read_parquet_folder:45|part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-17 20:30:56|DEBUG   |62035|src.utils.elt.read_parquet_folder:45|part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet: 156,368 filas × 14 columnas
+2025-09-17 20:30:56|INFO    |62035|src.utils.elt.read_parquet_folder:48|==================================================
+2025-09-17 20:30:56|INFO    |62035|src.utils.elt.read_parquet_folder:49|CONCATENANDO ARCHIVOS
+2025-09-17 20:30:56|INFO    |62035|src.utils.elt.read_parquet_folder:50|==================================================
+2025-09-17 20:30:56|INFO    |62035|src.utils.elt.read_parquet_folder:55|Total esperado: 1,250,000 filas
+2025-09-17 20:30:56|INFO    |62035|src.utils.elt.read_parquet_folder:56|Dataset final: 1,250,000 filas × 14 columnas
+2025-09-17 20:30:56|SUCCESS |62035|src.utils.elt.read_parquet_folder:58|✅ Concatenación exitosa - todas las filas conservadas
+2025-09-17 20:30:56|INFO    |62035|src.utils.elt.read_parquet_folder:65|Clientes únicos: 149,960
+2025-09-17 20:30:56|INFO    |62035|src.utils.elt.read_parquet_folder:66|Total registros: 1,250,000
+2025-09-17 20:30:56|INFO    |62035|src.utils.elt.read_parquet_folder:67|Promedio registros por cliente: 8.3
+2025-09-17 20:30:56|SUCCESS |62035|src.utils.elt.validate_and_cast:96|✅ Validación y casting completados
+2025-09-17 20:30:56|SUCCESS |62035|src.utils.elt.aggregate_to_customer:129|✅ Agregación completada: 149,960 clientes únicos
+2025-09-17 20:30:56|INFO    |62035|src.utils.elt.write_processed:141|💾 Archivo procesado guardado en: data/processed/df_final.parquet
+2025-09-17 20:30:56|SUCCESS |62035|src.utils.elt.run:158|🎉 Pipeline ELT completada
+2025-09-17 20:30:56|SUCCESS |62035|__main__.main:24|🎯 Pipeline ejecutada con éxito. Registros procesados: 149,960
+2025-09-17 20:31:27|SUCCESS |62602|config.settings.get_settings:41|✅ Configuración cargada y validada con éxito.
+2025-09-17 20:31:27|INFO    |62602|src.utils.elt.run:153|🚀 Iniciando pipeline ELT
+2025-09-17 20:31:27|INFO    |62602|src.utils.elt.read_parquet_folder:35|📁 Archivos encontrados: ['part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet', 'part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet', 'part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet', 'part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet', 'part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet', 'part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet', 'part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet', 'part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet']
+2025-09-17 20:31:27|DEBUG   |62602|src.utils.elt.read_parquet_folder:45|part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-17 20:31:27|DEBUG   |62602|src.utils.elt.read_parquet_folder:45|part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-17 20:31:28|DEBUG   |62602|src.utils.elt.read_parquet_folder:45|part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-17 20:31:28|DEBUG   |62602|src.utils.elt.read_parquet_folder:45|part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-17 20:31:28|DEBUG   |62602|src.utils.elt.read_parquet_folder:45|part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-17 20:31:28|DEBUG   |62602|src.utils.elt.read_parquet_folder:45|part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-17 20:31:28|DEBUG   |62602|src.utils.elt.read_parquet_folder:45|part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-17 20:31:28|DEBUG   |62602|src.utils.elt.read_parquet_folder:45|part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet: 156,368 filas × 14 columnas
+2025-09-17 20:31:28|INFO    |62602|src.utils.elt.read_parquet_folder:48|==================================================
+2025-09-17 20:31:28|INFO    |62602|src.utils.elt.read_parquet_folder:49|CONCATENANDO ARCHIVOS
+2025-09-17 20:31:28|INFO    |62602|src.utils.elt.read_parquet_folder:50|==================================================
+2025-09-17 20:31:28|INFO    |62602|src.utils.elt.read_parquet_folder:55|Total esperado: 1,250,000 filas
+2025-09-17 20:31:28|INFO    |62602|src.utils.elt.read_parquet_folder:56|Dataset final: 1,250,000 filas × 14 columnas
+2025-09-17 20:31:28|SUCCESS |62602|src.utils.elt.read_parquet_folder:58|✅ Concatenación exitosa - todas las filas conservadas
+2025-09-17 20:31:28|INFO    |62602|src.utils.elt.read_parquet_folder:65|Clientes únicos: 149,960
+2025-09-17 20:31:28|INFO    |62602|src.utils.elt.read_parquet_folder:66|Total registros: 1,250,000
+2025-09-17 20:31:28|INFO    |62602|src.utils.elt.read_parquet_folder:67|Promedio registros por cliente: 8.3
+2025-09-17 20:31:28|SUCCESS |62602|src.utils.elt.validate_and_cast:96|✅ Validación y casting completados
+2025-09-17 20:31:28|SUCCESS |62602|src.utils.elt.aggregate_to_customer:129|✅ Agregación completada: 149,960 clientes únicos
+2025-09-17 20:31:28|INFO    |62602|src.utils.elt.write_processed:141|💾 Archivo procesado guardado en: data/processed/data_final.parquet
+2025-09-17 20:31:28|SUCCESS |62602|src.utils.elt.run:158|🎉 Pipeline ELT completada
+2025-09-17 20:31:28|SUCCESS |62602|__main__.main:24|🎯 Pipeline ejecutada con éxito. Registros procesados: 149,960
