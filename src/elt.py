@@ -17,6 +17,7 @@ from src.utils.schemas import (
 settings = get_settings()
 logger = settings.logger
 
+
 # ---------------------------
 # Funciones puras (reusables)
 # ---------------------------
@@ -31,14 +32,18 @@ def read_parquet_folder(path: Path, *, verbose: bool = True) -> pd.DataFrame:
         verbose: Si se debe registrar información de progreso.
 
     Returns:
-        pd.DataFrame: DataFrame concatenado (vacío si no hay archivos).
+        pd.DataFrame: DataFrame concatenado.
+
+    Raises:
+        FileNotFoundError: Si no se encontraron archivos parquet en `path`.
+        OSError: Si ocurre un error al leer algún archivo parquet.
     """
     archivos: list[Path] = list(path.glob(RAW_GLOB_PATTERN))
     if not archivos:
         msg = f"No se encontraron archivos parquet en '{path}'"
         if verbose:
             logger.error(f"❌ {msg}")
-        return pd.DataFrame()
+        raise FileNotFoundError(msg)
 
     if verbose:
         logger.info(f"📁 Archivos encontrados: {[p.name for p in archivos]}")
@@ -46,7 +51,11 @@ def read_parquet_folder(path: Path, *, verbose: bool = True) -> pd.DataFrame:
     dfs: list[pd.DataFrame] = []
     filas_total = 0
     for archivo in archivos:
-        df = pd.read_parquet(archivo)
+        try:
+            df = pd.read_parquet(archivo)
+        except Exception as e:
+            logger.error(f"❌ Error al leer '{archivo}': {e}")
+            raise OSError(f"No se pudo leer el archivo Parquet: {archivo}") from e
         df = df.drop_duplicates()
         dfs.append(df)
         filas_total += len(df)
@@ -131,10 +140,23 @@ def aggregate_to_customer(df: pd.DataFrame) -> pd.DataFrame:
 
     Returns:
         pd.DataFrame: DataFrame agregado por cliente.
+
+    Raises:
+        KeyError: Si falta la columna `cliente_id` o columnas requeridas para la agregación.
     """
     if df.empty:
         logger.warning("⚠️ DataFrame vacío en etapa de agregación")
         return df
+
+    if "cliente_id" not in df.columns:
+        logger.error("❌ Falta la columna 'cliente_id' para agregar por cliente.")
+        raise KeyError("Falta la columna 'cliente_id' para la agregación.")
+
+    # Verificar que existan todas las columnas necesarias para la agregación
+    missing = [col for col in DEFAULT_AGGREGATIONS.keys() if col not in df.columns]
+    if missing:
+        logger.error(f"❌ Faltan columnas requeridas para la agregación: {missing}")
+        raise KeyError(f"Faltan columnas requeridas para la agregación: {missing}")
 
     sort_cols: list[str] = [c for c in ["cliente_id", "fecha_pedido_dt"] if c in df.columns]
     if sort_cols:
@@ -148,7 +170,8 @@ def aggregate_to_customer(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def write_processed(df: pd.DataFrame, config: ELTConfig) -> Path:
-    """Escribe el dataset procesado en formato Parquet.
+    """
+    Escribe el dataset procesado en formato Parquet.
 
     Crea el directorio de salida si no existe.
 
@@ -158,19 +181,32 @@ def write_processed(df: pd.DataFrame, config: ELTConfig) -> Path:
 
     Returns:
         Path: Ruta al archivo Parquet generado.
+
+    Raises:
+        ValueError: Si `df` está vacío y `fail_if_empty=True`.
+        OSError: Si falla la escritura del archivo parquet.
     """
+    if df.empty and config.fail_if_empty:
+        logger.error("❌ Intento de escritura con DataFrame vacío y `fail_if_empty=True`.")
+        raise ValueError("El DataFrame está vacío; no se escribe salida.")
+
     base = config.output_root
     base.mkdir(parents=True, exist_ok=True)
 
     out_path = base / OUTPUT_FILENAME
-    df.to_parquet(out_path, index=False)
+    try:
+        df.to_parquet(out_path, index=False)
+    except Exception as e:
+        logger.error(f"❌ Error al escribir parquet en '{out_path}': {e}")
+        raise OSError(f"No se pudo escribir el parquet en: {out_path}") from e
 
     logger.info(f"💾 Archivo procesado guardado en: {out_path}")
     return out_path
 
 
 class ELTPipeline:
-    """Pipeline orquestado de etapas ELT.
+    """
+    Pipeline orquestado de etapas ELT.
 
     Atributos:
         config: Configuración del pipeline.
@@ -188,15 +224,43 @@ class ELTPipeline:
         self._df_agg: pd.DataFrame | None = None
 
     def run(self) -> pd.DataFrame:
-        """Ejecuta secuencialmente las etapas del pipeline.
+        """
+        Ejecuta secuencialmente las etapas del pipeline.
 
         Returns:
             pd.DataFrame: DataFrame agregado final.
+
+        Raises:
+            FileNotFoundError: Si no hay archivos de entrada.
+            KeyError: Si faltan columnas requeridas para la agregación.
+            ValueError: Si los datos están vacíos y la configuración exige fallo.
+            OSError: Si falla la lectura o escritura de archivos.
         """
         logger.info("🚀 Iniciando pipeline ELT")
-        self._df_raw = read_parquet_folder(self.config.raw_root)
-        self._df_valid = validate_and_cast(self._df_raw, self.config)
-        self._df_agg = aggregate_to_customer(self._df_valid)
-        write_processed(self._df_agg, self.config)
+
+        try:
+            self._df_raw = read_parquet_folder(self.config.raw_root)
+        except Exception as e:
+            logger.error(f"❌ Error en lectura de datos crudos: {e}")
+            raise
+
+        try:
+            self._df_valid = validate_and_cast(self._df_raw, self.config)
+        except Exception as e:
+            logger.error(f"❌ Error en validación/casteo: {e}")
+            raise
+
+        try:
+            self._df_agg = aggregate_to_customer(self._df_valid)
+        except Exception as e:
+            logger.error(f"❌ Error en agregación: {e}")
+            raise
+
+        try:
+            write_processed(self._df_agg, self.config)
+        except Exception as e:
+            logger.error(f"❌ Error al persistir resultados: {e}")
+            raise
+
         logger.success("🎉 Pipeline ELT completada")
         return self._df_agg

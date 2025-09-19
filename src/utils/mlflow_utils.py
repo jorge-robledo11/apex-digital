@@ -4,6 +4,7 @@ Utilidades para gestión idempotente de experimentos en MLflow.
 
 import mlflow
 from mlflow.tracking import MlflowClient
+from mlflow.exceptions import MlflowException
 
 
 def ensure_experiment(name: str, artifact_location: str | None = None) -> str:
@@ -20,24 +21,28 @@ def ensure_experiment(name: str, artifact_location: str | None = None) -> str:
         str: `experiment_id` del experimento solicitado.
 
     Raises:
-        mlflow.exceptions.MlflowException: Errores al crear, restaurar o consultar.
+        MlflowException: Errores al crear, restaurar o consultar.
     """
-    client = MlflowClient()
-    exp = client.get_experiment_by_name(name)
+    try:
+        client = MlflowClient()
+        exp = client.get_experiment_by_name(name)
 
-    if exp is None:
-        if artifact_location:
-            experiment_id = client.create_experiment(
-                name=name,
-                artifact_location=artifact_location,
-            )
-        else:
-            experiment_id = client.create_experiment(name=name)
+        if exp is None:
+            if artifact_location:
+                experiment_id = client.create_experiment(
+                    name=name,
+                    artifact_location=artifact_location,
+                )
+            else:
+                experiment_id = client.create_experiment(name=name)
+            mlflow.set_experiment(experiment_name=name)
+            return experiment_id
+
+        if exp.lifecycle_stage == "deleted":
+            client.restore_experiment(exp.experiment_id)
+
         mlflow.set_experiment(experiment_name=name)
-        return experiment_id
+        return exp.experiment_id
 
-    if exp.lifecycle_stage == "deleted":
-        client.restore_experiment(exp.experiment_id)
-
-    mlflow.set_experiment(experiment_name=name)
-    return exp.experiment_id
+    except MlflowException as e:
+        raise MlflowException(f"Error al asegurar experimento '{name}': {e}") from e

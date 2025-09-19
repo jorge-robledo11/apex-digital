@@ -32,61 +32,70 @@ def feature_selection(
     Returns:
         tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]: Versiones transformadas
         de train, val y test.
-    """
-    # Preservar nombres originales para evitar efectos colaterales de conversiones
-    original_columns = list(X_train.columns)
 
-    # Copias defensivas sin forzar materialización a pandas si no es necesario
+    Raises:
+        ValueError: Si no se detectan columnas de entrada o si falla la tipificación.
+        RuntimeError: Si ocurre un error durante el ajuste o transformación del pipeline.
+    """
+    if X_train.empty:
+        logger.error("❌ El DataFrame de entrenamiento está vacío.")
+        raise ValueError("El DataFrame de entrenamiento no puede estar vacío.")
+
+    original_columns = list(X_train.columns)
+    if not original_columns:
+        logger.error("❌ El DataFrame de entrenamiento no tiene columnas.")
+        raise ValueError("No se detectaron columnas en el DataFrame de entrenamiento.")
+
     X_train = X_train.to_pandas().copy() if hasattr(X_train, "to_pandas") else X_train.copy()
     X_val = X_val.to_pandas().copy() if hasattr(X_val, "to_pandas") else X_val.copy()
     X_test = X_test.to_pandas().copy() if hasattr(X_test, "to_pandas") else X_test.copy()
 
-    # Reaplicar nombres originales
     X_train.columns = original_columns
     X_val.columns = [c for c in original_columns if c in X_val.columns]
     X_test.columns = [c for c in original_columns if c in X_test.columns]
 
     logger.info(f"🏷️ Columnas originales: {original_columns}")
 
-    # Tipificación de variables
-    continuous, categoricals, discretes, temporaries = capture_variables(data=X_train)
+    try:
+        continuous, categoricals, discretes, temporaries = capture_variables(data=X_train)
+    except Exception as e:
+        logger.error(f"❌ Error al capturar variables: {e}")
+        raise ValueError("No se pudieron tipificar las variables de entrada.") from e
+
     logger.info(f"⏰ Variables datetime detectadas: {temporaries}")
 
-    # IDs por patrón simple
     ids_to_drop = [c for c in original_columns if "_id" in str(c).lower()]
     logger.info(f"🧾 IDs detectados para eliminar: {ids_to_drop or 'ninguno'}")
 
     steps: list[tuple[str, object]] = []
     new_datetime_features: list[str] = []
 
-    # 1) Extracción de features datetime (primero, para registrar nuevas columnas)
     if temporaries:
-        steps.append((
-            "datetime_features",
-            DatetimeFeatures(
+        try:
+            steps.append((
+                "datetime_features",
+                DatetimeFeatures(
+                    variables=temporaries,
+                    features_to_extract=["day_of_week", "quarter"],
+                    drop_original=True,
+                ),
+            ))
+            dt_probe = DatetimeFeatures(
                 variables=temporaries,
                 features_to_extract=["day_of_week", "quarter"],
-                drop_original=True,
-            ),
-        ))
-        # Pre-fit para identificar columnas derivadas
-        dt_probe = DatetimeFeatures(
-            variables=temporaries,
-            features_to_extract=["day_of_week", "quarter"],
-            drop_original=False,
-        )
-        X_train_temp = dt_probe.fit_transform(X_train)
-        new_datetime_features = [c for c in X_train_temp.columns if c not in original_columns]
-        logger.info(f"⏰ Nuevas features datetime: {new_datetime_features}")
+                drop_original=False,
+            )
+            X_train_temp = dt_probe.fit_transform(X_train)
+            new_datetime_features = [c for c in X_train_temp.columns if c not in original_columns]
+            logger.info(f"⏰ Nuevas features datetime: {new_datetime_features}")
+            categoricals.extend(new_datetime_features)
+        except Exception as e:
+            logger.error(f"❌ Error en extracción de features datetime: {e}")
+            raise RuntimeError("Fallo la extracción de features datetime.") from e
 
-        # Tratar derivadas como categóricas
-        categoricals.extend(new_datetime_features)
-
-    # 2) Eliminación de IDs
     if ids_to_drop:
         steps.append(("drop_ids", DropFeatures(features_to_drop=ids_to_drop)))
 
-    # Listas para cada etapa (evitar colisiones con IDs)
     vars_for_constant = [c for c in (continuous + categoricals) if c not in ids_to_drop]
     cat_for_cramers = [c for c in categoricals if c not in ids_to_drop]
     num_for_pearson = [c for c in (continuous + discretes) if c not in ids_to_drop]
@@ -95,7 +104,6 @@ def feature_selection(
     logger.info(f"🔣 Categóricas para Cramér's V: {len(cat_for_cramers)} (incluye datetime)")
     logger.info(f"📈 Numéricas para Pearson: {len(num_for_pearson)}")
 
-    # 3) Casi-constantes
     steps.append((
         "drop_constant",
         DropConstantFeatures(
@@ -105,7 +113,6 @@ def feature_selection(
         ),
     ))
 
-    # 4) Categóricas correlacionadas (Cramér's V)
     if cat_for_cramers:
         steps.append((
             "drop_cat_correlated",
@@ -116,7 +123,6 @@ def feature_selection(
             ),
         ))
 
-    # 5) Numéricas correlacionadas (Pearson)
     if len(num_for_pearson) >= 2:
         steps.append((
             "drop_num_correlated",
@@ -130,58 +136,56 @@ def feature_selection(
 
     pipe = Pipeline(steps)
 
-    # Ajuste paso a paso para rastrear columnas creadas/eliminadas
     logger.info("🛠️ Ajustando pipeline de selección…")
-    dropped_ids: list[str] = []
-    dropped_const: list[str] = []
-    dropped_cat: list[str] = []
-    dropped_num: list[str] = []
-
     X_tmp = X_train.to_pandas().copy() if hasattr(X_train, "to_pandas") else X_train.copy()
-    for name, transformer in pipe.steps:
-        cols_before = list(X_tmp.columns)
-        transformer.fit(X_tmp)
-        X_tmp = transformer.transform(X_tmp)
-        cols_after = list(X_tmp.columns)
+    try:
+        for name, transformer in pipe.steps:
+            cols_before = list(X_tmp.columns)
+            transformer.fit(X_tmp)
+            X_tmp = transformer.transform(X_tmp)
+            cols_after = list(X_tmp.columns)
 
-        dropped_this_step = [c for c in cols_before if c not in cols_after]
-        created_this_step = [c for c in cols_after if c not in cols_before]
+            dropped_this_step = [c for c in cols_before if c not in cols_after]
+            created_this_step = [c for c in cols_after if c not in cols_before]
 
-        if name == "datetime_features":
-            logger.info(f"⏰ Features datetime creadas: {created_this_step or 'ninguna'}")
-        elif name == "drop_ids":
-            dropped_ids = dropped_this_step
-            logger.info(f"🧾 Eliminadas por ID: {dropped_ids or 'ninguna'}")
-        elif name == "drop_constant":
-            dropped_const = dropped_this_step
-            logger.info(f"📦 Eliminadas por casi-constantes: {dropped_const or 'ninguna'}")
-        elif name == "drop_cat_correlated":
-            dropped_cat = dropped_this_step
-            logger.info(f"🔣 Eliminadas por Cramér's V: {dropped_cat or 'ninguna'}")
-        elif name == "drop_num_correlated":
-            dropped_num = dropped_this_step
-            logger.info(f"📈 Eliminadas por Pearson: {dropped_num or 'ninguna'}")
+            if name == "datetime_features":
+                logger.info(f"⏰ Features datetime creadas: {created_this_step or 'ninguna'}")
+            elif name == "drop_ids":
+                logger.info(f"🧾 Eliminadas por ID: {dropped_this_step or 'ninguna'}")
+            elif name == "drop_constant":
+                logger.info(f"📦 Eliminadas por casi-constantes: {dropped_this_step or 'ninguna'}")
+            elif name == "drop_cat_correlated":
+                logger.info(f"🔣 Eliminadas por Cramér's V: {dropped_this_step or 'ninguna'}")
+            elif name == "drop_num_correlated":
+                logger.info(f"📈 Eliminadas por Pearson: {dropped_this_step or 'ninguna'}")
+    except Exception as e:
+        logger.error(f"❌ Error al ajustar pipeline: {e}")
+        raise RuntimeError("Error durante el ajuste del pipeline de selección.") from e
 
     logger.success("✅ Pipeline de selección ajustado.")
 
-    # Transformaciones finales
-    X_train_sel = X_tmp.reset_index(drop=True)
-    X_val_sel = pipe.transform(X_val).reset_index(drop=True)
-    X_test_sel = pipe.transform(X_test).reset_index(drop=True)
+    try:
+        X_train_sel = X_tmp.reset_index(drop=True)
+        X_val_sel = pipe.transform(X_val).reset_index(drop=True)
+        X_test_sel = pipe.transform(X_test).reset_index(drop=True)
+    except Exception as e:
+        logger.error(f"❌ Error al transformar datasets: {e}")
+        raise RuntimeError("Error durante la transformación de los datasets.") from e
 
-    # Convertir nuevas features datetime a category
     if new_datetime_features:
         existing = [f for f in new_datetime_features if f in X_train_sel.columns]
         if existing:
             logger.info(f"🏷️ Casteando features datetime a category: {existing}")
             for col in existing:
-                X_train_sel[col] = X_train_sel[col].astype("category")
-                if col in X_val_sel.columns:
-                    X_val_sel[col] = X_val_sel[col].astype("category")
-                if col in X_test_sel.columns:
-                    X_test_sel[col] = X_test_sel[col].astype("category")
-            for col in existing:
-                logger.info(f"   {col}: {X_train_sel[col].dtype}")
+                try:
+                    X_train_sel[col] = X_train_sel[col].astype("category")
+                    if col in X_val_sel.columns:
+                        X_val_sel[col] = X_val_sel[col].astype("category")
+                    if col in X_test_sel.columns:
+                        X_test_sel[col] = X_test_sel[col].astype("category")
+                except Exception as e:
+                    logger.error(f"❌ Error al castear feature '{col}' a category: {e}")
+                    raise ValueError(f"No se pudo castear '{col}' a category.") from e
 
     logger.success(
         f"🎯 Feature selection completa. "
