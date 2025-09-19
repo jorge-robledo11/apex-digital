@@ -28,7 +28,6 @@ services:
         condition: service_healthy
     ports:
       - "5555:5000"
-    # 👇 CLAVE: servir artefactos por HTTP y guardarlos en /mlflow/artifacts dentro del contenedor
     command: >
       mlflow server
       --host 0.0.0.0
@@ -48,10 +47,9 @@ services:
       mlflow:
         condition: service_started
     environment:
-      # IMPORTANTE: dentro de la red de Docker el MLflow escucha en 5000
       MLFLOW_TRACKING_URI: http://mlflow:5000
       MODEL_NAME: digital_orders_xgboost
-      MODEL_STAGE: Production   # o Staging, o None
+      MODEL_STAGE: None
     ports:
       - "8000:8000"
     healthcheck:

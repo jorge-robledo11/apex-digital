@@ -42,13 +42,12 @@ def prepare_categorical_features(
     logger.info(f"🏷️ Casteadas a 'category': {cat_cols}")
     return cat_cols
 
-
 def encode_target_like_train(
     y_train: pd.Series,
     y_val: pd.Series,
     y_test: pd.Series,
 ) -> tuple[np.ndarray, np.ndarray, np.ndarray, list[str]]:
-    """Codifica SOLO el target con categorías de TRAIN."""
+    """Codifica SOLO el target con categorías de TRAIN (XGBoost sklearn API requiere códigos)."""
     y_train_cat = pd.Categorical(y_train)
     classes_ = list(map(str, y_train_cat.categories))
 
@@ -66,7 +65,6 @@ def encode_target_like_train(
     logger.info(f"🎯 Clases (orden): {classes_}")
     return y_train_enc, y_val_enc, y_test_enc, classes_
 
-
 def compute_balanced_sample_weight(y_enc: np.ndarray) -> np.ndarray:
     """Sample_weight estilo class_weight='balanced' para multiclase."""
     classes = np.unique(y_enc)
@@ -74,20 +72,17 @@ def compute_balanced_sample_weight(y_enc: np.ndarray) -> np.ndarray:
     w_map = {c: w for c, w in zip(classes, weights)}
     return np.array([w_map[v] for v in y_enc], dtype=float)
 
-
 def _predict_with_best(model: XGBClassifier, X: pd.DataFrame) -> np.ndarray:
     best_iter = getattr(model, "best_iteration", None)
     if best_iter is not None:
         return model.predict(X, iteration_range=(0, best_iter + 1))
     return model.predict(X)
 
-
 def _predict_proba_with_best(model: XGBClassifier, X: pd.DataFrame) -> np.ndarray:
     best_iter = getattr(model, "best_iteration", None)
     if best_iter is not None:
         return model.predict_proba(X, iteration_range=(0, best_iter + 1))
     return model.predict_proba(X)
-
 
 # =========================
 # Función principal
@@ -106,7 +101,7 @@ def train_models(
     """
     XGBoost multiclase con:
       - Features categóricas nativas (enable_categorical=True).
-      - Target codificado con categorías de TRAIN.
+      - Target codificado (XGBoost sklearn API requiere códigos).
       - Balanceo de clases opcional.
       - Early stopping y GPU con fallback a CPU.
       - Métrica principal: mlogloss.
@@ -117,16 +112,17 @@ def train_models(
     # 1) Castear features categóricas
     cat_cols = prepare_categorical_features(X_train, X_val, X_test)
 
-    # 2) Codificar SOLO el target
+    # 2) Codificar SOLO el target (XGBoost sklearn API requiere códigos)
     y_train_enc, y_val_enc, y_test_enc, class_names = encode_target_like_train(
         y_train, y_val, y_test
     )
 
-    # 3) Parámetros del modelo
+    # 3) Parámetros del modelo (early_stopping_rounds va en constructor)
     params: dict[str, object] = dict(
         objective="multi:softprob",
         eval_metric="mlogloss",
-        enable_categorical=True,
+        enable_categorical=True,  # ✅ Solo para FEATURES
+        early_stopping_rounds=early_stopping_rounds,  # ✅ En constructor, no en fit()
         n_estimators=3000,
         learning_rate=0.05,
         max_depth=6,
@@ -173,18 +169,21 @@ def train_models(
             "early_stopping_rounds": early_stopping_rounds,
             "used_balanced_weights": use_balanced_weights,
             "used_gpu": use_gpu,
+            "categorical_features": True,  # Features categóricas
+            "encoded_target": True,       # Target encoded
         })
+        
         # Artefactos informativos
         if cat_cols:
             mlflow.log_text("\n".join(map(str, cat_cols)), "artifacts/categorical_features.txt")
         mlflow.log_text("\n".join(map(str, class_names)), "artifacts/class_names.txt")
 
-        # Fit con GPU y fallback a CPU
+        # Fit con GPU y fallback a CPU - TARGETS ENCODED
         try:
             model.fit(
                 X_train,
-                y_train_enc,
-                eval_set=[(X_val, y_val_enc)],
+                y_train_enc,  # ✅ Target encoded
+                eval_set=[(X_val, y_val_enc)],  # ✅ Validation encoded
                 verbose=False,
                 **fit_kwargs,
             )
@@ -192,6 +191,7 @@ def train_models(
             if use_gpu:
                 logger.warning(f"⚠️ Entrenamiento con GPU falló ({e}). Reintentando en CPU…")
                 params.update(tree_method="hist", predictor="auto")
+                # Recrear modelo con parámetros CPU
                 model = XGBClassifier(**params)
                 model.fit(
                     X_train,
@@ -206,22 +206,22 @@ def train_models(
 
         # 5) Predicciones (mejor iteración)
         y_train_proba = _predict_proba_with_best(model, X_train)
-        y_val_proba   = _predict_proba_with_best(model, X_val)
-        y_test_proba  = _predict_proba_with_best(model, X_test)
+        y_val_proba = _predict_proba_with_best(model, X_val)
+        y_test_proba = _predict_proba_with_best(model, X_test)
 
         y_train_pred = _predict_with_best(model, X_train)
-        y_val_pred   = _predict_with_best(model, X_val)
-        y_test_pred  = _predict_with_best(model, X_test)
+        y_val_pred = _predict_with_best(model, X_val)
+        y_test_pred = _predict_with_best(model, X_test)
 
-        # 6) Métricas
+        # 6) Métricas - USAR CÓDIGOS ENCODED
         labels_idx = list(range(len(class_names)))
         train_logloss = log_loss(y_train_enc, y_train_proba, labels=labels_idx)
-        val_logloss   = log_loss(y_val_enc,   y_val_proba,   labels=labels_idx)
-        test_logloss  = log_loss(y_test_enc,  y_test_proba,  labels=labels_idx)
+        val_logloss = log_loss(y_val_enc, y_val_proba, labels=labels_idx)
+        test_logloss = log_loss(y_test_enc, y_test_proba, labels=labels_idx)
 
         train_acc = accuracy_score(y_train_enc, y_train_pred)
-        val_acc   = accuracy_score(y_val_enc,   y_val_pred)
-        test_acc  = accuracy_score(y_test_enc,  y_test_pred)
+        val_acc = accuracy_score(y_val_enc, y_val_pred)
+        test_acc = accuracy_score(y_test_enc, y_test_pred)
 
         # 7) MLflow logging (hiperparámetros del modelo final)
         mlflow.log_params({
@@ -249,16 +249,16 @@ def train_models(
 
         mlflow.log_metrics({
             "train_logloss": train_logloss,
-            "val_logloss":   val_logloss,
-            "test_logloss":  test_logloss,
+            "val_logloss": val_logloss,
+            "test_logloss": test_logloss,
             "train_accuracy": train_acc,
-            "val_accuracy":   val_acc,
-            "test_accuracy":  test_acc,
+            "val_accuracy": val_acc,
+            "test_accuracy": test_acc,
         })
 
         # Reports con nombres originales de clases
         mlflow.log_text(
-            classification_report(y_val_enc,  y_val_pred,  target_names=class_names),
+            classification_report(y_val_enc, y_val_pred, target_names=class_names),
             "validation_classification_report.txt"
         )
         mlflow.log_text(
@@ -266,13 +266,14 @@ def train_models(
             "test_classification_report.txt"
         )
 
+        # ✅ Signature con features categóricas
         signature = infer_signature(X_val, model.predict_proba(X_val))
         
         # Log modelo entrenado (quedará colgado del run anidado)
         try:
             mlflow.xgboost.log_model(
                 model,
-                name="xgboost_model",
+                artifact_path="xgboost_model",
                 registered_model_name="digital_orders_xgboost",
                 signature=signature,
             )

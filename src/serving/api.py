@@ -3,7 +3,7 @@ import mlflow
 from fastapi import FastAPI, HTTPException
 
 from .registry import load_model_bundle
-from .schemas import PredictPayload
+from .schemas import PredictPayload, PredictResponse
 from .service import ModelService
 from .transforms import payload_to_dataframe, align_and_cast_dataframe
 
@@ -33,18 +33,30 @@ def create_app() -> FastAPI:
             "class_names": service.class_names,
         }
 
-    @app.post("/predict_proba")
+    @app.post("/predict_proba", response_model=PredictResponse)
     def predict_proba(payload: PredictPayload):
-        df = payload_to_dataframe(payload)
-        df = align_and_cast_dataframe(df, service.input_cols, service.categorical_cols)
+        """Predicción con pipeline Pydantic → Pandas → XGBoost"""
         try:
-            proba = service.predict_proba(df)
+            # 1. Pydantic validó y convirtió tipos
+            df = payload_to_dataframe(payload)
+            
+            # 2. Alinear con modelo
+            df_aligned = align_and_cast_dataframe(df, service.input_cols, service.categorical_cols)
+            
+            # 3. Predicción
+            probabilities, processing_time = service.predict_proba(df_aligned)
+            predictions = service.predict_labels(probabilities)
+            
+            return PredictResponse(
+                predictions=predictions,
+                model_version="2",
+                processing_time_ms=processing_time
+            )
+            
         except Exception as e:
-            raise HTTPException(status_code=500, detail=str(e))
-        return {
-            "class_names": service.class_names,
-            "probabilities": proba.tolist(),
-        }
+            print(f"❌ Error en predict_proba: {e}")
+            raise HTTPException(status_code=422, detail=str(e))
+
 
     @app.post("/predict")
     def predict(payload: PredictPayload):
