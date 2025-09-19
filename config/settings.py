@@ -3,21 +3,26 @@ Configuración centralizada de la aplicación.
 """
 
 import sys
+from typing import Any
+
 from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
+
 from .logger import LoggerSettings, LoggerProtocol
 
 
 class Settings(BaseSettings):
+    """Configuración global de la aplicación.
+
+    Atributos:
+        logger_cfg: Configuración del logger (cargable por variables de entorno).
+        logger: Instancia de logger conforme a LoggerProtocol (se inicializa en `get_settings`).
     """
-    Configuración global de la aplicación.
-    - logger_cfg: configuración del logger (cargable por env vars).
-    - logger: instancia REAL de Loguru (se inicializa en get_settings()).
-    """
+
     model_config = SettingsConfigDict(
         case_sensitive=False,
-        extra='ignore',
-        env_nested_delimiter='__',
+        extra="ignore",
+        env_nested_delimiter="__",
     )
 
     logger_cfg: LoggerSettings = Field(default_factory=LoggerSettings)
@@ -28,10 +33,22 @@ class Settings(BaseSettings):
 _settings_instance: Settings | None = None
 
 
-def get_settings(**overrides) -> Settings:
-    """
-    Devuelve el singleton de Settings y configura `settings.logger`
-    usando LoggerSettings.setup_logger() una sola vez.
+def get_settings(**overrides: Any) -> Settings:
+    """Devuelve la instancia singleton de `Settings`.
+
+    Inicializa `settings.logger` llamando una única vez a
+    `LoggerSettings.setup_logger()`.
+
+    Args:
+        **overrides: Claves y valores para sobreescribir campos de `Settings`
+            en la construcción inicial (por ejemplo, `logger_cfg=...`).
+
+    Returns:
+        Settings: Instancia única con la configuración cargada.
+
+    Raises:
+        SystemExit: Si ocurre un error crítico al cargar la configuración
+            antes de que el logger esté disponible.
     """
     global _settings_instance
     if _settings_instance is None:

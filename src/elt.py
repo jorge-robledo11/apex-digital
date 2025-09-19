@@ -1,29 +1,39 @@
-from dataclasses import dataclass
+"""
+Funciones y pipeline ELT para lectura, validación, agregación y escritura de datos.
+"""
+
 from pathlib import Path
 import fireducks.pandas as pd
+
 from config.settings import get_settings
+from src.utils.schemas import (
+    ELTConfig,
+    DEFAULT_AGGREGATIONS,
+    RAW_GLOB_PATTERN,
+    OUTPUT_FILENAME,
+)
 
 # Obtener configuración global y logger
 settings = get_settings()
 logger = settings.logger
 
 # ---------------------------
-# Configuración declarativa
-# ---------------------------
-@dataclass(frozen=True)
-class ELTConfig:
-    raw_root: Path
-    output_root: Path
-    coerce_dtypes: bool = True
-    fail_if_empty: bool = True
-    dtype_map: dict[str, str] | None = None
-
-# ---------------------------
 # Funciones puras (reusables)
 # ---------------------------
 def read_parquet_folder(path: Path, *, verbose: bool = True) -> pd.DataFrame:
-    """Carga y concatena todos los .parquet del folder, eliminando duplicados por archivo."""
-    archivos: list[Path] = list(path.glob("*.parquet"))
+    """
+    Lee y concatena todos los archivos .parquet del directorio.
+
+    Elimina duplicados por archivo antes de concatenar.
+
+    Args:
+        path: Directorio a inspeccionar.
+        verbose: Si se debe registrar información de progreso.
+
+    Returns:
+        pd.DataFrame: DataFrame concatenado (vacío si no hay archivos).
+    """
+    archivos: list[Path] = list(path.glob(RAW_GLOB_PATTERN))
     if not archivos:
         msg = f"No se encontraron archivos parquet en '{path}'"
         if verbose:
@@ -69,7 +79,21 @@ def read_parquet_folder(path: Path, *, verbose: bool = True) -> pd.DataFrame:
 
 
 def validate_and_cast(df: pd.DataFrame, config: ELTConfig) -> pd.DataFrame:
-    """Valida mínimamente y castea tipos (incluye fechas)."""
+    """
+    Valida y castea tipos según la configuración.
+
+    Realiza coerción de dtypes y parseo de fechas si procede.
+
+    Args:
+        df: DataFrame de entrada.
+        config: Parámetros de validación y casteo.
+
+    Returns:
+        pd.DataFrame: DataFrame validado y con tipos ajustados.
+
+    Raises:
+        ValueError: Si `df` está vacío y `fail_if_empty=True`.
+    """
     if df.empty:
         if config.fail_if_empty:
             logger.error("❌ El DataFrame de entrada está vacío.")
@@ -97,7 +121,17 @@ def validate_and_cast(df: pd.DataFrame, config: ELTConfig) -> pd.DataFrame:
 
 
 def aggregate_to_customer(df: pd.DataFrame) -> pd.DataFrame:
-    """Agrega a nivel cliente siguiendo tu lógica original (último canal, sumas de negocio, etc.)."""
+    """
+    Agrega métricas a nivel cliente.
+
+    Ordena por columnas clave (si existen) y aplica agregaciones por `cliente_id`.
+
+    Args:
+        df: DataFrame validado de entradas transaccionales.
+
+    Returns:
+        pd.DataFrame: DataFrame agregado por cliente.
+    """
     if df.empty:
         logger.warning("⚠️ DataFrame vacío en etapa de agregación")
         return df
@@ -106,23 +140,7 @@ def aggregate_to_customer(df: pd.DataFrame) -> pd.DataFrame:
     if sort_cols:
         df = df.sort_values(sort_cols)
 
-    agregaciones: dict[str, str] = {
-        "pais_cd": "first",
-        "region_comercial_txt": "first",
-        "agencia_id": "first",
-        "ruta_id": "first",
-        "tipo_cliente_cd": "first",
-        "madurez_digital_cd": "first",
-        "estrellas_txt": "first",
-        "frecuencia_visitas_cd": "first",
-        "facturacion_usd_val": "sum",
-        "materiales_distintos_val": "sum",
-        "cajas_fisicas": "sum",
-        "fecha_pedido_dt": "max",
-        "canal_pedido_cd": "last",
-    }
-
-    out = df.groupby("cliente_id").agg(agregaciones).reset_index()
+    out = df.groupby("cliente_id").agg(DEFAULT_AGGREGATIONS).reset_index()
     out = out.drop_duplicates(subset=["cliente_id"], keep="last")
 
     logger.success(f"✅ Agregación completada: {len(out):,} clientes únicos")
@@ -130,11 +148,21 @@ def aggregate_to_customer(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def write_processed(df: pd.DataFrame, config: ELTConfig) -> Path:
-    """Escribe el dataset procesado en un único parquet fijo."""
+    """Escribe el dataset procesado en formato Parquet.
+
+    Crea el directorio de salida si no existe.
+
+    Args:
+        df: DataFrame a persistir.
+        config: Configuración con ruta de salida.
+
+    Returns:
+        Path: Ruta al archivo Parquet generado.
+    """
     base = config.output_root
     base.mkdir(parents=True, exist_ok=True)
 
-    out_path = base / "data_final.parquet"
+    out_path = base / OUTPUT_FILENAME
     df.to_parquet(out_path, index=False)
 
     logger.info(f"💾 Archivo procesado guardado en: {out_path}")
@@ -142,13 +170,29 @@ def write_processed(df: pd.DataFrame, config: ELTConfig) -> Path:
 
 
 class ELTPipeline:
+    """Pipeline orquestado de etapas ELT.
+
+    Atributos:
+        config: Configuración del pipeline.
+    """
+
     def __init__(self, config: ELTConfig):
+        """Inicializa la instancia del pipeline.
+
+        Args:
+            config: Parámetros de entrada y salida del proceso.
+        """
         self.config = config
         self._df_raw: pd.DataFrame | None = None
         self._df_valid: pd.DataFrame | None = None
         self._df_agg: pd.DataFrame | None = None
 
     def run(self) -> pd.DataFrame:
+        """Ejecuta secuencialmente las etapas del pipeline.
+
+        Returns:
+            pd.DataFrame: DataFrame agregado final.
+        """
         logger.info("🚀 Iniciando pipeline ELT")
         self._df_raw = read_parquet_folder(self.config.raw_root)
         self._df_valid = validate_and_cast(self._df_raw, self.config)

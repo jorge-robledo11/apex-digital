@@ -1,5 +1,13 @@
 """
-Configuración centralizada para el logging de la aplicación.
+Configuración centralizada para el logging de la aplicación usando Loguru.
+
+Exporte:
+    - LoggerProtocol: Protocolo mínimo para el logger.
+    - LoggerSettings: Configuración basada en Pydantic Settings.
+
+Variables de entorno:
+    LOG_LEVEL, LOG_COLORIZE, LOG_FILE_LEVEL, LOG_ROTATION, LOG_RETENTION,
+    LOG_CONSOLE_FORMAT, LOG_FILE_FORMAT.
 """
 
 import sys
@@ -13,6 +21,12 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 @runtime_checkable
 class LoggerProtocol(Protocol):
+    """
+    Protocolo mínimo que debe cumplir el logger de la aplicación.
+
+    Incluye métodos de registro de eventos, así como la gestión de sinks.
+    """
+
     # Métodos comunes
     def debug(self, __message: str, *args: object, **kwargs: object) -> None: ...
     def info(self, __message: str, *args: object, **kwargs: object) -> None: ...
@@ -31,7 +45,13 @@ class LoggerProtocol(Protocol):
 
 
 class LoggerSettings(BaseSettings):
-    """Configuración centralizada para el logger de Loguru."""
+    """
+    Configuración centralizada para el logger de Loguru.
+
+    Lee valores desde variables de entorno y expone un método para configurar
+    el logger global.
+    """
+
     model_config = SettingsConfigDict(extra='ignore', case_sensitive=False)
 
     level: str = Field(default='DEBUG', validation_alias='LOG_LEVEL')
@@ -58,9 +78,16 @@ class LoggerSettings(BaseSettings):
     )
 
     def setup_logger(self, log_dir: Path | None = None) -> LoggerProtocol:
-        """
-        Configura el logger global de Loguru usando los valores actuales.
-        Devuelve la instancia de logger lista para usar (cumple LoggerProtocol).
+        """Configura el logger global de Loguru y lo devuelve.
+
+        Registra un sink de consola y otro de archivo con rotación y retención.
+
+        Args:
+            log_dir: Directorio donde almacenar los archivos de log. Si es
+                ``None``, se usa ``Path("logs")``.
+
+        Returns:
+            LoggerProtocol: Instancia del logger configurada.
         """
         logger = _logger
         logger.remove()
@@ -88,6 +115,6 @@ class LoggerSettings(BaseSettings):
             enqueue=True,
         )
 
-        # Asegura a Pylance que cumple el protocolo
+        # Garantiza que cumple el protocolo para type-checkers
         assert isinstance(logger, LoggerProtocol)
         return logger

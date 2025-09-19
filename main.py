@@ -3,7 +3,8 @@ import asyncio
 from pathlib import Path
 import mlflow
 from config.settings import get_settings
-from src.utils.elt import ELTConfig, ELTPipeline
+from src.elt import ELTPipeline
+from src.utils.schemas import ELTConfig
 from src.split import split_train_val_test
 from src.selection import feature_selection
 from src.utils.mlflow_utils import ensure_experiment
