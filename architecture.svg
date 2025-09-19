@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <style>
+    .title { font: bold 18px sans-serif; fill: #111827; }
+    .node { font: 14px sans-serif; fill: #fff; }
+    .box { rx:8; ry:8; stroke:#e5e7eb; stroke-width:2; fill:#111827; }
+    .arrow { fill: none; stroke: #6b7280; stroke-width:2; marker-end: url(#arrowhead);} 
+    .sub { font: 12px sans-serif; fill: #374151; }
+  </style>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <path d="M0,0 L10,3.5 L0,7 z" fill="#6b7280" />
+    </marker>
+  </defs>
+
+  <text x="18" y="28" class="title">Arquitectura - Pipeline MLOps</text>
+
+  <!-- ETL -->
+  <rect x="30" y="60" width="160" height="70" class="box" fill="#0f172a" />
+  <text x="50" y="100" class="node">📥 ETL</text>
+  <text x="50" y="120" class="sub">Procesamiento de Parquet</text>
+
+  <!-- Split -->
+  <rect x="230" y="60" width="160" height="70" class="box" fill="#0b1220" />
+  <text x="250" y="100" class="node">✂️ Split</text>
+  <text x="250" y="120" class="sub">Train / Test</text>
+
+  <!-- Training -->
+  <rect x="430" y="60" width="180" height="70" class="box" fill="#081029" />
+  <text x="450" y="100" class="node">🏋️ Training</text>
+  <text x="450" y="120" class="sub">Entrenamiento de modelos</text>
+
+  <!-- Selection -->
+  <rect x="660" y="60" width="170" height="70" class="box" fill="#021021" />
+  <text x="680" y="100" class="node">🏆 Selection</text>
+  <text x="680" y="120" class="sub">Selecciona mejor modelo</text>
+
+  <!-- Inference -->
+  <rect x="30" y="220" width="220" height="70" class="box" fill="#0f172a" />
+  <text x="50" y="260" class="node">🔮 Inference</text>
+  <text x="50" y="280" class="sub">Carga modelo y predice</text>
+
+  <!-- FastAPI -->
+  <rect x="300" y="220" width="220" height="70" class="box" fill="#0b1220" />
+  <text x="320" y="260" class="node">⚡ FastAPI</text>
+  <text x="320" y="280" class="sub">API de inferencia</text>
+
+  <!-- MLflow -->
+  <rect x="610" y="220" width="220" height="70" class="box" fill="#081029" />
+  <text x="630" y="260" class="node">🔍 MLflow</text>
+  <text x="630" y="280" class="sub">Tracking &amp; Artifacts</text>
+
+  <!-- Arrows top row -->
+  <line x1="190" y1="95" x2="230" y2="95" class="arrow" />
+  <line x1="390" y1="95" x2="430" y2="95" class="arrow" />
+  <line x1="610" y1="95" x2="660" y2="95" class="arrow" />
+
+  <!-- Arrows down from selection to inference and mlflow -->
+  <line x1="740" y1="130" x2="740" y2="220" class="arrow" />
+  <line x1="460" y1="130" x2="460" y2="220" class="arrow" />
+
+  <!-- Arrows inference -> fastapi and inference -> mlflow -->
+  <line x1="250" y1="250" x2="300" y2="250" class="arrow" />
+  <line x1="520" y1="250" x2="610" y2="250" class="arrow" />
+
+  <!-- Legend / notas -->
+  <text x="18" y="370" class="sub">Diagrama simplificado: ETL → Split → Training → Selection → Inference → FastAPI/MLflow</text>
+</svg>
