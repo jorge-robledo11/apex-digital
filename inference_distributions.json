@@ -1,12 +1,12 @@
 {
   "predictions": {
-    "TELEFONO": 17,
-    "DIGITAL": 28,
-    "VENDEDOR": 5
+    "DIGITAL": 32,
+    "TELEFONO": 14,
+    "VENDEDOR": 4
   },
   "ground_truth_aligned": {
-    "TELEFONO": 10,
-    "DIGITAL": 24,
-    "VENDEDOR": 16
+    "DIGITAL": 26,
+    "TELEFONO": 7,
+    "VENDEDOR": 17
   }
 }
