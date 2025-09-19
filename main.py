@@ -1,7 +1,17 @@
+"""
+Entrypoint principal:
+- Ejecuta ELT
+- Split + selección de features
+- Asegura modelo en MLflow (entrena si no existe)
+- Corre inferencia asíncrona y loguea métricas/artefactos
+"""
+
 import os
 import json
 import asyncio
 from pathlib import Path
+from typing import Callable
+
 import mlflow
 from mlflow.tracking import MlflowClient
 from mlflow.exceptions import RestException
@@ -16,50 +26,76 @@ from src.inference import run_async_inference, prepare_test_sample
 from src.training import train_models
 
 
-def ensure_model_available(tracking_uri: str, model_name: str, train_fn) -> None:
-    """Garantiza que exista al menos una versión registrada de `model_name` en MLflow.
+def ensure_model_available(
+    tracking_uri: str,
+    model_name: str,
+    train_fn: Callable[[], None],    
+) -> None:
+    """
+    Garantiza que exista al menos una versión registrada en el Model Registry.
 
-    Si el modelo no está registrado o no tiene versiones, ejecuta `train_fn()` para
-    entrenar y registrar el modelo. Revalida la existencia tras el entrenamiento.
+    Si el modelo no existe o no tiene versiones, ejecuta `train_fn()` y revalida.
 
     Args:
-        tracking_uri: URI del tracking de MLflow.
+        tracking_uri: URI del servidor de tracking de MLflow.
         model_name: Nombre del modelo en el Model Registry.
-        train_fn: Callable sin argumentos que realiza el entrenamiento/registro.
+        train_fn: Función (sin argumentos) que entrena y registra el modelo.
 
     Raises:
-        RuntimeError: Si después del entrenamiento no existe una versión registrada.
-        mlflow.exceptions.RestException: Errores del cliente de MLflow.
+        RuntimeError: Si tras entrenar no aparece una versión registrada.
+        RestException: Si ocurren errores de cliente MLflow distintos a "no existe".
     """
     mlflow.set_tracking_uri(tracking_uri)
     client = MlflowClient()
 
     def _has_versions() -> bool:
         try:
-            rm = client.get_registered_model(model_name)
+            client.get_registered_model(model_name)
         except RestException as e:
-            # No existe el registered model
+            # Si no existe el Registered Model, retornamos False; otros errores se propagan.
             if getattr(e, "error_code", "") == "RESOURCE_DOES_NOT_EXIST":
                 return False
             raise
-        # Existe el registered model: verificar que haya al menos una versión
-        versions = client.search_model_versions(f"name='{model_name}'")
-        return len(list(versions)) > 0
+        # Existe el Registered Model: verificar versiones
+        versions = list(client.search_model_versions(f"name='{model_name}'"))
+        return len(versions) > 0
 
     if _has_versions():
         return
 
-    # No hay modelo/versión → entrenar
+    # No existe o sin versiones → entrenar
     train_fn()
 
     # Revalidar
     if not _has_versions():
-        raise RuntimeError(
-            f"El modelo '{model_name}' no quedó registrado tras el entrenamiento."
-        )
+        raise RuntimeError(f"El modelo '{model_name}' no quedó registrado tras el entrenamiento.")
+
+
+def _align_dict_like(template: dict[str, int], source: dict[str, int]) -> dict[str, int]:
+    """
+    Devuelve `source` ordenado con las claves de `template`, dejando al final las sobrantes.
+
+    Args:
+        template: Diccionario cuyo orden de claves se usará como referencia.
+        source: Diccionario a reordenar.
+
+    Returns:
+        dict[str, int]: `source` reordenado y con claves faltantes completadas en 0.
+    """
+    aligned: dict[str, int] = {k: source.get(k, 0) for k in template.keys()}
+    for k, v in source.items():
+        if k not in aligned:
+            aligned[k] = v
+    return aligned
 
 
 async def main() -> None:
+    """
+    Orquestación principal del flujo ELT → split → selección → training (si falta) → inferencia.
+
+    Raises:
+        Exception: Propaga errores críticos de ELT, split/selection, entrenamiento o inferencia.
+    """
     settings = get_settings()
     logger = settings.logger
 
@@ -79,16 +115,16 @@ async def main() -> None:
     # ==============================
     # Run padre (inferencia)
     # ==============================
-    with mlflow.start_run(run_name="async_inference_run") as run:
+    with mlflow.start_run(run_name="async_inference_run"):
         mlflow.log_params({
-            "codebase_entrypoint": "inference_main.py",
+            "codebase_entrypoint": "main.py",
             "mode": "inference",
             "target": "canal_pedido_cd",
             "async_inference": True,
         })
 
         # -------------------------------
-        # 1) Procesar datos
+        # 1) Procesar datos (ELT)
         # -------------------------------
         raw_root = Path("data/raw")
         output_root = Path("data/processed")
@@ -108,7 +144,7 @@ async def main() -> None:
             raise
 
         # -------------------------------
-        # 2) Split (para obtener train/val/test)
+        # 2) Split (train/val/test)
         # -------------------------------
         target = "canal_pedido_cd"
         seed = 42
@@ -136,13 +172,12 @@ async def main() -> None:
             raise
 
         # -------------------------------
-        # 3.5) Asegurar modelo en MLflow (entrenar si no existe)
+        # 3.5) Asegurar modelo (entrenar si no existe)
         # -------------------------------
         def _train_if_needed() -> None:
             """Entrena y registra el modelo si no existe en el registry."""
             try:
-                # training.train_models ya hace start_run(nested=True),
-                # loggea y registra el modelo con `registered_model_name=model_name`
+                # `train_models` inicia un run anidado, loguea y registra el modelo.
                 model, val_logloss, model_str = train_models(
                     X_train=X_train_sel,
                     X_val=X_val_sel,
@@ -172,13 +207,17 @@ async def main() -> None:
         try:
             logger.info("🚀 Iniciando inferencia asíncrona...")
 
+            # Preparar muestra de test
             test_sample, sample_metadata = prepare_test_sample(X_test_sel, y_test, n_samples=50)
 
-            mlflow.log_params({
-                "test_sample_size": sample_metadata["sample_size"],
-                "test_ground_truth_dist": sample_metadata["ground_truth_distribution"],
-            })
+            # Log de metadata del sample (guardar distribución real como artefacto JSON)
+            mlflow.log_param("test_sample_size", sample_metadata["sample_size"])
+            mlflow.log_text(
+                json.dumps(sample_metadata["ground_truth_distribution"], indent=2, ensure_ascii=False),
+                "artifacts/test_ground_truth_distribution.json",
+            )
 
+            # Ejecutar inferencia
             results, metrics = await run_async_inference(
                 test_data=test_sample,
                 tracking_uri=tracking_uri,
@@ -190,6 +229,7 @@ async def main() -> None:
                 total_time = metrics["total_time_ms"]
                 avg_time = metrics["avg_time_per_prediction_ms"]
 
+                # Métricas agregadas de inferencia
                 mlflow.log_metrics({
                     "inference_samples": metrics["successful_predictions"],
                     "inference_total_time_ms": total_time,
@@ -197,11 +237,13 @@ async def main() -> None:
                     "inference_success_rate": metrics["success_rate"] / 100.0,
                 })
 
-                pred_distribution = metrics["prediction_distribution"]
+                # Conteo por clase
+                pred_distribution: dict[str, int] = metrics["prediction_distribution"]
                 for class_name, count in pred_distribution.items():
                     mlflow.log_metric(f"pred_count_{class_name}", count)
 
-                confidence_stats = metrics.get("confidence_stats", {})
+                # Métricas de confianza
+                confidence_stats: dict[str, float] = metrics.get("confidence_stats", {})
                 if confidence_stats:
                     mlflow.log_metrics({
                         "avg_confidence": confidence_stats["avg_confidence"],
@@ -210,6 +252,7 @@ async def main() -> None:
                         "std_confidence": confidence_stats["std_confidence"],
                     })
 
+                # Guardar resultados detallados
                 results_summary = [{
                     "index": r.index,
                     "predicted_class": r.predicted_class,
@@ -219,17 +262,30 @@ async def main() -> None:
                     "model_version": r.model_version,
                 } for r in results]
 
-                with open("inference_results.json", "w") as f:
-                    json.dump(results_summary, f, indent=2)
+                with open("inference_results.json", "w", encoding="utf-8") as f:
+                    json.dump(results_summary, f, indent=2, ensure_ascii=False)
                 mlflow.log_artifact("inference_results.json")
 
-                ground_truth_dist = sample_metadata["ground_truth_distribution"]
+                # Alinear ground truth al orden de las predicciones para logging legible
+                ground_truth_dist: dict[str, int] = sample_metadata["ground_truth_distribution"]
+                gt_aligned = _align_dict_like(pred_distribution, ground_truth_dist)
+
+                # Logs al usuario
                 logger.success("🎉 Inferencia asíncrona completada:")
                 logger.info(f"   📊 Muestras procesadas: {len(results)}")
                 logger.info(f"   ⚡ Tiempo promedio: {avg_time:.2f}ms")
                 logger.info(f"   🎯 Distribución predicciones: {pred_distribution}")
-                logger.info(f"   🏆 Ground truth: {ground_truth_dist}")
-                logger.info(f"   💪 Confianza promedio: {confidence_stats.get('avg_confidence', 0):.3f}")
+                logger.info(f"   🏆 Ground truth: {gt_aligned}")
+                logger.info(f"   💪 Confianza promedio: {confidence_stats.get('avg_confidence', 0.0):.3f}")
+
+                # Guardar distribuciones como artefacto JSON conjunto
+                with open("inference_distributions.json", "w", encoding="utf-8") as f:
+                    json.dump(
+                        {"predictions": pred_distribution, "ground_truth_aligned": gt_aligned},
+                        f, indent=2, ensure_ascii=False
+                    )
+                mlflow.log_artifact("inference_distributions.json")
+
             else:
                 logger.error("❌ No se pudieron procesar predicciones")
                 mlflow.log_metrics({

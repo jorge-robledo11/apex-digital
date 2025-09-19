@@ -4900,3 +4900,807 @@ fecha_pedido_dt_quarter
 2025-09-19 11:50:26|INFO    |70595|__main__.main:230|   🎯 Distribución predicciones: {'DIGITAL': 29, 'TELEFONO': 18, 'VENDEDOR': 3}
 2025-09-19 11:50:26|INFO    |70595|__main__.main:231|   🏆 Ground truth: {'DIGITAL': 27, 'VENDEDOR': 18, 'TELEFONO': 5}
 2025-09-19 11:50:26|INFO    |70595|__main__.main:232|   💪 Confianza promedio: 0.500
+2025-09-19 12:03:49|SUCCESS |81434|config.settings.get_settings:58|✅ Configuración cargada y validada con éxito.
+2025-09-19 12:03:50|INFO    |81434|__main__.main:76|🧭 MLflow tracking_uri = http://localhost:5555
+2025-09-19 12:03:50|INFO    |81434|__main__.main:77|🧪 MLflow experiment   = digital_orders_new (id=1)
+2025-09-19 12:03:50|INFO    |81434|src.elt.run:239|🚀 Iniciando pipeline ELT
+2025-09-19 12:03:50|INFO    |81434|src.elt.read_parquet_folder:49|📁 Archivos encontrados: ['part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet', 'part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet', 'part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet', 'part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet', 'part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet', 'part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet', 'part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet', 'part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet']
+2025-09-19 12:03:50|DEBUG   |81434|src.elt.read_parquet_folder:63|part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-19 12:03:50|DEBUG   |81434|src.elt.read_parquet_folder:63|part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-19 12:03:50|DEBUG   |81434|src.elt.read_parquet_folder:63|part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-19 12:03:50|DEBUG   |81434|src.elt.read_parquet_folder:63|part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-19 12:03:50|DEBUG   |81434|src.elt.read_parquet_folder:63|part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-19 12:03:50|DEBUG   |81434|src.elt.read_parquet_folder:63|part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-19 12:03:50|DEBUG   |81434|src.elt.read_parquet_folder:63|part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-19 12:03:50|DEBUG   |81434|src.elt.read_parquet_folder:63|part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet: 156,368 filas × 14 columnas
+2025-09-19 12:03:50|INFO    |81434|src.elt.read_parquet_folder:66|==================================================
+2025-09-19 12:03:50|INFO    |81434|src.elt.read_parquet_folder:67|CONCATENANDO ARCHIVOS
+2025-09-19 12:03:50|INFO    |81434|src.elt.read_parquet_folder:68|==================================================
+2025-09-19 12:03:50|INFO    |81434|src.elt.read_parquet_folder:73|Total esperado: 1,250,000 filas
+2025-09-19 12:03:50|INFO    |81434|src.elt.read_parquet_folder:74|Dataset final: 1,250,000 filas × 14 columnas
+2025-09-19 12:03:50|SUCCESS |81434|src.elt.read_parquet_folder:76|✅ Concatenación exitosa - todas las filas conservadas
+2025-09-19 12:03:50|INFO    |81434|src.elt.read_parquet_folder:83|Clientes únicos: 149,960
+2025-09-19 12:03:50|INFO    |81434|src.elt.read_parquet_folder:84|Total registros: 1,250,000
+2025-09-19 12:03:50|INFO    |81434|src.elt.read_parquet_folder:85|Promedio registros por cliente: 8.3
+2025-09-19 12:03:50|SUCCESS |81434|src.elt.validate_and_cast:128|✅ Validación y casting completados
+2025-09-19 12:03:50|SUCCESS |81434|src.elt.aggregate_to_customer:168|✅ Agregación completada: 149,960 clientes únicos
+2025-09-19 12:03:50|INFO    |81434|src.elt.write_processed:203|💾 Archivo procesado guardado en: data/processed/data_final.parquet
+2025-09-19 12:03:50|SUCCESS |81434|src.elt.run:265|🎉 Pipeline ELT completada
+2025-09-19 12:03:50|SUCCESS |81434|__main__.main:105|🎯 Pipeline ELT ejecutada: 149,960 registros
+2025-09-19 12:03:50|INFO    |81434|src.split.split_train_val_test:37|🚀 Iniciando split_train_val_test()
+2025-09-19 12:03:50|INFO    |81434|src.split.split_train_val_test:45|🔤 Variables discretas detectadas: ['estrellas_txt']
+2025-09-19 12:03:50|SUCCESS |81434|src.split.split_train_val_test:53|✅ Casteo de discretas completado
+2025-09-19 12:03:50|SUCCESS |81434|src.split.split_train_val_test:81|🎯 Split completado -> Train: (89976, 13), Val: (29992, 13), Test: (29992, 13)
+2025-09-19 12:03:50|SUCCESS |81434|__main__.main:119|📊 Split realizada: Test=(29992, 13)
+2025-09-19 12:03:51|INFO    |81434|src.selection.feature_selection:57|🏷️ Columnas originales: ['cliente_id', 'pais_cd', 'region_comercial_txt', 'agencia_id', 'ruta_id', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'facturacion_usd_val', 'materiales_distintos_val', 'cajas_fisicas', 'fecha_pedido_dt']
+2025-09-19 12:03:51|INFO    |81434|src.selection.feature_selection:65|⏰ Variables datetime detectadas: ['fecha_pedido_dt']
+2025-09-19 12:03:51|INFO    |81434|src.selection.feature_selection:68|🧾 IDs detectados para eliminar: ['cliente_id', 'agencia_id', 'ruta_id']
+2025-09-19 12:03:51|INFO    |81434|src.selection.feature_selection:90|⏰ Nuevas features datetime: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:03:51|INFO    |81434|src.selection.feature_selection:103|📦 Candidatas a casi-constantes: 11
+2025-09-19 12:03:51|INFO    |81434|src.selection.feature_selection:104|🔣 Categóricas para Cramér's V: 8 (incluye datetime)
+2025-09-19 12:03:51|INFO    |81434|src.selection.feature_selection:105|📈 Numéricas para Pearson: 3
+2025-09-19 12:03:51|INFO    |81434|src.selection.feature_selection:139|🛠️ Ajustando pipeline de selección…
+2025-09-19 12:03:51|INFO    |81434|src.selection.feature_selection:152|⏰ Features datetime creadas: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:03:51|INFO    |81434|src.selection.feature_selection:154|🧾 Eliminadas por ID: ['cliente_id', 'agencia_id', 'ruta_id']
+2025-09-19 12:03:51|INFO    |81434|src.selection.feature_selection:156|📦 Eliminadas por casi-constantes: ninguna
+2025-09-19 12:03:51|INFO    |81434|src.selection.feature_selection:158|🔣 Eliminadas por Cramér's V: ['region_comercial_txt']
+2025-09-19 12:03:51|INFO    |81434|src.selection.feature_selection:160|📈 Eliminadas por Pearson: ['facturacion_usd_val', 'materiales_distintos_val']
+2025-09-19 12:03:51|SUCCESS |81434|src.selection.feature_selection:165|✅ Pipeline de selección ajustado.
+2025-09-19 12:03:51|INFO    |81434|src.selection.feature_selection:178|🏷️ Casteando features datetime a category: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:03:51|SUCCESS |81434|src.selection.feature_selection:190|🎯 Feature selection completa. Train=(89976, 8), Val=(29992, 8), Test=(29992, 8)
+2025-09-19 12:03:51|INFO    |81434|src.selection.feature_selection:194|🏷️ Columnas finales: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:03:51|INFO    |81434|src.selection.feature_selection:195|⏰ Features datetime finales: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:03:51|SUCCESS |81434|__main__.main:133|✨ Features seleccionadas: (29992, 8)
+2025-09-19 12:03:51|INFO    |81434|src.training.train_models:90|🚀 Iniciando entrenamiento con XGBoost...
+2025-09-19 12:03:51|INFO    |81434|src.utils.training_utils.prepare_categorical_features:55|🏷️ Casteadas a 'category': ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:03:51|INFO    |81434|src.utils.training_utils.encode_target_like_train:92|🎯 Clases (orden): ['DIGITAL', 'TELEFONO', 'VENDEDOR']
+2025-09-19 12:03:51|INFO    |81434|src.training.train_models:126|🟢 Se intentará entrenar con GPU (gpu_hist).
+2025-09-19 12:03:51|INFO    |81434|src.training.train_models:137|⚖️  Usando sample_weight balanceado por clase.
+2025-09-19 12:03:51|INFO    |81434|src.training.train_models:145|🔗 Run de entrenamiento anidado al run activo de MLflow.
+2025-09-19 12:03:51|INFO    |81434|src.training.train_models:146|📊 Entrenando XGBoost con early stopping…
+2025-09-19 12:03:52|ERROR   |81434|__main__._train_if_needed:159|❌ Error durante el entrenamiento: 2 validation errors for XGBHyperparams
+reg_lambda
+  Input should be a valid number [type=float_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/float_type
+reg_alpha
+  Input should be a valid number [type=float_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/float_type
+2025-09-19 12:03:52|ERROR   |81434|__main__.main:166|❌ No fue posible asegurar el modelo 'digital_orders_xgboost': 2 validation errors for XGBHyperparams
+reg_lambda
+  Input should be a valid number [type=float_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/float_type
+reg_alpha
+  Input should be a valid number [type=float_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/float_type
+2025-09-19 12:12:10|SUCCESS |87738|config.settings.get_settings:58|✅ Configuración cargada y validada con éxito.
+2025-09-19 12:12:10|INFO    |87738|__main__.main:76|🧭 MLflow tracking_uri = http://localhost:5555
+2025-09-19 12:12:10|INFO    |87738|__main__.main:77|🧪 MLflow experiment   = digital_orders_new (id=1)
+2025-09-19 12:12:11|INFO    |87738|src.elt.run:239|🚀 Iniciando pipeline ELT
+2025-09-19 12:12:11|INFO    |87738|src.elt.read_parquet_folder:49|📁 Archivos encontrados: ['part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet', 'part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet', 'part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet', 'part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet', 'part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet', 'part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet', 'part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet', 'part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet']
+2025-09-19 12:12:11|DEBUG   |87738|src.elt.read_parquet_folder:63|part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-19 12:12:11|DEBUG   |87738|src.elt.read_parquet_folder:63|part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-19 12:12:11|DEBUG   |87738|src.elt.read_parquet_folder:63|part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-19 12:12:11|DEBUG   |87738|src.elt.read_parquet_folder:63|part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-19 12:12:11|DEBUG   |87738|src.elt.read_parquet_folder:63|part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-19 12:12:11|DEBUG   |87738|src.elt.read_parquet_folder:63|part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-19 12:12:11|DEBUG   |87738|src.elt.read_parquet_folder:63|part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-19 12:12:11|DEBUG   |87738|src.elt.read_parquet_folder:63|part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet: 156,368 filas × 14 columnas
+2025-09-19 12:12:11|INFO    |87738|src.elt.read_parquet_folder:66|==================================================
+2025-09-19 12:12:11|INFO    |87738|src.elt.read_parquet_folder:67|CONCATENANDO ARCHIVOS
+2025-09-19 12:12:11|INFO    |87738|src.elt.read_parquet_folder:68|==================================================
+2025-09-19 12:12:11|INFO    |87738|src.elt.read_parquet_folder:73|Total esperado: 1,250,000 filas
+2025-09-19 12:12:11|INFO    |87738|src.elt.read_parquet_folder:74|Dataset final: 1,250,000 filas × 14 columnas
+2025-09-19 12:12:11|SUCCESS |87738|src.elt.read_parquet_folder:76|✅ Concatenación exitosa - todas las filas conservadas
+2025-09-19 12:12:11|INFO    |87738|src.elt.read_parquet_folder:83|Clientes únicos: 149,960
+2025-09-19 12:12:11|INFO    |87738|src.elt.read_parquet_folder:84|Total registros: 1,250,000
+2025-09-19 12:12:11|INFO    |87738|src.elt.read_parquet_folder:85|Promedio registros por cliente: 8.3
+2025-09-19 12:12:11|SUCCESS |87738|src.elt.validate_and_cast:128|✅ Validación y casting completados
+2025-09-19 12:12:11|SUCCESS |87738|src.elt.aggregate_to_customer:168|✅ Agregación completada: 149,960 clientes únicos
+2025-09-19 12:12:11|INFO    |87738|src.elt.write_processed:203|💾 Archivo procesado guardado en: data/processed/data_final.parquet
+2025-09-19 12:12:11|SUCCESS |87738|src.elt.run:265|🎉 Pipeline ELT completada
+2025-09-19 12:12:11|SUCCESS |87738|__main__.main:105|🎯 Pipeline ELT ejecutada: 149,960 registros
+2025-09-19 12:12:11|INFO    |87738|src.split.split_train_val_test:37|🚀 Iniciando split_train_val_test()
+2025-09-19 12:12:11|INFO    |87738|src.split.split_train_val_test:45|🔤 Variables discretas detectadas: ['estrellas_txt']
+2025-09-19 12:12:11|SUCCESS |87738|src.split.split_train_val_test:53|✅ Casteo de discretas completado
+2025-09-19 12:12:11|SUCCESS |87738|src.split.split_train_val_test:81|🎯 Split completado -> Train: (89976, 13), Val: (29992, 13), Test: (29992, 13)
+2025-09-19 12:12:11|SUCCESS |87738|__main__.main:119|📊 Split realizada: Test=(29992, 13)
+2025-09-19 12:12:11|INFO    |87738|src.selection.feature_selection:57|🏷️ Columnas originales: ['cliente_id', 'pais_cd', 'region_comercial_txt', 'agencia_id', 'ruta_id', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'facturacion_usd_val', 'materiales_distintos_val', 'cajas_fisicas', 'fecha_pedido_dt']
+2025-09-19 12:12:11|INFO    |87738|src.selection.feature_selection:65|⏰ Variables datetime detectadas: ['fecha_pedido_dt']
+2025-09-19 12:12:11|INFO    |87738|src.selection.feature_selection:68|🧾 IDs detectados para eliminar: ['cliente_id', 'agencia_id', 'ruta_id']
+2025-09-19 12:12:11|INFO    |87738|src.selection.feature_selection:90|⏰ Nuevas features datetime: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:11|INFO    |87738|src.selection.feature_selection:103|📦 Candidatas a casi-constantes: 11
+2025-09-19 12:12:11|INFO    |87738|src.selection.feature_selection:104|🔣 Categóricas para Cramér's V: 8 (incluye datetime)
+2025-09-19 12:12:11|INFO    |87738|src.selection.feature_selection:105|📈 Numéricas para Pearson: 3
+2025-09-19 12:12:11|INFO    |87738|src.selection.feature_selection:139|🛠️ Ajustando pipeline de selección…
+2025-09-19 12:12:11|INFO    |87738|src.selection.feature_selection:152|⏰ Features datetime creadas: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:11|INFO    |87738|src.selection.feature_selection:154|🧾 Eliminadas por ID: ['cliente_id', 'agencia_id', 'ruta_id']
+2025-09-19 12:12:11|INFO    |87738|src.selection.feature_selection:156|📦 Eliminadas por casi-constantes: ninguna
+2025-09-19 12:12:12|INFO    |87738|src.selection.feature_selection:158|🔣 Eliminadas por Cramér's V: ['region_comercial_txt']
+2025-09-19 12:12:12|INFO    |87738|src.selection.feature_selection:160|📈 Eliminadas por Pearson: ['facturacion_usd_val', 'materiales_distintos_val']
+2025-09-19 12:12:12|SUCCESS |87738|src.selection.feature_selection:165|✅ Pipeline de selección ajustado.
+2025-09-19 12:12:12|INFO    |87738|src.selection.feature_selection:178|🏷️ Casteando features datetime a category: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:12|SUCCESS |87738|src.selection.feature_selection:190|🎯 Feature selection completa. Train=(89976, 8), Val=(29992, 8), Test=(29992, 8)
+2025-09-19 12:12:12|INFO    |87738|src.selection.feature_selection:194|🏷️ Columnas finales: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:12|INFO    |87738|src.selection.feature_selection:195|⏰ Features datetime finales: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:12|SUCCESS |87738|__main__.main:133|✨ Features seleccionadas: (29992, 8)
+2025-09-19 12:12:12|INFO    |87738|src.training.train_models:90|🚀 Iniciando entrenamiento con XGBoost...
+2025-09-19 12:12:12|INFO    |87738|src.utils.training_utils.prepare_categorical_features:55|🏷️ Casteadas a 'category': ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:12|INFO    |87738|src.utils.training_utils.encode_target_like_train:92|🎯 Clases (orden): ['DIGITAL', 'TELEFONO', 'VENDEDOR']
+2025-09-19 12:12:12|INFO    |87738|src.training.train_models:126|🟢 Se intentará entrenar con GPU (gpu_hist).
+2025-09-19 12:12:12|INFO    |87738|src.training.train_models:137|⚖️  Usando sample_weight balanceado por clase.
+2025-09-19 12:12:12|INFO    |87738|src.training.train_models:145|🔗 Run de entrenamiento anidado al run activo de MLflow.
+2025-09-19 12:12:12|INFO    |87738|src.training.train_models:146|📊 Entrenando XGBoost con early stopping…
+2025-09-19 12:12:15|INFO    |87738|src.training.train_models:306|📈 Métricas de Rendimiento:
+2025-09-19 12:12:15|INFO    |87738|src.training.train_models:307|   🎯 LogLoss → Train 1.0345 | Val 1.0486 | Test 1.0455
+2025-09-19 12:12:15|INFO    |87738|src.training.train_models:311|   📊 Acc    → Train 0.4557 | Val 0.4347 | Test 0.4415
+2025-09-19 12:12:15|INFO    |87738|src.training.train_models:316|🏁 Best iteration: 86  |  Best val mlogloss: 1.048617
+2025-09-19 12:12:15|SUCCESS |87738|__main__._train_if_needed:157|✅ Modelo entrenado (XGBoost) | val_logloss=1.04862
+2025-09-19 12:12:15|INFO    |87738|__main__.main:164|🧩 Modelo disponible en registry: digital_orders_xgboost
+2025-09-19 12:12:15|INFO    |87738|__main__.main:173|🚀 Iniciando inferencia asíncrona...
+2025-09-19 12:12:15|INFO    |87738|src.inference.prepare_test_sample:212|📋 Muestra de test preparada: 50 registros
+2025-09-19 12:12:15|INFO    |87738|src.inference.prepare_test_sample:213|🎯 Distribución real: {'DIGITAL': 22, 'VENDEDOR': 21, 'TELEFONO': 7}
+2025-09-19 12:12:15|INFO    |87738|src.inference.prepare_test_sample:214|🔢 Orden de columnas: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:15|INFO    |87738|src.inference.initialize:38|🔄 Inicializando motor de inferencia...
+2025-09-19 12:12:16|SUCCESS |87738|src.inference.initialize:53|✅ Modelo cargado: models:/digital_orders_xgboost/1
+2025-09-19 12:12:16|INFO    |87738|src.inference.initialize:54|🏷️  Clases: ['DIGITAL', 'TELEFONO', 'VENDEDOR']
+2025-09-19 12:12:16|INFO    |87738|src.inference.initialize:55|📊 Features categóricas: 7
+2025-09-19 12:12:16|INFO    |87738|src.inference.initialize:56|🔢 Columnas de entrada: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|INFO    |87738|src.inference.predict_batch:133|🚀 Iniciando inferencia batch: 50 registros
+2025-09-19 12:12:16|INFO    |87738|src.inference.predict_batch:134|🔄 Concurrencia máxima: 10
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:89|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:12:16|DEBUG   |87738|src.inference._prepare_dataframe_with_transforms:90|   Categorical count: 6
+2025-09-19 12:12:16|SUCCESS |87738|src.inference.predict_batch:169|✅ Inferencia batch completada:
+2025-09-19 12:12:16|INFO    |87738|src.inference.predict_batch:170|   📊 Exitosas: 50/50 (100.0%)
+2025-09-19 12:12:16|INFO    |87738|src.inference.predict_batch:171|   ⚡ Tiempo total: 143.46ms
+2025-09-19 12:12:16|INFO    |87738|src.inference.predict_batch:172|   📈 Promedio por predicción: 19.51ms
+2025-09-19 12:12:16|SUCCESS |87738|src.inference.run_async_inference:266|🎉 Inferencia asíncrona completada:
+2025-09-19 12:12:16|INFO    |87738|src.inference.run_async_inference:267|   📊 Success rate: 100.0%
+2025-09-19 12:12:16|INFO    |87738|src.inference.run_async_inference:268|   🎯 Predicciones: {'DIGITAL': 37, 'TELEFONO': 11, 'VENDEDOR': 2}
+2025-09-19 12:12:16|INFO    |87738|src.inference.run_async_inference:269|   💪 Confianza promedio: 0.541
+2025-09-19 12:12:17|SUCCESS |87738|__main__.main:227|🎉 Inferencia asíncrona completada:
+2025-09-19 12:12:17|INFO    |87738|__main__.main:228|   📊 Muestras procesadas: 50
+2025-09-19 12:12:17|INFO    |87738|__main__.main:229|   ⚡ Tiempo promedio: 19.51ms
+2025-09-19 12:12:17|INFO    |87738|__main__.main:230|   🎯 Distribución predicciones: {'DIGITAL': 37, 'TELEFONO': 11, 'VENDEDOR': 2}
+2025-09-19 12:12:17|INFO    |87738|__main__.main:231|   🏆 Ground truth: {'DIGITAL': 22, 'VENDEDOR': 21, 'TELEFONO': 7}
+2025-09-19 12:12:17|INFO    |87738|__main__.main:232|   💪 Confianza promedio: 0.541
+2025-09-19 12:25:02|SUCCESS |97768|config.settings.get_settings:58|✅ Configuración cargada y validada con éxito.
+2025-09-19 12:25:03|INFO    |97768|__main__.main:76|🧭 MLflow tracking_uri = http://localhost:5555
+2025-09-19 12:25:03|INFO    |97768|__main__.main:77|🧪 MLflow experiment   = digital_orders_new (id=1)
+2025-09-19 12:25:03|INFO    |97768|src.elt.run:239|🚀 Iniciando pipeline ELT
+2025-09-19 12:25:03|INFO    |97768|src.elt.read_parquet_folder:49|📁 Archivos encontrados: ['part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet', 'part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet', 'part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet', 'part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet', 'part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet', 'part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet', 'part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet', 'part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet']
+2025-09-19 12:25:03|DEBUG   |97768|src.elt.read_parquet_folder:63|part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-19 12:25:03|DEBUG   |97768|src.elt.read_parquet_folder:63|part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-19 12:25:03|DEBUG   |97768|src.elt.read_parquet_folder:63|part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-19 12:25:03|DEBUG   |97768|src.elt.read_parquet_folder:63|part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-19 12:25:03|DEBUG   |97768|src.elt.read_parquet_folder:63|part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-19 12:25:03|DEBUG   |97768|src.elt.read_parquet_folder:63|part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-19 12:25:03|DEBUG   |97768|src.elt.read_parquet_folder:63|part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-19 12:25:03|DEBUG   |97768|src.elt.read_parquet_folder:63|part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet: 156,368 filas × 14 columnas
+2025-09-19 12:25:03|INFO    |97768|src.elt.read_parquet_folder:66|==================================================
+2025-09-19 12:25:03|INFO    |97768|src.elt.read_parquet_folder:67|CONCATENANDO ARCHIVOS
+2025-09-19 12:25:03|INFO    |97768|src.elt.read_parquet_folder:68|==================================================
+2025-09-19 12:25:03|INFO    |97768|src.elt.read_parquet_folder:73|Total esperado: 1,250,000 filas
+2025-09-19 12:25:03|INFO    |97768|src.elt.read_parquet_folder:74|Dataset final: 1,250,000 filas × 14 columnas
+2025-09-19 12:25:03|SUCCESS |97768|src.elt.read_parquet_folder:76|✅ Concatenación exitosa - todas las filas conservadas
+2025-09-19 12:25:03|INFO    |97768|src.elt.read_parquet_folder:83|Clientes únicos: 149,960
+2025-09-19 12:25:03|INFO    |97768|src.elt.read_parquet_folder:84|Total registros: 1,250,000
+2025-09-19 12:25:03|INFO    |97768|src.elt.read_parquet_folder:85|Promedio registros por cliente: 8.3
+2025-09-19 12:25:04|SUCCESS |97768|src.elt.validate_and_cast:128|✅ Validación y casting completados
+2025-09-19 12:25:04|SUCCESS |97768|src.elt.aggregate_to_customer:168|✅ Agregación completada: 149,960 clientes únicos
+2025-09-19 12:25:04|INFO    |97768|src.elt.write_processed:203|💾 Archivo procesado guardado en: data/processed/data_final.parquet
+2025-09-19 12:25:04|SUCCESS |97768|src.elt.run:265|🎉 Pipeline ELT completada
+2025-09-19 12:25:04|SUCCESS |97768|__main__.main:105|🎯 Pipeline ELT ejecutada: 149,960 registros
+2025-09-19 12:25:04|INFO    |97768|src.split.split_train_val_test:37|🚀 Iniciando split_train_val_test()
+2025-09-19 12:25:04|INFO    |97768|src.split.split_train_val_test:45|🔤 Variables discretas detectadas: ['estrellas_txt']
+2025-09-19 12:25:04|SUCCESS |97768|src.split.split_train_val_test:53|✅ Casteo de discretas completado
+2025-09-19 12:25:04|SUCCESS |97768|src.split.split_train_val_test:81|🎯 Split completado -> Train: (89976, 13), Val: (29992, 13), Test: (29992, 13)
+2025-09-19 12:25:04|SUCCESS |97768|__main__.main:119|📊 Split realizada: Test=(29992, 13)
+2025-09-19 12:25:04|INFO    |97768|src.selection.feature_selection:57|🏷️ Columnas originales: ['cliente_id', 'pais_cd', 'region_comercial_txt', 'agencia_id', 'ruta_id', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'facturacion_usd_val', 'materiales_distintos_val', 'cajas_fisicas', 'fecha_pedido_dt']
+2025-09-19 12:25:04|INFO    |97768|src.selection.feature_selection:65|⏰ Variables datetime detectadas: ['fecha_pedido_dt']
+2025-09-19 12:25:04|INFO    |97768|src.selection.feature_selection:68|🧾 IDs detectados para eliminar: ['cliente_id', 'agencia_id', 'ruta_id']
+2025-09-19 12:25:04|INFO    |97768|src.selection.feature_selection:90|⏰ Nuevas features datetime: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:04|INFO    |97768|src.selection.feature_selection:103|📦 Candidatas a casi-constantes: 11
+2025-09-19 12:25:04|INFO    |97768|src.selection.feature_selection:104|🔣 Categóricas para Cramér's V: 8 (incluye datetime)
+2025-09-19 12:25:04|INFO    |97768|src.selection.feature_selection:105|📈 Numéricas para Pearson: 3
+2025-09-19 12:25:04|INFO    |97768|src.selection.feature_selection:139|🛠️ Ajustando pipeline de selección…
+2025-09-19 12:25:04|INFO    |97768|src.selection.feature_selection:152|⏰ Features datetime creadas: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:04|INFO    |97768|src.selection.feature_selection:154|🧾 Eliminadas por ID: ['cliente_id', 'agencia_id', 'ruta_id']
+2025-09-19 12:25:04|INFO    |97768|src.selection.feature_selection:156|📦 Eliminadas por casi-constantes: ninguna
+2025-09-19 12:25:04|INFO    |97768|src.selection.feature_selection:158|🔣 Eliminadas por Cramér's V: ['region_comercial_txt']
+2025-09-19 12:25:04|INFO    |97768|src.selection.feature_selection:160|📈 Eliminadas por Pearson: ['facturacion_usd_val', 'materiales_distintos_val']
+2025-09-19 12:25:04|SUCCESS |97768|src.selection.feature_selection:165|✅ Pipeline de selección ajustado.
+2025-09-19 12:25:04|INFO    |97768|src.selection.feature_selection:178|🏷️ Casteando features datetime a category: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:04|SUCCESS |97768|src.selection.feature_selection:190|🎯 Feature selection completa. Train=(89976, 8), Val=(29992, 8), Test=(29992, 8)
+2025-09-19 12:25:04|INFO    |97768|src.selection.feature_selection:194|🏷️ Columnas finales: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:04|INFO    |97768|src.selection.feature_selection:195|⏰ Features datetime finales: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:04|SUCCESS |97768|__main__.main:133|✨ Features seleccionadas: (29992, 8)
+2025-09-19 12:25:04|INFO    |97768|__main__.main:164|🧩 Modelo disponible en registry: digital_orders_xgboost
+2025-09-19 12:25:04|INFO    |97768|__main__.main:173|🚀 Iniciando inferencia asíncrona...
+2025-09-19 12:25:04|INFO    |97768|src.inference.prepare_test_sample:299|📋 Muestra de test preparada: 50 registros
+2025-09-19 12:25:04|INFO    |97768|src.inference.prepare_test_sample:300|🎯 Distribución real: {'VENDEDOR': 25, 'DIGITAL': 21, 'TELEFONO': 4}
+2025-09-19 12:25:04|INFO    |97768|src.inference.prepare_test_sample:301|🔢 Orden de columnas: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:04|INFO    |97768|src.inference.initialize:59|🔄 Inicializando motor de inferencia...
+2025-09-19 12:25:06|SUCCESS |97768|src.inference.initialize:78|✅ Modelo cargado: models:/digital_orders_xgboost/1
+2025-09-19 12:25:06|INFO    |97768|src.inference.initialize:79|🏷️  Clases: ['DIGITAL', 'TELEFONO', 'VENDEDOR']
+2025-09-19 12:25:06|INFO    |97768|src.inference.initialize:80|📊 Features categóricas: 7
+2025-09-19 12:25:06|INFO    |97768|src.inference.initialize:81|🔢 Columnas de entrada: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|INFO    |97768|src.inference.predict_batch:201|🚀 Iniciando inferencia batch: 50 registros
+2025-09-19 12:25:06|INFO    |97768|src.inference.predict_batch:202|🔄 Concurrencia máxima: 10
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:25:06|DEBUG   |97768|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:25:06|SUCCESS |97768|src.inference.predict_batch:232|✅ Inferencia batch completada:
+2025-09-19 12:25:06|INFO    |97768|src.inference.predict_batch:233|   📊 Exitosas: 50/50 (100.0%)
+2025-09-19 12:25:06|INFO    |97768|src.inference.predict_batch:234|   ⚡ Tiempo total: 122.99ms
+2025-09-19 12:25:06|INFO    |97768|src.inference.predict_batch:235|   📈 Promedio por predicción: 15.76ms
+2025-09-19 12:25:06|SUCCESS |97768|src.inference.run_async_inference:364|🎉 Inferencia asíncrona completada:
+2025-09-19 12:25:06|INFO    |97768|src.inference.run_async_inference:365|   📊 Success rate: 100.0%
+2025-09-19 12:25:06|INFO    |97768|src.inference.run_async_inference:366|   🎯 Predicciones: {'DIGITAL': 32, 'VENDEDOR': 3, 'TELEFONO': 15}
+2025-09-19 12:25:06|INFO    |97768|src.inference.run_async_inference:367|   💪 Confianza promedio: %.3f
+2025-09-19 12:25:06|SUCCESS |97768|__main__.main:227|🎉 Inferencia asíncrona completada:
+2025-09-19 12:25:06|INFO    |97768|__main__.main:228|   📊 Muestras procesadas: 50
+2025-09-19 12:25:06|INFO    |97768|__main__.main:229|   ⚡ Tiempo promedio: 15.76ms
+2025-09-19 12:25:06|INFO    |97768|__main__.main:230|   🎯 Distribución predicciones: {'DIGITAL': 32, 'VENDEDOR': 3, 'TELEFONO': 15}
+2025-09-19 12:25:06|INFO    |97768|__main__.main:231|   🏆 Ground truth: {'VENDEDOR': 25, 'DIGITAL': 21, 'TELEFONO': 4}
+2025-09-19 12:25:06|INFO    |97768|__main__.main:232|   💪 Confianza promedio: 0.532
+2025-09-19 12:29:30|SUCCESS |101657|config.settings.get_settings:58|✅ Configuración cargada y validada con éxito.
+2025-09-19 12:29:31|INFO    |101657|__main__.main:76|🧭 MLflow tracking_uri = http://localhost:5555
+2025-09-19 12:29:31|INFO    |101657|__main__.main:77|🧪 MLflow experiment   = digital_orders_new (id=1)
+2025-09-19 12:29:31|INFO    |101657|src.elt.run:239|🚀 Iniciando pipeline ELT
+2025-09-19 12:29:31|INFO    |101657|src.elt.read_parquet_folder:49|📁 Archivos encontrados: ['part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet', 'part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet', 'part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet', 'part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet', 'part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet', 'part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet', 'part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet', 'part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet']
+2025-09-19 12:29:31|DEBUG   |101657|src.elt.read_parquet_folder:63|part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-19 12:29:31|DEBUG   |101657|src.elt.read_parquet_folder:63|part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-19 12:29:31|DEBUG   |101657|src.elt.read_parquet_folder:63|part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-19 12:29:31|DEBUG   |101657|src.elt.read_parquet_folder:63|part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-19 12:29:31|DEBUG   |101657|src.elt.read_parquet_folder:63|part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-19 12:29:31|DEBUG   |101657|src.elt.read_parquet_folder:63|part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-19 12:29:31|DEBUG   |101657|src.elt.read_parquet_folder:63|part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-19 12:29:31|DEBUG   |101657|src.elt.read_parquet_folder:63|part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet: 156,368 filas × 14 columnas
+2025-09-19 12:29:31|INFO    |101657|src.elt.read_parquet_folder:66|==================================================
+2025-09-19 12:29:31|INFO    |101657|src.elt.read_parquet_folder:67|CONCATENANDO ARCHIVOS
+2025-09-19 12:29:31|INFO    |101657|src.elt.read_parquet_folder:68|==================================================
+2025-09-19 12:29:31|INFO    |101657|src.elt.read_parquet_folder:73|Total esperado: 1,250,000 filas
+2025-09-19 12:29:31|INFO    |101657|src.elt.read_parquet_folder:74|Dataset final: 1,250,000 filas × 14 columnas
+2025-09-19 12:29:31|SUCCESS |101657|src.elt.read_parquet_folder:76|✅ Concatenación exitosa - todas las filas conservadas
+2025-09-19 12:29:31|INFO    |101657|src.elt.read_parquet_folder:83|Clientes únicos: 149,960
+2025-09-19 12:29:31|INFO    |101657|src.elt.read_parquet_folder:84|Total registros: 1,250,000
+2025-09-19 12:29:31|INFO    |101657|src.elt.read_parquet_folder:85|Promedio registros por cliente: 8.3
+2025-09-19 12:29:31|SUCCESS |101657|src.elt.validate_and_cast:128|✅ Validación y casting completados
+2025-09-19 12:29:31|SUCCESS |101657|src.elt.aggregate_to_customer:168|✅ Agregación completada: 149,960 clientes únicos
+2025-09-19 12:29:31|INFO    |101657|src.elt.write_processed:203|💾 Archivo procesado guardado en: data/processed/data_final.parquet
+2025-09-19 12:29:31|SUCCESS |101657|src.elt.run:265|🎉 Pipeline ELT completada
+2025-09-19 12:29:31|SUCCESS |101657|__main__.main:105|🎯 Pipeline ELT ejecutada: 149,960 registros
+2025-09-19 12:29:31|INFO    |101657|src.split.split_train_val_test:37|🚀 Iniciando split_train_val_test()
+2025-09-19 12:29:31|INFO    |101657|src.split.split_train_val_test:45|🔤 Variables discretas detectadas: ['estrellas_txt']
+2025-09-19 12:29:31|SUCCESS |101657|src.split.split_train_val_test:53|✅ Casteo de discretas completado
+2025-09-19 12:29:31|SUCCESS |101657|src.split.split_train_val_test:81|🎯 Split completado -> Train: (89976, 13), Val: (29992, 13), Test: (29992, 13)
+2025-09-19 12:29:31|SUCCESS |101657|__main__.main:119|📊 Split realizada: Test=(29992, 13)
+2025-09-19 12:29:31|INFO    |101657|src.selection.feature_selection:57|🏷️ Columnas originales: ['cliente_id', 'pais_cd', 'region_comercial_txt', 'agencia_id', 'ruta_id', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'facturacion_usd_val', 'materiales_distintos_val', 'cajas_fisicas', 'fecha_pedido_dt']
+2025-09-19 12:29:31|INFO    |101657|src.selection.feature_selection:65|⏰ Variables datetime detectadas: ['fecha_pedido_dt']
+2025-09-19 12:29:31|INFO    |101657|src.selection.feature_selection:68|🧾 IDs detectados para eliminar: ['cliente_id', 'agencia_id', 'ruta_id']
+2025-09-19 12:29:31|INFO    |101657|src.selection.feature_selection:90|⏰ Nuevas features datetime: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:31|INFO    |101657|src.selection.feature_selection:103|📦 Candidatas a casi-constantes: 11
+2025-09-19 12:29:31|INFO    |101657|src.selection.feature_selection:104|🔣 Categóricas para Cramér's V: 8 (incluye datetime)
+2025-09-19 12:29:31|INFO    |101657|src.selection.feature_selection:105|📈 Numéricas para Pearson: 3
+2025-09-19 12:29:31|INFO    |101657|src.selection.feature_selection:139|🛠️ Ajustando pipeline de selección…
+2025-09-19 12:29:32|INFO    |101657|src.selection.feature_selection:152|⏰ Features datetime creadas: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:32|INFO    |101657|src.selection.feature_selection:154|🧾 Eliminadas por ID: ['cliente_id', 'agencia_id', 'ruta_id']
+2025-09-19 12:29:32|INFO    |101657|src.selection.feature_selection:156|📦 Eliminadas por casi-constantes: ninguna
+2025-09-19 12:29:32|INFO    |101657|src.selection.feature_selection:158|🔣 Eliminadas por Cramér's V: ['region_comercial_txt']
+2025-09-19 12:29:32|INFO    |101657|src.selection.feature_selection:160|📈 Eliminadas por Pearson: ['facturacion_usd_val', 'materiales_distintos_val']
+2025-09-19 12:29:32|SUCCESS |101657|src.selection.feature_selection:165|✅ Pipeline de selección ajustado.
+2025-09-19 12:29:32|INFO    |101657|src.selection.feature_selection:178|🏷️ Casteando features datetime a category: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:32|SUCCESS |101657|src.selection.feature_selection:190|🎯 Feature selection completa. Train=(89976, 8), Val=(29992, 8), Test=(29992, 8)
+2025-09-19 12:29:32|INFO    |101657|src.selection.feature_selection:194|🏷️ Columnas finales: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:32|INFO    |101657|src.selection.feature_selection:195|⏰ Features datetime finales: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:32|SUCCESS |101657|__main__.main:133|✨ Features seleccionadas: (29992, 8)
+2025-09-19 12:29:32|INFO    |101657|__main__.main:164|🧩 Modelo disponible en registry: digital_orders_xgboost
+2025-09-19 12:29:32|INFO    |101657|__main__.main:173|🚀 Iniciando inferencia asíncrona...
+2025-09-19 12:29:32|INFO    |101657|src.inference.prepare_test_sample:299|📋 Muestra de test preparada: 50 registros
+2025-09-19 12:29:32|INFO    |101657|src.inference.prepare_test_sample:300|🎯 Distribución real: {'DIGITAL': 27, 'VENDEDOR': 12, 'TELEFONO': 11}
+2025-09-19 12:29:32|INFO    |101657|src.inference.prepare_test_sample:301|🔢 Orden de columnas: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:32|INFO    |101657|src.inference.initialize:59|🔄 Inicializando motor de inferencia...
+2025-09-19 12:29:33|SUCCESS |101657|src.inference.initialize:78|✅ Modelo cargado: models:/digital_orders_xgboost/1
+2025-09-19 12:29:33|INFO    |101657|src.inference.initialize:79|🏷️  Clases: ['DIGITAL', 'TELEFONO', 'VENDEDOR']
+2025-09-19 12:29:33|INFO    |101657|src.inference.initialize:80|📊 Features categóricas: 7
+2025-09-19 12:29:33|INFO    |101657|src.inference.initialize:81|🔢 Columnas de entrada: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|INFO    |101657|src.inference.predict_batch:201|🚀 Iniciando inferencia batch: 50 registros
+2025-09-19 12:29:33|INFO    |101657|src.inference.predict_batch:202|🔄 Concurrencia máxima: 10
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:128|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:29:33|DEBUG   |101657|src.inference._prepare_dataframe_with_transforms:129|   Categorical count: %d
+2025-09-19 12:29:33|SUCCESS |101657|src.inference.predict_batch:232|✅ Inferencia batch completada:
+2025-09-19 12:29:33|INFO    |101657|src.inference.predict_batch:233|   📊 Exitosas: 50/50 (100.0%)
+2025-09-19 12:29:33|INFO    |101657|src.inference.predict_batch:234|   ⚡ Tiempo total: 122.80ms
+2025-09-19 12:29:33|INFO    |101657|src.inference.predict_batch:235|   📈 Promedio por predicción: 17.99ms
+2025-09-19 12:29:33|SUCCESS |101657|src.inference.run_async_inference:366|🎉 Inferencia asíncrona completada:
+2025-09-19 12:29:33|INFO    |101657|src.inference.run_async_inference:367|   📊 Success rate: 100.0%
+2025-09-19 12:29:33|INFO    |101657|src.inference.run_async_inference:368|   🎯 Predicciones: {'VENDEDOR': 7, 'DIGITAL': 31, 'TELEFONO': 12}
+2025-09-19 12:29:33|INFO    |101657|src.inference.run_async_inference:369|   💪 Confianza promedio: 0.510
+2025-09-19 12:29:34|SUCCESS |101657|__main__.main:227|🎉 Inferencia asíncrona completada:
+2025-09-19 12:29:34|INFO    |101657|__main__.main:228|   📊 Muestras procesadas: 50
+2025-09-19 12:29:34|INFO    |101657|__main__.main:229|   ⚡ Tiempo promedio: 17.99ms
+2025-09-19 12:29:34|INFO    |101657|__main__.main:230|   🎯 Distribución predicciones: {'VENDEDOR': 7, 'DIGITAL': 31, 'TELEFONO': 12}
+2025-09-19 12:29:34|INFO    |101657|__main__.main:231|   🏆 Ground truth: {'DIGITAL': 27, 'VENDEDOR': 12, 'TELEFONO': 11}
+2025-09-19 12:29:34|INFO    |101657|__main__.main:232|   💪 Confianza promedio: 0.510
+2025-09-19 12:36:51|SUCCESS |107636|config.settings.get_settings:58|✅ Configuración cargada y validada con éxito.
+2025-09-19 12:36:51|INFO    |107636|__main__.main:107|🧭 MLflow tracking_uri = http://localhost:5555
+2025-09-19 12:36:51|INFO    |107636|__main__.main:108|🧪 MLflow experiment   = digital_orders_new (id=1)
+2025-09-19 12:36:52|INFO    |107636|src.elt.run:239|🚀 Iniciando pipeline ELT
+2025-09-19 12:36:52|INFO    |107636|src.elt.read_parquet_folder:49|📁 Archivos encontrados: ['part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet', 'part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet', 'part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet', 'part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet', 'part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet', 'part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet', 'part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet', 'part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet']
+2025-09-19 12:36:52|DEBUG   |107636|src.elt.read_parquet_folder:63|part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-19 12:36:52|DEBUG   |107636|src.elt.read_parquet_folder:63|part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-19 12:36:52|DEBUG   |107636|src.elt.read_parquet_folder:63|part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-19 12:36:52|DEBUG   |107636|src.elt.read_parquet_folder:63|part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-19 12:36:52|DEBUG   |107636|src.elt.read_parquet_folder:63|part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-19 12:36:52|DEBUG   |107636|src.elt.read_parquet_folder:63|part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-19 12:36:52|DEBUG   |107636|src.elt.read_parquet_folder:63|part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-19 12:36:52|DEBUG   |107636|src.elt.read_parquet_folder:63|part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet: 156,368 filas × 14 columnas
+2025-09-19 12:36:52|INFO    |107636|src.elt.read_parquet_folder:66|==================================================
+2025-09-19 12:36:52|INFO    |107636|src.elt.read_parquet_folder:67|CONCATENANDO ARCHIVOS
+2025-09-19 12:36:52|INFO    |107636|src.elt.read_parquet_folder:68|==================================================
+2025-09-19 12:36:52|INFO    |107636|src.elt.read_parquet_folder:73|Total esperado: 1,250,000 filas
+2025-09-19 12:36:52|INFO    |107636|src.elt.read_parquet_folder:74|Dataset final: 1,250,000 filas × 14 columnas
+2025-09-19 12:36:52|SUCCESS |107636|src.elt.read_parquet_folder:76|✅ Concatenación exitosa - todas las filas conservadas
+2025-09-19 12:36:52|INFO    |107636|src.elt.read_parquet_folder:83|Clientes únicos: 149,960
+2025-09-19 12:36:52|INFO    |107636|src.elt.read_parquet_folder:84|Total registros: 1,250,000
+2025-09-19 12:36:52|INFO    |107636|src.elt.read_parquet_folder:85|Promedio registros por cliente: 8.3
+2025-09-19 12:36:52|SUCCESS |107636|src.elt.validate_and_cast:128|✅ Validación y casting completados
+2025-09-19 12:36:52|SUCCESS |107636|src.elt.aggregate_to_customer:168|✅ Agregación completada: 149,960 clientes únicos
+2025-09-19 12:36:52|INFO    |107636|src.elt.write_processed:203|💾 Archivo procesado guardado en: data/processed/data_final.parquet
+2025-09-19 12:36:52|SUCCESS |107636|src.elt.run:265|🎉 Pipeline ELT completada
+2025-09-19 12:36:52|SUCCESS |107636|__main__.main:136|🎯 Pipeline ELT ejecutada: 149,960 registros
+2025-09-19 12:36:52|INFO    |107636|src.split.split_train_val_test:37|🚀 Iniciando split_train_val_test()
+2025-09-19 12:36:52|INFO    |107636|src.split.split_train_val_test:45|🔤 Variables discretas detectadas: ['estrellas_txt']
+2025-09-19 12:36:52|SUCCESS |107636|src.split.split_train_val_test:53|✅ Casteo de discretas completado
+2025-09-19 12:36:52|SUCCESS |107636|src.split.split_train_val_test:81|🎯 Split completado -> Train: (89976, 13), Val: (29992, 13), Test: (29992, 13)
+2025-09-19 12:36:52|SUCCESS |107636|__main__.main:150|📊 Split realizada: Test=(29992, 13)
+2025-09-19 12:36:52|INFO    |107636|src.selection.feature_selection:57|🏷️ Columnas originales: ['cliente_id', 'pais_cd', 'region_comercial_txt', 'agencia_id', 'ruta_id', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'facturacion_usd_val', 'materiales_distintos_val', 'cajas_fisicas', 'fecha_pedido_dt']
+2025-09-19 12:36:52|INFO    |107636|src.selection.feature_selection:65|⏰ Variables datetime detectadas: ['fecha_pedido_dt']
+2025-09-19 12:36:52|INFO    |107636|src.selection.feature_selection:68|🧾 IDs detectados para eliminar: ['cliente_id', 'agencia_id', 'ruta_id']
+2025-09-19 12:36:52|INFO    |107636|src.selection.feature_selection:90|⏰ Nuevas features datetime: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:52|INFO    |107636|src.selection.feature_selection:103|📦 Candidatas a casi-constantes: 11
+2025-09-19 12:36:52|INFO    |107636|src.selection.feature_selection:104|🔣 Categóricas para Cramér's V: 8 (incluye datetime)
+2025-09-19 12:36:52|INFO    |107636|src.selection.feature_selection:105|📈 Numéricas para Pearson: 3
+2025-09-19 12:36:52|INFO    |107636|src.selection.feature_selection:139|🛠️ Ajustando pipeline de selección…
+2025-09-19 12:36:52|INFO    |107636|src.selection.feature_selection:152|⏰ Features datetime creadas: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:52|INFO    |107636|src.selection.feature_selection:154|🧾 Eliminadas por ID: ['cliente_id', 'agencia_id', 'ruta_id']
+2025-09-19 12:36:52|INFO    |107636|src.selection.feature_selection:156|📦 Eliminadas por casi-constantes: ninguna
+2025-09-19 12:36:53|INFO    |107636|src.selection.feature_selection:158|🔣 Eliminadas por Cramér's V: ['region_comercial_txt']
+2025-09-19 12:36:53|INFO    |107636|src.selection.feature_selection:160|📈 Eliminadas por Pearson: ['facturacion_usd_val', 'materiales_distintos_val']
+2025-09-19 12:36:53|SUCCESS |107636|src.selection.feature_selection:165|✅ Pipeline de selección ajustado.
+2025-09-19 12:36:53|INFO    |107636|src.selection.feature_selection:178|🏷️ Casteando features datetime a category: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:53|SUCCESS |107636|src.selection.feature_selection:190|🎯 Feature selection completa. Train=(89976, 8), Val=(29992, 8), Test=(29992, 8)
+2025-09-19 12:36:53|INFO    |107636|src.selection.feature_selection:194|🏷️ Columnas finales: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:53|INFO    |107636|src.selection.feature_selection:195|⏰ Features datetime finales: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:53|SUCCESS |107636|__main__.main:164|✨ Features seleccionadas: (29992, 8)
+2025-09-19 12:36:53|INFO    |107636|src.training.train_models:90|🚀 Iniciando entrenamiento con XGBoost...
+2025-09-19 12:36:53|INFO    |107636|src.utils.training_utils.prepare_categorical_features:55|🏷️ Casteadas a 'category': ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:53|INFO    |107636|src.utils.training_utils.encode_target_like_train:92|🎯 Clases (orden): ['DIGITAL', 'TELEFONO', 'VENDEDOR']
+2025-09-19 12:36:53|INFO    |107636|src.training.train_models:126|🟢 Se intentará entrenar con GPU (gpu_hist).
+2025-09-19 12:36:53|INFO    |107636|src.training.train_models:137|⚖️  Usando sample_weight balanceado por clase.
+2025-09-19 12:36:53|INFO    |107636|src.training.train_models:145|🔗 Run de entrenamiento anidado al run activo de MLflow.
+2025-09-19 12:36:53|INFO    |107636|src.training.train_models:146|📊 Entrenando XGBoost con early stopping…
+2025-09-19 12:36:56|INFO    |107636|src.training.train_models:306|📈 Métricas de Rendimiento:
+2025-09-19 12:36:56|INFO    |107636|src.training.train_models:307|   🎯 LogLoss → Train 1.0345 | Val 1.0486 | Test 1.0455
+2025-09-19 12:36:56|INFO    |107636|src.training.train_models:311|   📊 Acc    → Train 0.4557 | Val 0.4347 | Test 0.4415
+2025-09-19 12:36:56|INFO    |107636|src.training.train_models:316|🏁 Best iteration: 86  |  Best val mlogloss: 1.048617
+2025-09-19 12:36:56|SUCCESS |107636|__main__._train_if_needed:187|✅ Modelo entrenado (XGBoost) | val_logloss=1.04862
+2025-09-19 12:36:56|INFO    |107636|__main__.main:194|🧩 Modelo disponible en registry: digital_orders_xgboost
+2025-09-19 12:36:56|INFO    |107636|__main__.main:203|🚀 Iniciando inferencia asíncrona...
+2025-09-19 12:36:56|INFO    |107636|src.inference.prepare_test_sample:306|📋 Muestra de test preparada: 50 registros
+2025-09-19 12:36:56|INFO    |107636|src.inference.prepare_test_sample:307|🎯 Distribución real: {'DIGITAL': 29, 'VENDEDOR': 12, 'TELEFONO': 9}
+2025-09-19 12:36:56|INFO    |107636|src.inference.prepare_test_sample:308|🔢 Orden de columnas: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:56|INFO    |107636|src.inference.initialize:61|🔄 Inicializando motor de inferencia...
+2025-09-19 12:36:57|SUCCESS |107636|src.inference.initialize:80|✅ Modelo cargado: models:/digital_orders_xgboost/1
+2025-09-19 12:36:57|INFO    |107636|src.inference.initialize:81|🏷️  Clases: ['DIGITAL', 'TELEFONO', 'VENDEDOR']
+2025-09-19 12:36:57|INFO    |107636|src.inference.initialize:82|📊 Features categóricas: 7
+2025-09-19 12:36:57|INFO    |107636|src.inference.initialize:83|🔢 Columnas de entrada: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:57|INFO    |107636|src.inference.predict_batch:207|🚀 Iniciando inferencia batch: 50 registros
+2025-09-19 12:36:57|INFO    |107636|src.inference.predict_batch:208|🔄 Concurrencia máxima: 10
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:57|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:58|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:58|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:58|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:58|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:58|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:58|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:58|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:58|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:58|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:58|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:58|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:132|🔧 DataFrame preparado: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 12:36:58|DEBUG   |107636|src.inference._prepare_dataframe_with_transforms:133|   Categorical count: %d
+2025-09-19 12:36:58|SUCCESS |107636|src.inference.predict_batch:238|✅ Inferencia batch completada:
+2025-09-19 12:36:58|INFO    |107636|src.inference.predict_batch:239|   📊 Exitosas: 50/50 (100.0%)
+2025-09-19 12:36:58|INFO    |107636|src.inference.predict_batch:240|   ⚡ Tiempo total: 148.10ms
+2025-09-19 12:36:58|INFO    |107636|src.inference.predict_batch:241|   📈 Promedio por predicción: 18.54ms
+2025-09-19 12:36:58|SUCCESS |107636|src.inference.run_async_inference:374|🎉 Inferencia asíncrona completada:
+2025-09-19 12:36:58|INFO    |107636|src.inference.run_async_inference:375|   📊 Success rate: 100.0%
+2025-09-19 12:36:58|INFO    |107636|src.inference.run_async_inference:376|   🎯 Predicciones: {'TELEFONO': 15, 'DIGITAL': 32, 'VENDEDOR': 3}
+2025-09-19 12:36:58|INFO    |107636|src.inference.run_async_inference:377|   💪 Confianza promedio: 0.508
+2025-09-19 12:36:58|SUCCESS |107636|__main__.main:269|🎉 Inferencia asíncrona completada:
+2025-09-19 12:36:58|INFO    |107636|__main__.main:270|   📊 Muestras procesadas: 50
+2025-09-19 12:36:58|INFO    |107636|__main__.main:271|   ⚡ Tiempo promedio: 18.54ms
+2025-09-19 12:36:58|INFO    |107636|__main__.main:272|   🎯 Distribución predicciones: {'TELEFONO': 15, 'DIGITAL': 32, 'VENDEDOR': 3}
+2025-09-19 12:36:58|INFO    |107636|__main__.main:273|   🏆 Ground truth: {'TELEFONO': 9, 'DIGITAL': 29, 'VENDEDOR': 12}
+2025-09-19 12:36:58|INFO    |107636|__main__.main:274|   💪 Confianza promedio: 0.508
