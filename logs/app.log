@@ -1371,3 +1371,990 @@
 2025-09-17 23:25:40|SUCCESS |189071|src.selection.feature_selection:128|🎯 Feature selection completa. Train=(89976, 7), Val=(29992, 7), Test=(29992, 7)
 2025-09-17 23:25:40|INFO    |189071|src.selection.feature_selection:132|🏷️ Columnas finales: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt']
 2025-09-17 23:25:40|SUCCESS |189071|__main__.main:63|✨ Feature selection completa. Train=(89976, 7), Val=(29992, 7), Test=(29992, 7)
+2025-09-18 21:33:39|SUCCESS |12194|config.settings.get_settings:41|✅ Configuración cargada y validada con éxito.
+2025-09-18 21:33:39|INFO    |12194|src.utils.elt.run:152|🚀 Iniciando pipeline ELT
+2025-09-18 21:33:39|INFO    |12194|src.utils.elt.read_parquet_folder:34|📁 Archivos encontrados: ['part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet', 'part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet', 'part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet', 'part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet', 'part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet', 'part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet', 'part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet', 'part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet']
+2025-09-18 21:33:39|DEBUG   |12194|src.utils.elt.read_parquet_folder:44|part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 21:33:39|DEBUG   |12194|src.utils.elt.read_parquet_folder:44|part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 21:33:39|DEBUG   |12194|src.utils.elt.read_parquet_folder:44|part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 21:33:39|DEBUG   |12194|src.utils.elt.read_parquet_folder:44|part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 21:33:39|DEBUG   |12194|src.utils.elt.read_parquet_folder:44|part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 21:33:39|DEBUG   |12194|src.utils.elt.read_parquet_folder:44|part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 21:33:39|DEBUG   |12194|src.utils.elt.read_parquet_folder:44|part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 21:33:39|DEBUG   |12194|src.utils.elt.read_parquet_folder:44|part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet: 156,368 filas × 14 columnas
+2025-09-18 21:33:39|INFO    |12194|src.utils.elt.read_parquet_folder:47|==================================================
+2025-09-18 21:33:39|INFO    |12194|src.utils.elt.read_parquet_folder:48|CONCATENANDO ARCHIVOS
+2025-09-18 21:33:39|INFO    |12194|src.utils.elt.read_parquet_folder:49|==================================================
+2025-09-18 21:33:39|INFO    |12194|src.utils.elt.read_parquet_folder:54|Total esperado: 1,250,000 filas
+2025-09-18 21:33:39|INFO    |12194|src.utils.elt.read_parquet_folder:55|Dataset final: 1,250,000 filas × 14 columnas
+2025-09-18 21:33:39|SUCCESS |12194|src.utils.elt.read_parquet_folder:57|✅ Concatenación exitosa - todas las filas conservadas
+2025-09-18 21:33:39|INFO    |12194|src.utils.elt.read_parquet_folder:64|Clientes únicos: 149,960
+2025-09-18 21:33:39|INFO    |12194|src.utils.elt.read_parquet_folder:65|Total registros: 1,250,000
+2025-09-18 21:33:39|INFO    |12194|src.utils.elt.read_parquet_folder:66|Promedio registros por cliente: 8.3
+2025-09-18 21:33:39|SUCCESS |12194|src.utils.elt.validate_and_cast:95|✅ Validación y casting completados
+2025-09-18 21:33:40|SUCCESS |12194|src.utils.elt.aggregate_to_customer:128|✅ Agregación completada: 149,960 clientes únicos
+2025-09-18 21:33:40|INFO    |12194|src.utils.elt.write_processed:140|💾 Archivo procesado guardado en: data/processed/data_final.parquet
+2025-09-18 21:33:40|SUCCESS |12194|src.utils.elt.run:157|🎉 Pipeline ELT completada
+2025-09-18 21:33:40|SUCCESS |12194|__main__.main:27|🎯 Pipeline ELT ejecutada con éxito. Registros procesados: 149,960
+2025-09-18 21:33:40|INFO    |12194|src.split.split_train_val_test:39|🚀 Iniciando split_train_val_test()
+2025-09-18 21:33:40|INFO    |12194|src.split.split_train_val_test:43|🔤 Variables discretas detectadas: ['estrellas_txt']
+2025-09-18 21:33:40|SUCCESS |12194|src.split.split_train_val_test:52|✅ Casteo de discretas completado
+2025-09-18 21:33:40|SUCCESS |12194|src.split.split_train_val_test:74|🎯 Split completado -> Train: (89976, 13), Val: (29992, 13), Test: (29992, 13)
+2025-09-18 21:33:40|SUCCESS |12194|__main__.main:44|📊 División realizada: Train=(89976, 13), Val=(29992, 13), Test=(29992, 13)
+2025-09-18 21:33:40|INFO    |12194|src.selection.feature_selection:35|🏷️ Columnas originales: ['cliente_id', 'pais_cd', 'region_comercial_txt', 'agencia_id', 'ruta_id', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'facturacion_usd_val', 'materiales_distintos_val', 'cajas_fisicas', 'fecha_pedido_dt']
+2025-09-18 21:33:40|INFO    |12194|src.selection.feature_selection:40|⏰ Variables datetime detectadas: ['fecha_pedido_dt']
+2025-09-18 21:33:40|INFO    |12194|src.selection.feature_selection:44|🧾 IDs detectados para eliminar: ['cliente_id', 'agencia_id', 'ruta_id']
+2025-09-18 21:33:40|INFO    |12194|src.selection.feature_selection:59|⏰ Extrayendo día de semana y trimestre de: ['fecha_pedido_dt']
+2025-09-18 21:33:40|INFO    |12194|src.selection.feature_selection:69|⏰ Nuevas features datetime: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 21:33:40|INFO    |12194|src.selection.feature_selection:85|📦 Candidatas a casi-constantes: 11
+2025-09-18 21:33:40|INFO    |12194|src.selection.feature_selection:86|🔣 Categóricas para Cramér's V: 8 (incluye datetime)
+2025-09-18 21:33:40|INFO    |12194|src.selection.feature_selection:87|📈 Numéricas para Pearson: 3
+2025-09-18 21:33:40|INFO    |12194|src.selection.feature_selection:126|🛠️ Ajustando pipeline de selección…
+2025-09-18 21:33:40|INFO    |12194|src.selection.feature_selection:142|⏰ Features datetime creadas: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 21:33:40|INFO    |12194|src.selection.feature_selection:145|🧾 Eliminadas por ID: ['cliente_id', 'agencia_id', 'ruta_id']
+2025-09-18 21:33:40|INFO    |12194|src.selection.feature_selection:148|📦 Eliminadas por casi-constantes: ninguna
+2025-09-18 21:33:40|INFO    |12194|src.selection.feature_selection:151|🔣 Eliminadas por Cramér's V: ['region_comercial_txt']
+2025-09-18 21:33:40|INFO    |12194|src.selection.feature_selection:154|📈 Eliminadas por Pearson: ['facturacion_usd_val', 'materiales_distintos_val']
+2025-09-18 21:33:40|SUCCESS |12194|src.selection.feature_selection:156|✅ Pipeline de selección ajustado.
+2025-09-18 21:33:40|SUCCESS |12194|src.selection.feature_selection:163|🎯 Feature selection completa. Train=(89976, 8), Val=(29992, 8), Test=(29992, 8)
+2025-09-18 21:33:40|INFO    |12194|src.selection.feature_selection:167|🏷️ Columnas finales: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 21:33:40|INFO    |12194|src.selection.feature_selection:168|⏰ Features datetime finales: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 21:33:40|SUCCESS |12194|__main__.main:60|✨ Feature selection completa. Train=(89976, 8), Val=(29992, 8), Test=(29992, 8)
+2025-09-18 21:40:20|SUCCESS |16633|config.settings.get_settings:41|✅ Configuración cargada y validada con éxito.
+2025-09-18 21:40:21|INFO    |16633|src.utils.elt.run:152|🚀 Iniciando pipeline ELT
+2025-09-18 21:40:21|INFO    |16633|src.utils.elt.read_parquet_folder:34|📁 Archivos encontrados: ['part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet', 'part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet', 'part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet', 'part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet', 'part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet', 'part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet', 'part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet', 'part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet']
+2025-09-18 21:40:21|DEBUG   |16633|src.utils.elt.read_parquet_folder:44|part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 21:40:21|DEBUG   |16633|src.utils.elt.read_parquet_folder:44|part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 21:40:21|DEBUG   |16633|src.utils.elt.read_parquet_folder:44|part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 21:40:21|DEBUG   |16633|src.utils.elt.read_parquet_folder:44|part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 21:40:21|DEBUG   |16633|src.utils.elt.read_parquet_folder:44|part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 21:40:21|DEBUG   |16633|src.utils.elt.read_parquet_folder:44|part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 21:40:21|DEBUG   |16633|src.utils.elt.read_parquet_folder:44|part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 21:40:21|DEBUG   |16633|src.utils.elt.read_parquet_folder:44|part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet: 156,368 filas × 14 columnas
+2025-09-18 21:40:21|INFO    |16633|src.utils.elt.read_parquet_folder:47|==================================================
+2025-09-18 21:40:21|INFO    |16633|src.utils.elt.read_parquet_folder:48|CONCATENANDO ARCHIVOS
+2025-09-18 21:40:21|INFO    |16633|src.utils.elt.read_parquet_folder:49|==================================================
+2025-09-18 21:40:21|INFO    |16633|src.utils.elt.read_parquet_folder:54|Total esperado: 1,250,000 filas
+2025-09-18 21:40:21|INFO    |16633|src.utils.elt.read_parquet_folder:55|Dataset final: 1,250,000 filas × 14 columnas
+2025-09-18 21:40:21|SUCCESS |16633|src.utils.elt.read_parquet_folder:57|✅ Concatenación exitosa - todas las filas conservadas
+2025-09-18 21:40:21|INFO    |16633|src.utils.elt.read_parquet_folder:64|Clientes únicos: 149,960
+2025-09-18 21:40:21|INFO    |16633|src.utils.elt.read_parquet_folder:65|Total registros: 1,250,000
+2025-09-18 21:40:21|INFO    |16633|src.utils.elt.read_parquet_folder:66|Promedio registros por cliente: 8.3
+2025-09-18 21:40:21|SUCCESS |16633|src.utils.elt.validate_and_cast:95|✅ Validación y casting completados
+2025-09-18 21:40:21|SUCCESS |16633|src.utils.elt.aggregate_to_customer:128|✅ Agregación completada: 149,960 clientes únicos
+2025-09-18 21:40:21|INFO    |16633|src.utils.elt.write_processed:140|💾 Archivo procesado guardado en: data/processed/data_final.parquet
+2025-09-18 21:40:21|SUCCESS |16633|src.utils.elt.run:157|🎉 Pipeline ELT completada
+2025-09-18 21:40:21|SUCCESS |16633|__main__.main:27|🎯 Pipeline ELT ejecutada con éxito. Registros procesados: 149,960
+2025-09-18 21:40:21|INFO    |16633|src.split.split_train_val_test:39|🚀 Iniciando split_train_val_test()
+2025-09-18 21:40:21|INFO    |16633|src.split.split_train_val_test:43|🔤 Variables discretas detectadas: ['estrellas_txt']
+2025-09-18 21:40:21|SUCCESS |16633|src.split.split_train_val_test:52|✅ Casteo de discretas completado
+2025-09-18 21:40:21|SUCCESS |16633|src.split.split_train_val_test:74|🎯 Split completado -> Train: (89976, 13), Val: (29992, 13), Test: (29992, 13)
+2025-09-18 21:40:21|SUCCESS |16633|__main__.main:44|📊 División realizada: Train=(89976, 13), Val=(29992, 13), Test=(29992, 13)
+2025-09-18 21:40:21|INFO    |16633|src.selection.feature_selection:35|🏷️ Columnas originales: ['cliente_id', 'pais_cd', 'region_comercial_txt', 'agencia_id', 'ruta_id', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'facturacion_usd_val', 'materiales_distintos_val', 'cajas_fisicas', 'fecha_pedido_dt']
+2025-09-18 21:40:21|INFO    |16633|src.selection.feature_selection:40|⏰ Variables datetime detectadas: ['fecha_pedido_dt']
+2025-09-18 21:40:21|INFO    |16633|src.selection.feature_selection:44|🧾 IDs detectados para eliminar: ['cliente_id', 'agencia_id', 'ruta_id']
+2025-09-18 21:40:21|INFO    |16633|src.selection.feature_selection:59|⏰ Extrayendo día de semana y trimestre de: ['fecha_pedido_dt']
+2025-09-18 21:40:21|INFO    |16633|src.selection.feature_selection:69|⏰ Nuevas features datetime: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 21:40:21|INFO    |16633|src.selection.feature_selection:85|📦 Candidatas a casi-constantes: 11
+2025-09-18 21:40:21|INFO    |16633|src.selection.feature_selection:86|🔣 Categóricas para Cramér's V: 8 (incluye datetime)
+2025-09-18 21:40:21|INFO    |16633|src.selection.feature_selection:87|📈 Numéricas para Pearson: 3
+2025-09-18 21:40:21|INFO    |16633|src.selection.feature_selection:126|🛠️ Ajustando pipeline de selección…
+2025-09-18 21:40:21|INFO    |16633|src.selection.feature_selection:142|⏰ Features datetime creadas: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 21:40:21|INFO    |16633|src.selection.feature_selection:145|🧾 Eliminadas por ID: ['cliente_id', 'agencia_id', 'ruta_id']
+2025-09-18 21:40:21|INFO    |16633|src.selection.feature_selection:148|📦 Eliminadas por casi-constantes: ninguna
+2025-09-18 21:40:22|INFO    |16633|src.selection.feature_selection:151|🔣 Eliminadas por Cramér's V: ['region_comercial_txt']
+2025-09-18 21:40:22|INFO    |16633|src.selection.feature_selection:154|📈 Eliminadas por Pearson: ['facturacion_usd_val', 'materiales_distintos_val']
+2025-09-18 21:40:22|SUCCESS |16633|src.selection.feature_selection:156|✅ Pipeline de selección ajustado.
+2025-09-18 21:40:22|INFO    |16633|src.selection.feature_selection:167|🏷️ Casteando features datetime a category: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 21:40:22|INFO    |16633|src.selection.feature_selection:180|   fecha_pedido_dt_day_of_week: category
+2025-09-18 21:40:22|INFO    |16633|src.selection.feature_selection:180|   fecha_pedido_dt_quarter: category
+2025-09-18 21:40:22|SUCCESS |16633|src.selection.feature_selection:182|🎯 Feature selection completa. Train=(89976, 8), Val=(29992, 8), Test=(29992, 8)
+2025-09-18 21:40:22|INFO    |16633|src.selection.feature_selection:186|🏷️ Columnas finales: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 21:40:22|INFO    |16633|src.selection.feature_selection:187|⏰ Features datetime finales: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 21:40:22|SUCCESS |16633|__main__.main:60|✨ Feature selection completa. Train=(89976, 8), Val=(29992, 8), Test=(29992, 8)
+2025-09-18 22:08:52|SUCCESS |36314|config.settings.get_settings:41|✅ Configuración cargada y validada con éxito.
+2025-09-18 22:08:53|INFO    |36314|src.utils.elt.run:152|🚀 Iniciando pipeline ELT
+2025-09-18 22:08:53|INFO    |36314|src.utils.elt.read_parquet_folder:34|📁 Archivos encontrados: ['part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet', 'part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet', 'part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet', 'part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet', 'part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet', 'part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet', 'part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet', 'part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet']
+2025-09-18 22:08:53|DEBUG   |36314|src.utils.elt.read_parquet_folder:44|part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 22:08:53|DEBUG   |36314|src.utils.elt.read_parquet_folder:44|part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:08:53|DEBUG   |36314|src.utils.elt.read_parquet_folder:44|part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 22:08:53|DEBUG   |36314|src.utils.elt.read_parquet_folder:44|part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:08:53|DEBUG   |36314|src.utils.elt.read_parquet_folder:44|part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:08:53|DEBUG   |36314|src.utils.elt.read_parquet_folder:44|part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 22:08:53|DEBUG   |36314|src.utils.elt.read_parquet_folder:44|part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:08:53|DEBUG   |36314|src.utils.elt.read_parquet_folder:44|part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet: 156,368 filas × 14 columnas
+2025-09-18 22:08:53|INFO    |36314|src.utils.elt.read_parquet_folder:47|==================================================
+2025-09-18 22:08:53|INFO    |36314|src.utils.elt.read_parquet_folder:48|CONCATENANDO ARCHIVOS
+2025-09-18 22:08:53|INFO    |36314|src.utils.elt.read_parquet_folder:49|==================================================
+2025-09-18 22:08:53|INFO    |36314|src.utils.elt.read_parquet_folder:54|Total esperado: 1,250,000 filas
+2025-09-18 22:08:53|INFO    |36314|src.utils.elt.read_parquet_folder:55|Dataset final: 1,250,000 filas × 14 columnas
+2025-09-18 22:08:53|SUCCESS |36314|src.utils.elt.read_parquet_folder:57|✅ Concatenación exitosa - todas las filas conservadas
+2025-09-18 22:08:53|INFO    |36314|src.utils.elt.read_parquet_folder:64|Clientes únicos: 149,960
+2025-09-18 22:08:53|INFO    |36314|src.utils.elt.read_parquet_folder:65|Total registros: 1,250,000
+2025-09-18 22:08:53|INFO    |36314|src.utils.elt.read_parquet_folder:66|Promedio registros por cliente: 8.3
+2025-09-18 22:08:53|SUCCESS |36314|src.utils.elt.validate_and_cast:95|✅ Validación y casting completados
+2025-09-18 22:08:53|SUCCESS |36314|src.utils.elt.aggregate_to_customer:128|✅ Agregación completada: 149,960 clientes únicos
+2025-09-18 22:08:53|INFO    |36314|src.utils.elt.write_processed:140|💾 Archivo procesado guardado en: data/processed/data_final.parquet
+2025-09-18 22:08:53|SUCCESS |36314|src.utils.elt.run:157|🎉 Pipeline ELT completada
+2025-09-18 22:08:53|SUCCESS |36314|__main__.main:28|🎯 Pipeline ELT ejecutada con éxito. Registros procesados: 149,960
+2025-09-18 22:08:53|INFO    |36314|src.split.split_train_val_test:39|🚀 Iniciando split_train_val_test()
+2025-09-18 22:08:53|INFO    |36314|src.split.split_train_val_test:43|🔤 Variables discretas detectadas: ['estrellas_txt']
+2025-09-18 22:08:53|SUCCESS |36314|src.split.split_train_val_test:52|✅ Casteo de discretas completado
+2025-09-18 22:08:53|SUCCESS |36314|src.split.split_train_val_test:74|🎯 Split completado -> Train: (89976, 13), Val: (29992, 13), Test: (29992, 13)
+2025-09-18 22:08:53|SUCCESS |36314|__main__.main:45|📊 División realizada: Train=(89976, 13), Val=(29992, 13), Test=(29992, 13)
+2025-09-18 22:08:53|INFO    |36314|src.selection.feature_selection:35|🏷️ Columnas originales: ['cliente_id', 'pais_cd', 'region_comercial_txt', 'agencia_id', 'ruta_id', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'facturacion_usd_val', 'materiales_distintos_val', 'cajas_fisicas', 'fecha_pedido_dt']
+2025-09-18 22:08:53|INFO    |36314|src.selection.feature_selection:40|⏰ Variables datetime detectadas: ['fecha_pedido_dt']
+2025-09-18 22:08:53|INFO    |36314|src.selection.feature_selection:44|🧾 IDs detectados para eliminar: ['cliente_id', 'agencia_id', 'ruta_id']
+2025-09-18 22:08:53|INFO    |36314|src.selection.feature_selection:59|⏰ Extrayendo día de semana y trimestre de: ['fecha_pedido_dt']
+2025-09-18 22:08:53|INFO    |36314|src.selection.feature_selection:69|⏰ Nuevas features datetime: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:08:53|INFO    |36314|src.selection.feature_selection:85|📦 Candidatas a casi-constantes: 11
+2025-09-18 22:08:53|INFO    |36314|src.selection.feature_selection:86|🔣 Categóricas para Cramér's V: 8 (incluye datetime)
+2025-09-18 22:08:53|INFO    |36314|src.selection.feature_selection:87|📈 Numéricas para Pearson: 3
+2025-09-18 22:08:53|INFO    |36314|src.selection.feature_selection:126|🛠️ Ajustando pipeline de selección…
+2025-09-18 22:08:53|INFO    |36314|src.selection.feature_selection:142|⏰ Features datetime creadas: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:08:53|INFO    |36314|src.selection.feature_selection:145|🧾 Eliminadas por ID: ['cliente_id', 'agencia_id', 'ruta_id']
+2025-09-18 22:08:53|INFO    |36314|src.selection.feature_selection:148|📦 Eliminadas por casi-constantes: ninguna
+2025-09-18 22:08:54|INFO    |36314|src.selection.feature_selection:151|🔣 Eliminadas por Cramér's V: ['region_comercial_txt']
+2025-09-18 22:08:54|INFO    |36314|src.selection.feature_selection:154|📈 Eliminadas por Pearson: ['facturacion_usd_val', 'materiales_distintos_val']
+2025-09-18 22:08:54|SUCCESS |36314|src.selection.feature_selection:156|✅ Pipeline de selección ajustado.
+2025-09-18 22:08:54|INFO    |36314|src.selection.feature_selection:167|🏷️ Casteando features datetime a category: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:08:54|INFO    |36314|src.selection.feature_selection:180|   fecha_pedido_dt_day_of_week: category
+2025-09-18 22:08:54|INFO    |36314|src.selection.feature_selection:180|   fecha_pedido_dt_quarter: category
+2025-09-18 22:08:54|SUCCESS |36314|src.selection.feature_selection:182|🎯 Feature selection completa. Train=(89976, 8), Val=(29992, 8), Test=(29992, 8)
+2025-09-18 22:08:54|INFO    |36314|src.selection.feature_selection:186|🏷️ Columnas finales: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:08:54|INFO    |36314|src.selection.feature_selection:187|⏰ Features datetime finales: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:08:54|SUCCESS |36314|__main__.main:61|✨ Feature selection completa. Train=(89976, 8), Val=(29992, 8), Test=(29992, 8)
+2025-09-18 22:08:54|INFO    |36314|src.training.train_models:48|🚀 Iniciando entrenamiento con XGBoost...
+2025-09-18 22:08:54|INFO    |36314|src.training.train_models:77|🟢 Se intentará entrenar con GPU (gpu_hist).
+2025-09-18 22:08:54|INFO    |36314|src.training.train_models:88|⚖️  Usando sample_weight balanceado por clase.
+2025-09-18 22:08:54|INFO    |36314|src.training.train_models:93|📊 Entrenando XGBoost con early stopping...
+2025-09-18 22:08:54|WARNING |36314|src.training.train_models:106|⚠️ Entrenamiento con GPU falló (XGBClassifier.fit() got an unexpected keyword argument 'early_stopping_rounds'). Reintentando en CPU…
+2025-09-18 22:08:54|ERROR   |36314|__main__.main:85|❌ Error en entrenamiento: XGBClassifier.fit() got an unexpected keyword argument 'early_stopping_rounds'
+2025-09-18 22:09:11|SUCCESS |36850|config.settings.get_settings:41|✅ Configuración cargada y validada con éxito.
+2025-09-18 22:09:11|INFO    |36850|src.utils.elt.run:152|🚀 Iniciando pipeline ELT
+2025-09-18 22:09:11|INFO    |36850|src.utils.elt.read_parquet_folder:34|📁 Archivos encontrados: ['part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet', 'part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet', 'part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet', 'part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet', 'part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet', 'part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet', 'part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet', 'part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet']
+2025-09-18 22:09:11|DEBUG   |36850|src.utils.elt.read_parquet_folder:44|part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 22:09:11|DEBUG   |36850|src.utils.elt.read_parquet_folder:44|part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:09:11|DEBUG   |36850|src.utils.elt.read_parquet_folder:44|part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 22:09:11|DEBUG   |36850|src.utils.elt.read_parquet_folder:44|part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:09:11|DEBUG   |36850|src.utils.elt.read_parquet_folder:44|part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:09:11|DEBUG   |36850|src.utils.elt.read_parquet_folder:44|part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 22:09:12|DEBUG   |36850|src.utils.elt.read_parquet_folder:44|part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:09:12|DEBUG   |36850|src.utils.elt.read_parquet_folder:44|part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet: 156,368 filas × 14 columnas
+2025-09-18 22:09:12|INFO    |36850|src.utils.elt.read_parquet_folder:47|==================================================
+2025-09-18 22:09:12|INFO    |36850|src.utils.elt.read_parquet_folder:48|CONCATENANDO ARCHIVOS
+2025-09-18 22:09:12|INFO    |36850|src.utils.elt.read_parquet_folder:49|==================================================
+2025-09-18 22:09:12|INFO    |36850|src.utils.elt.read_parquet_folder:54|Total esperado: 1,250,000 filas
+2025-09-18 22:09:12|INFO    |36850|src.utils.elt.read_parquet_folder:55|Dataset final: 1,250,000 filas × 14 columnas
+2025-09-18 22:09:12|SUCCESS |36850|src.utils.elt.read_parquet_folder:57|✅ Concatenación exitosa - todas las filas conservadas
+2025-09-18 22:09:12|INFO    |36850|src.utils.elt.read_parquet_folder:64|Clientes únicos: 149,960
+2025-09-18 22:09:12|INFO    |36850|src.utils.elt.read_parquet_folder:65|Total registros: 1,250,000
+2025-09-18 22:09:12|INFO    |36850|src.utils.elt.read_parquet_folder:66|Promedio registros por cliente: 8.3
+2025-09-18 22:09:12|SUCCESS |36850|src.utils.elt.validate_and_cast:95|✅ Validación y casting completados
+2025-09-18 22:09:12|SUCCESS |36850|src.utils.elt.aggregate_to_customer:128|✅ Agregación completada: 149,960 clientes únicos
+2025-09-18 22:09:12|INFO    |36850|src.utils.elt.write_processed:140|💾 Archivo procesado guardado en: data/processed/data_final.parquet
+2025-09-18 22:09:12|SUCCESS |36850|src.utils.elt.run:157|🎉 Pipeline ELT completada
+2025-09-18 22:09:12|SUCCESS |36850|__main__.main:28|🎯 Pipeline ELT ejecutada con éxito. Registros procesados: 149,960
+2025-09-18 22:09:12|INFO    |36850|src.split.split_train_val_test:39|🚀 Iniciando split_train_val_test()
+2025-09-18 22:09:12|INFO    |36850|src.split.split_train_val_test:43|🔤 Variables discretas detectadas: ['estrellas_txt']
+2025-09-18 22:09:12|SUCCESS |36850|src.split.split_train_val_test:52|✅ Casteo de discretas completado
+2025-09-18 22:09:12|SUCCESS |36850|src.split.split_train_val_test:74|🎯 Split completado -> Train: (89976, 13), Val: (29992, 13), Test: (29992, 13)
+2025-09-18 22:09:12|SUCCESS |36850|__main__.main:45|📊 División realizada: Train=(89976, 13), Val=(29992, 13), Test=(29992, 13)
+2025-09-18 22:09:12|INFO    |36850|src.selection.feature_selection:35|🏷️ Columnas originales: ['cliente_id', 'pais_cd', 'region_comercial_txt', 'agencia_id', 'ruta_id', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'facturacion_usd_val', 'materiales_distintos_val', 'cajas_fisicas', 'fecha_pedido_dt']
+2025-09-18 22:09:12|INFO    |36850|src.selection.feature_selection:40|⏰ Variables datetime detectadas: ['fecha_pedido_dt']
+2025-09-18 22:09:12|INFO    |36850|src.selection.feature_selection:44|🧾 IDs detectados para eliminar: ['cliente_id', 'agencia_id', 'ruta_id']
+2025-09-18 22:09:12|INFO    |36850|src.selection.feature_selection:59|⏰ Extrayendo día de semana y trimestre de: ['fecha_pedido_dt']
+2025-09-18 22:09:12|INFO    |36850|src.selection.feature_selection:69|⏰ Nuevas features datetime: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:09:12|INFO    |36850|src.selection.feature_selection:85|📦 Candidatas a casi-constantes: 11
+2025-09-18 22:09:12|INFO    |36850|src.selection.feature_selection:86|🔣 Categóricas para Cramér's V: 8 (incluye datetime)
+2025-09-18 22:09:12|INFO    |36850|src.selection.feature_selection:87|📈 Numéricas para Pearson: 3
+2025-09-18 22:09:12|INFO    |36850|src.selection.feature_selection:126|🛠️ Ajustando pipeline de selección…
+2025-09-18 22:09:12|INFO    |36850|src.selection.feature_selection:142|⏰ Features datetime creadas: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:09:12|INFO    |36850|src.selection.feature_selection:145|🧾 Eliminadas por ID: ['cliente_id', 'agencia_id', 'ruta_id']
+2025-09-18 22:09:12|INFO    |36850|src.selection.feature_selection:148|📦 Eliminadas por casi-constantes: ninguna
+2025-09-18 22:09:12|INFO    |36850|src.selection.feature_selection:151|🔣 Eliminadas por Cramér's V: ['region_comercial_txt']
+2025-09-18 22:09:12|INFO    |36850|src.selection.feature_selection:154|📈 Eliminadas por Pearson: ['facturacion_usd_val', 'materiales_distintos_val']
+2025-09-18 22:09:12|SUCCESS |36850|src.selection.feature_selection:156|✅ Pipeline de selección ajustado.
+2025-09-18 22:09:12|INFO    |36850|src.selection.feature_selection:167|🏷️ Casteando features datetime a category: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:09:12|INFO    |36850|src.selection.feature_selection:180|   fecha_pedido_dt_day_of_week: category
+2025-09-18 22:09:12|INFO    |36850|src.selection.feature_selection:180|   fecha_pedido_dt_quarter: category
+2025-09-18 22:09:12|SUCCESS |36850|src.selection.feature_selection:182|🎯 Feature selection completa. Train=(89976, 8), Val=(29992, 8), Test=(29992, 8)
+2025-09-18 22:09:12|INFO    |36850|src.selection.feature_selection:186|🏷️ Columnas finales: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:09:12|INFO    |36850|src.selection.feature_selection:187|⏰ Features datetime finales: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:09:12|SUCCESS |36850|__main__.main:61|✨ Feature selection completa. Train=(89976, 8), Val=(29992, 8), Test=(29992, 8)
+2025-09-18 22:09:12|INFO    |36850|src.training.train_models:48|🚀 Iniciando entrenamiento con XGBoost...
+2025-09-18 22:09:12|INFO    |36850|src.training.train_models:77|🟢 Se intentará entrenar con GPU (gpu_hist).
+2025-09-18 22:09:12|INFO    |36850|src.training.train_models:88|⚖️  Usando sample_weight balanceado por clase.
+2025-09-18 22:09:12|INFO    |36850|src.training.train_models:93|📊 Entrenando XGBoost con early stopping...
+2025-09-18 22:09:12|WARNING |36850|src.training.train_models:105|⚠️ Entrenamiento con GPU falló (Invalid classes inferred from unique values of `y`.  Expected: [0 1 2], got ['DIGITAL' 'TELEFONO' 'VENDEDOR']). Reintentando en CPU…
+2025-09-18 22:09:12|ERROR   |36850|__main__.main:85|❌ Error en entrenamiento: Invalid classes inferred from unique values of `y`.  Expected: [0 1 2], got ['DIGITAL' 'TELEFONO' 'VENDEDOR']
+2025-09-18 22:23:05|SUCCESS |45785|config.settings.get_settings:41|✅ Configuración cargada y validada con éxito.
+2025-09-18 22:23:05|INFO    |45785|src.utils.elt.run:152|🚀 Iniciando pipeline ELT
+2025-09-18 22:23:05|INFO    |45785|src.utils.elt.read_parquet_folder:34|📁 Archivos encontrados: ['part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet', 'part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet', 'part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet', 'part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet', 'part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet', 'part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet', 'part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet', 'part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet']
+2025-09-18 22:23:05|DEBUG   |45785|src.utils.elt.read_parquet_folder:44|part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 22:23:05|DEBUG   |45785|src.utils.elt.read_parquet_folder:44|part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:23:05|DEBUG   |45785|src.utils.elt.read_parquet_folder:44|part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 22:23:05|DEBUG   |45785|src.utils.elt.read_parquet_folder:44|part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:23:05|DEBUG   |45785|src.utils.elt.read_parquet_folder:44|part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:23:05|DEBUG   |45785|src.utils.elt.read_parquet_folder:44|part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 22:23:05|DEBUG   |45785|src.utils.elt.read_parquet_folder:44|part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:23:05|DEBUG   |45785|src.utils.elt.read_parquet_folder:44|part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet: 156,368 filas × 14 columnas
+2025-09-18 22:23:05|INFO    |45785|src.utils.elt.read_parquet_folder:47|==================================================
+2025-09-18 22:23:05|INFO    |45785|src.utils.elt.read_parquet_folder:48|CONCATENANDO ARCHIVOS
+2025-09-18 22:23:05|INFO    |45785|src.utils.elt.read_parquet_folder:49|==================================================
+2025-09-18 22:23:05|INFO    |45785|src.utils.elt.read_parquet_folder:54|Total esperado: 1,250,000 filas
+2025-09-18 22:23:05|INFO    |45785|src.utils.elt.read_parquet_folder:55|Dataset final: 1,250,000 filas × 14 columnas
+2025-09-18 22:23:05|SUCCESS |45785|src.utils.elt.read_parquet_folder:57|✅ Concatenación exitosa - todas las filas conservadas
+2025-09-18 22:23:05|INFO    |45785|src.utils.elt.read_parquet_folder:64|Clientes únicos: 149,960
+2025-09-18 22:23:05|INFO    |45785|src.utils.elt.read_parquet_folder:65|Total registros: 1,250,000
+2025-09-18 22:23:05|INFO    |45785|src.utils.elt.read_parquet_folder:66|Promedio registros por cliente: 8.3
+2025-09-18 22:23:06|SUCCESS |45785|src.utils.elt.validate_and_cast:95|✅ Validación y casting completados
+2025-09-18 22:23:06|SUCCESS |45785|src.utils.elt.aggregate_to_customer:128|✅ Agregación completada: 149,960 clientes únicos
+2025-09-18 22:23:06|INFO    |45785|src.utils.elt.write_processed:140|💾 Archivo procesado guardado en: data/processed/data_final.parquet
+2025-09-18 22:23:06|SUCCESS |45785|src.utils.elt.run:157|🎉 Pipeline ELT completada
+2025-09-18 22:23:06|SUCCESS |45785|__main__.main:28|🎯 Pipeline ELT ejecutada con éxito. Registros procesados: 149,960
+2025-09-18 22:23:06|INFO    |45785|src.split.split_train_val_test:39|🚀 Iniciando split_train_val_test()
+2025-09-18 22:23:06|INFO    |45785|src.split.split_train_val_test:43|🔤 Variables discretas detectadas: ['estrellas_txt']
+2025-09-18 22:23:06|SUCCESS |45785|src.split.split_train_val_test:52|✅ Casteo de discretas completado
+2025-09-18 22:23:06|SUCCESS |45785|src.split.split_train_val_test:74|🎯 Split completado -> Train: (89976, 13), Val: (29992, 13), Test: (29992, 13)
+2025-09-18 22:23:06|SUCCESS |45785|__main__.main:45|📊 División realizada: Train=(89976, 13), Val=(29992, 13), Test=(29992, 13)
+2025-09-18 22:23:06|INFO    |45785|src.selection.feature_selection:35|🏷️ Columnas originales: ['cliente_id', 'pais_cd', 'region_comercial_txt', 'agencia_id', 'ruta_id', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'facturacion_usd_val', 'materiales_distintos_val', 'cajas_fisicas', 'fecha_pedido_dt']
+2025-09-18 22:23:06|INFO    |45785|src.selection.feature_selection:40|⏰ Variables datetime detectadas: ['fecha_pedido_dt']
+2025-09-18 22:23:06|INFO    |45785|src.selection.feature_selection:44|🧾 IDs detectados para eliminar: ['cliente_id', 'agencia_id', 'ruta_id']
+2025-09-18 22:23:06|INFO    |45785|src.selection.feature_selection:59|⏰ Extrayendo día de semana y trimestre de: ['fecha_pedido_dt']
+2025-09-18 22:23:06|INFO    |45785|src.selection.feature_selection:69|⏰ Nuevas features datetime: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:23:06|INFO    |45785|src.selection.feature_selection:85|📦 Candidatas a casi-constantes: 11
+2025-09-18 22:23:06|INFO    |45785|src.selection.feature_selection:86|🔣 Categóricas para Cramér's V: 8 (incluye datetime)
+2025-09-18 22:23:06|INFO    |45785|src.selection.feature_selection:87|📈 Numéricas para Pearson: 3
+2025-09-18 22:23:06|INFO    |45785|src.selection.feature_selection:126|🛠️ Ajustando pipeline de selección…
+2025-09-18 22:23:06|INFO    |45785|src.selection.feature_selection:142|⏰ Features datetime creadas: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:23:06|INFO    |45785|src.selection.feature_selection:145|🧾 Eliminadas por ID: ['cliente_id', 'agencia_id', 'ruta_id']
+2025-09-18 22:23:06|INFO    |45785|src.selection.feature_selection:148|📦 Eliminadas por casi-constantes: ninguna
+2025-09-18 22:23:06|INFO    |45785|src.selection.feature_selection:151|🔣 Eliminadas por Cramér's V: ['region_comercial_txt']
+2025-09-18 22:23:06|INFO    |45785|src.selection.feature_selection:154|📈 Eliminadas por Pearson: ['facturacion_usd_val', 'materiales_distintos_val']
+2025-09-18 22:23:06|SUCCESS |45785|src.selection.feature_selection:156|✅ Pipeline de selección ajustado.
+2025-09-18 22:23:06|INFO    |45785|src.selection.feature_selection:167|🏷️ Casteando features datetime a category: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:23:06|INFO    |45785|src.selection.feature_selection:180|   fecha_pedido_dt_day_of_week: category
+2025-09-18 22:23:06|INFO    |45785|src.selection.feature_selection:180|   fecha_pedido_dt_quarter: category
+2025-09-18 22:23:06|SUCCESS |45785|src.selection.feature_selection:182|🎯 Feature selection completa. Train=(89976, 8), Val=(29992, 8), Test=(29992, 8)
+2025-09-18 22:23:06|INFO    |45785|src.selection.feature_selection:186|🏷️ Columnas finales: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:23:06|INFO    |45785|src.selection.feature_selection:187|⏰ Features datetime finales: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:23:06|SUCCESS |45785|__main__.main:61|✨ Feature selection completa. Train=(89976, 8), Val=(29992, 8), Test=(29992, 8)
+2025-09-18 22:23:06|ERROR   |45785|__main__.main:85|❌ Error en entrenamiento: train_models() got multiple values for argument 'use_balanced_weights'
+2025-09-18 22:23:37|SUCCESS |46534|config.settings.get_settings:41|✅ Configuración cargada y validada con éxito.
+2025-09-18 22:23:38|INFO    |46534|src.utils.elt.run:152|🚀 Iniciando pipeline ELT
+2025-09-18 22:23:38|INFO    |46534|src.utils.elt.read_parquet_folder:34|📁 Archivos encontrados: ['part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet', 'part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet', 'part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet', 'part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet', 'part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet', 'part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet', 'part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet', 'part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet']
+2025-09-18 22:23:38|DEBUG   |46534|src.utils.elt.read_parquet_folder:44|part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 22:23:38|DEBUG   |46534|src.utils.elt.read_parquet_folder:44|part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:23:38|DEBUG   |46534|src.utils.elt.read_parquet_folder:44|part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 22:23:38|DEBUG   |46534|src.utils.elt.read_parquet_folder:44|part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:23:38|DEBUG   |46534|src.utils.elt.read_parquet_folder:44|part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:23:38|DEBUG   |46534|src.utils.elt.read_parquet_folder:44|part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 22:23:38|DEBUG   |46534|src.utils.elt.read_parquet_folder:44|part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:23:38|DEBUG   |46534|src.utils.elt.read_parquet_folder:44|part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet: 156,368 filas × 14 columnas
+2025-09-18 22:23:38|INFO    |46534|src.utils.elt.read_parquet_folder:47|==================================================
+2025-09-18 22:23:38|INFO    |46534|src.utils.elt.read_parquet_folder:48|CONCATENANDO ARCHIVOS
+2025-09-18 22:23:38|INFO    |46534|src.utils.elt.read_parquet_folder:49|==================================================
+2025-09-18 22:23:38|INFO    |46534|src.utils.elt.read_parquet_folder:54|Total esperado: 1,250,000 filas
+2025-09-18 22:23:38|INFO    |46534|src.utils.elt.read_parquet_folder:55|Dataset final: 1,250,000 filas × 14 columnas
+2025-09-18 22:23:38|SUCCESS |46534|src.utils.elt.read_parquet_folder:57|✅ Concatenación exitosa - todas las filas conservadas
+2025-09-18 22:23:38|INFO    |46534|src.utils.elt.read_parquet_folder:64|Clientes únicos: 149,960
+2025-09-18 22:23:38|INFO    |46534|src.utils.elt.read_parquet_folder:65|Total registros: 1,250,000
+2025-09-18 22:23:38|INFO    |46534|src.utils.elt.read_parquet_folder:66|Promedio registros por cliente: 8.3
+2025-09-18 22:23:38|SUCCESS |46534|src.utils.elt.validate_and_cast:95|✅ Validación y casting completados
+2025-09-18 22:23:38|SUCCESS |46534|src.utils.elt.aggregate_to_customer:128|✅ Agregación completada: 149,960 clientes únicos
+2025-09-18 22:23:38|INFO    |46534|src.utils.elt.write_processed:140|💾 Archivo procesado guardado en: data/processed/data_final.parquet
+2025-09-18 22:23:38|SUCCESS |46534|src.utils.elt.run:157|🎉 Pipeline ELT completada
+2025-09-18 22:23:38|SUCCESS |46534|__main__.main:28|🎯 Pipeline ELT ejecutada con éxito. Registros procesados: 149,960
+2025-09-18 22:23:38|INFO    |46534|src.split.split_train_val_test:39|🚀 Iniciando split_train_val_test()
+2025-09-18 22:23:38|INFO    |46534|src.split.split_train_val_test:43|🔤 Variables discretas detectadas: ['estrellas_txt']
+2025-09-18 22:23:38|SUCCESS |46534|src.split.split_train_val_test:52|✅ Casteo de discretas completado
+2025-09-18 22:23:38|SUCCESS |46534|src.split.split_train_val_test:74|🎯 Split completado -> Train: (89976, 13), Val: (29992, 13), Test: (29992, 13)
+2025-09-18 22:23:38|SUCCESS |46534|__main__.main:45|📊 División realizada: Train=(89976, 13), Val=(29992, 13), Test=(29992, 13)
+2025-09-18 22:23:38|INFO    |46534|src.selection.feature_selection:35|🏷️ Columnas originales: ['cliente_id', 'pais_cd', 'region_comercial_txt', 'agencia_id', 'ruta_id', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'facturacion_usd_val', 'materiales_distintos_val', 'cajas_fisicas', 'fecha_pedido_dt']
+2025-09-18 22:23:38|INFO    |46534|src.selection.feature_selection:40|⏰ Variables datetime detectadas: ['fecha_pedido_dt']
+2025-09-18 22:23:38|INFO    |46534|src.selection.feature_selection:44|🧾 IDs detectados para eliminar: ['cliente_id', 'agencia_id', 'ruta_id']
+2025-09-18 22:23:38|INFO    |46534|src.selection.feature_selection:59|⏰ Extrayendo día de semana y trimestre de: ['fecha_pedido_dt']
+2025-09-18 22:23:38|INFO    |46534|src.selection.feature_selection:69|⏰ Nuevas features datetime: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:23:38|INFO    |46534|src.selection.feature_selection:85|📦 Candidatas a casi-constantes: 11
+2025-09-18 22:23:38|INFO    |46534|src.selection.feature_selection:86|🔣 Categóricas para Cramér's V: 8 (incluye datetime)
+2025-09-18 22:23:38|INFO    |46534|src.selection.feature_selection:87|📈 Numéricas para Pearson: 3
+2025-09-18 22:23:38|INFO    |46534|src.selection.feature_selection:126|🛠️ Ajustando pipeline de selección…
+2025-09-18 22:23:38|INFO    |46534|src.selection.feature_selection:142|⏰ Features datetime creadas: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:23:38|INFO    |46534|src.selection.feature_selection:145|🧾 Eliminadas por ID: ['cliente_id', 'agencia_id', 'ruta_id']
+2025-09-18 22:23:38|INFO    |46534|src.selection.feature_selection:148|📦 Eliminadas por casi-constantes: ninguna
+2025-09-18 22:23:38|INFO    |46534|src.selection.feature_selection:151|🔣 Eliminadas por Cramér's V: ['region_comercial_txt']
+2025-09-18 22:23:38|INFO    |46534|src.selection.feature_selection:154|📈 Eliminadas por Pearson: ['facturacion_usd_val', 'materiales_distintos_val']
+2025-09-18 22:23:38|SUCCESS |46534|src.selection.feature_selection:156|✅ Pipeline de selección ajustado.
+2025-09-18 22:23:39|INFO    |46534|src.selection.feature_selection:167|🏷️ Casteando features datetime a category: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:23:39|INFO    |46534|src.selection.feature_selection:180|   fecha_pedido_dt_day_of_week: category
+2025-09-18 22:23:39|INFO    |46534|src.selection.feature_selection:180|   fecha_pedido_dt_quarter: category
+2025-09-18 22:23:39|SUCCESS |46534|src.selection.feature_selection:182|🎯 Feature selection completa. Train=(89976, 8), Val=(29992, 8), Test=(29992, 8)
+2025-09-18 22:23:39|INFO    |46534|src.selection.feature_selection:186|🏷️ Columnas finales: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:23:39|INFO    |46534|src.selection.feature_selection:187|⏰ Features datetime finales: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:23:39|SUCCESS |46534|__main__.main:61|✨ Feature selection completa. Train=(89976, 8), Val=(29992, 8), Test=(29992, 8)
+2025-09-18 22:23:39|INFO    |46534|src.training.train_models:112|🚀 Iniciando entrenamiento con XGBoost...
+2025-09-18 22:23:39|INFO    |46534|src.training.prepare_categorical_features:41|🏷️ Casteadas a 'category': ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:23:39|INFO    |46534|src.training.encode_target_like_train:65|🎯 Clases (orden): ['DIGITAL', 'TELEFONO', 'VENDEDOR']
+2025-09-18 22:23:39|INFO    |46534|src.training.train_models:141|🟢 Se intentará entrenar con GPU (gpu_hist).
+2025-09-18 22:23:39|INFO    |46534|src.training.train_models:153|⚖️  Usando sample_weight balanceado por clase.
+2025-09-18 22:23:39|INFO    |46534|src.training.train_models:158|📊 Entrenando XGBoost con early stopping…
+2025-09-18 22:23:39|WARNING |46534|src.training.train_models:170|⚠️ Entrenamiento con GPU falló (XGBClassifier.fit() got an unexpected keyword argument 'early_stopping_rounds'). Reintentando en CPU…
+2025-09-18 22:23:39|ERROR   |46534|__main__.main:88|❌ Error en entrenamiento: XGBClassifier.fit() got an unexpected keyword argument 'early_stopping_rounds'
+2025-09-18 22:23:54|SUCCESS |47050|config.settings.get_settings:41|✅ Configuración cargada y validada con éxito.
+2025-09-18 22:23:55|INFO    |47050|src.utils.elt.run:152|🚀 Iniciando pipeline ELT
+2025-09-18 22:23:55|INFO    |47050|src.utils.elt.read_parquet_folder:34|📁 Archivos encontrados: ['part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet', 'part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet', 'part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet', 'part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet', 'part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet', 'part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet', 'part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet', 'part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet']
+2025-09-18 22:23:55|DEBUG   |47050|src.utils.elt.read_parquet_folder:44|part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 22:23:55|DEBUG   |47050|src.utils.elt.read_parquet_folder:44|part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:23:55|DEBUG   |47050|src.utils.elt.read_parquet_folder:44|part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 22:23:55|DEBUG   |47050|src.utils.elt.read_parquet_folder:44|part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:23:55|DEBUG   |47050|src.utils.elt.read_parquet_folder:44|part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:23:55|DEBUG   |47050|src.utils.elt.read_parquet_folder:44|part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 22:23:55|DEBUG   |47050|src.utils.elt.read_parquet_folder:44|part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:23:55|DEBUG   |47050|src.utils.elt.read_parquet_folder:44|part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet: 156,368 filas × 14 columnas
+2025-09-18 22:23:55|INFO    |47050|src.utils.elt.read_parquet_folder:47|==================================================
+2025-09-18 22:23:55|INFO    |47050|src.utils.elt.read_parquet_folder:48|CONCATENANDO ARCHIVOS
+2025-09-18 22:23:55|INFO    |47050|src.utils.elt.read_parquet_folder:49|==================================================
+2025-09-18 22:23:55|INFO    |47050|src.utils.elt.read_parquet_folder:54|Total esperado: 1,250,000 filas
+2025-09-18 22:23:55|INFO    |47050|src.utils.elt.read_parquet_folder:55|Dataset final: 1,250,000 filas × 14 columnas
+2025-09-18 22:23:55|SUCCESS |47050|src.utils.elt.read_parquet_folder:57|✅ Concatenación exitosa - todas las filas conservadas
+2025-09-18 22:23:55|INFO    |47050|src.utils.elt.read_parquet_folder:64|Clientes únicos: 149,960
+2025-09-18 22:23:55|INFO    |47050|src.utils.elt.read_parquet_folder:65|Total registros: 1,250,000
+2025-09-18 22:23:55|INFO    |47050|src.utils.elt.read_parquet_folder:66|Promedio registros por cliente: 8.3
+2025-09-18 22:23:55|SUCCESS |47050|src.utils.elt.validate_and_cast:95|✅ Validación y casting completados
+2025-09-18 22:23:55|SUCCESS |47050|src.utils.elt.aggregate_to_customer:128|✅ Agregación completada: 149,960 clientes únicos
+2025-09-18 22:23:55|INFO    |47050|src.utils.elt.write_processed:140|💾 Archivo procesado guardado en: data/processed/data_final.parquet
+2025-09-18 22:23:55|SUCCESS |47050|src.utils.elt.run:157|🎉 Pipeline ELT completada
+2025-09-18 22:23:55|SUCCESS |47050|__main__.main:28|🎯 Pipeline ELT ejecutada con éxito. Registros procesados: 149,960
+2025-09-18 22:23:55|INFO    |47050|src.split.split_train_val_test:39|🚀 Iniciando split_train_val_test()
+2025-09-18 22:23:55|INFO    |47050|src.split.split_train_val_test:43|🔤 Variables discretas detectadas: ['estrellas_txt']
+2025-09-18 22:23:55|SUCCESS |47050|src.split.split_train_val_test:52|✅ Casteo de discretas completado
+2025-09-18 22:23:56|SUCCESS |47050|src.split.split_train_val_test:74|🎯 Split completado -> Train: (89976, 13), Val: (29992, 13), Test: (29992, 13)
+2025-09-18 22:23:56|SUCCESS |47050|__main__.main:45|📊 División realizada: Train=(89976, 13), Val=(29992, 13), Test=(29992, 13)
+2025-09-18 22:23:56|INFO    |47050|src.selection.feature_selection:35|🏷️ Columnas originales: ['cliente_id', 'pais_cd', 'region_comercial_txt', 'agencia_id', 'ruta_id', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'facturacion_usd_val', 'materiales_distintos_val', 'cajas_fisicas', 'fecha_pedido_dt']
+2025-09-18 22:23:56|INFO    |47050|src.selection.feature_selection:40|⏰ Variables datetime detectadas: ['fecha_pedido_dt']
+2025-09-18 22:23:56|INFO    |47050|src.selection.feature_selection:44|🧾 IDs detectados para eliminar: ['cliente_id', 'agencia_id', 'ruta_id']
+2025-09-18 22:23:56|INFO    |47050|src.selection.feature_selection:59|⏰ Extrayendo día de semana y trimestre de: ['fecha_pedido_dt']
+2025-09-18 22:23:56|INFO    |47050|src.selection.feature_selection:69|⏰ Nuevas features datetime: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:23:56|INFO    |47050|src.selection.feature_selection:85|📦 Candidatas a casi-constantes: 11
+2025-09-18 22:23:56|INFO    |47050|src.selection.feature_selection:86|🔣 Categóricas para Cramér's V: 8 (incluye datetime)
+2025-09-18 22:23:56|INFO    |47050|src.selection.feature_selection:87|📈 Numéricas para Pearson: 3
+2025-09-18 22:23:56|INFO    |47050|src.selection.feature_selection:126|🛠️ Ajustando pipeline de selección…
+2025-09-18 22:23:56|INFO    |47050|src.selection.feature_selection:142|⏰ Features datetime creadas: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:23:56|INFO    |47050|src.selection.feature_selection:145|🧾 Eliminadas por ID: ['cliente_id', 'agencia_id', 'ruta_id']
+2025-09-18 22:23:56|INFO    |47050|src.selection.feature_selection:148|📦 Eliminadas por casi-constantes: ninguna
+2025-09-18 22:23:56|INFO    |47050|src.selection.feature_selection:151|🔣 Eliminadas por Cramér's V: ['region_comercial_txt']
+2025-09-18 22:23:56|INFO    |47050|src.selection.feature_selection:154|📈 Eliminadas por Pearson: ['facturacion_usd_val', 'materiales_distintos_val']
+2025-09-18 22:23:56|SUCCESS |47050|src.selection.feature_selection:156|✅ Pipeline de selección ajustado.
+2025-09-18 22:23:56|INFO    |47050|src.selection.feature_selection:167|🏷️ Casteando features datetime a category: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:23:56|INFO    |47050|src.selection.feature_selection:180|   fecha_pedido_dt_day_of_week: category
+2025-09-18 22:23:56|INFO    |47050|src.selection.feature_selection:180|   fecha_pedido_dt_quarter: category
+2025-09-18 22:23:56|SUCCESS |47050|src.selection.feature_selection:182|🎯 Feature selection completa. Train=(89976, 8), Val=(29992, 8), Test=(29992, 8)
+2025-09-18 22:23:56|INFO    |47050|src.selection.feature_selection:186|🏷️ Columnas finales: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:23:56|INFO    |47050|src.selection.feature_selection:187|⏰ Features datetime finales: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:23:56|SUCCESS |47050|__main__.main:61|✨ Feature selection completa. Train=(89976, 8), Val=(29992, 8), Test=(29992, 8)
+2025-09-18 22:23:56|INFO    |47050|src.training.train_models:112|🚀 Iniciando entrenamiento con XGBoost...
+2025-09-18 22:23:56|INFO    |47050|src.training.prepare_categorical_features:41|🏷️ Casteadas a 'category': ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:23:56|INFO    |47050|src.training.encode_target_like_train:65|🎯 Clases (orden): ['DIGITAL', 'TELEFONO', 'VENDEDOR']
+2025-09-18 22:23:56|INFO    |47050|src.training.train_models:141|🟢 Se intentará entrenar con GPU (gpu_hist).
+2025-09-18 22:23:56|INFO    |47050|src.training.train_models:153|⚖️  Usando sample_weight balanceado por clase.
+2025-09-18 22:23:56|INFO    |47050|src.training.train_models:158|📊 Entrenando XGBoost con early stopping…
+2025-09-18 22:24:12|INFO    |47050|src.training.train_models:251|📈 Métricas de Rendimiento:
+2025-09-18 22:24:12|INFO    |47050|src.training.train_models:252|   🎯 LogLoss → Train 0.8516 | Val 1.0868 | Test 1.0836
+2025-09-18 22:24:12|INFO    |47050|src.training.train_models:253|   📊 Acc    → Train 0.6307 | Val 0.4206 | Test 0.4241
+2025-09-18 22:24:12|SUCCESS |47050|__main__.main:83|🤖 Entrenamiento completado con XGBoost. LogLoss de validación: 1.0868
+2025-09-18 22:34:04|SUCCESS |53761|config.settings.get_settings:41|✅ Configuración cargada y validada con éxito.
+2025-09-18 22:34:05|INFO    |53761|__main__.main:24|🧭 MLflow tracking_uri = http://localhost:5555
+2025-09-18 22:34:05|INFO    |53761|__main__.main:25|🧪 MLflow experiment   = digital_orders
+2025-09-18 22:34:05|INFO    |53761|src.utils.elt.run:152|🚀 Iniciando pipeline ELT
+2025-09-18 22:34:05|INFO    |53761|src.utils.elt.read_parquet_folder:34|📁 Archivos encontrados: ['part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet', 'part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet', 'part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet', 'part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet', 'part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet', 'part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet', 'part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet', 'part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet']
+2025-09-18 22:34:05|DEBUG   |53761|src.utils.elt.read_parquet_folder:44|part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 22:34:05|DEBUG   |53761|src.utils.elt.read_parquet_folder:44|part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:34:05|DEBUG   |53761|src.utils.elt.read_parquet_folder:44|part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 22:34:05|DEBUG   |53761|src.utils.elt.read_parquet_folder:44|part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:34:05|DEBUG   |53761|src.utils.elt.read_parquet_folder:44|part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:34:05|DEBUG   |53761|src.utils.elt.read_parquet_folder:44|part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 22:34:05|DEBUG   |53761|src.utils.elt.read_parquet_folder:44|part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:34:05|DEBUG   |53761|src.utils.elt.read_parquet_folder:44|part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet: 156,368 filas × 14 columnas
+2025-09-18 22:34:05|INFO    |53761|src.utils.elt.read_parquet_folder:47|==================================================
+2025-09-18 22:34:05|INFO    |53761|src.utils.elt.read_parquet_folder:48|CONCATENANDO ARCHIVOS
+2025-09-18 22:34:05|INFO    |53761|src.utils.elt.read_parquet_folder:49|==================================================
+2025-09-18 22:34:05|INFO    |53761|src.utils.elt.read_parquet_folder:54|Total esperado: 1,250,000 filas
+2025-09-18 22:34:05|INFO    |53761|src.utils.elt.read_parquet_folder:55|Dataset final: 1,250,000 filas × 14 columnas
+2025-09-18 22:34:05|SUCCESS |53761|src.utils.elt.read_parquet_folder:57|✅ Concatenación exitosa - todas las filas conservadas
+2025-09-18 22:34:05|INFO    |53761|src.utils.elt.read_parquet_folder:64|Clientes únicos: 149,960
+2025-09-18 22:34:05|INFO    |53761|src.utils.elt.read_parquet_folder:65|Total registros: 1,250,000
+2025-09-18 22:34:05|INFO    |53761|src.utils.elt.read_parquet_folder:66|Promedio registros por cliente: 8.3
+2025-09-18 22:34:06|SUCCESS |53761|src.utils.elt.validate_and_cast:95|✅ Validación y casting completados
+2025-09-18 22:34:06|SUCCESS |53761|src.utils.elt.aggregate_to_customer:128|✅ Agregación completada: 149,960 clientes únicos
+2025-09-18 22:34:06|INFO    |53761|src.utils.elt.write_processed:140|💾 Archivo procesado guardado en: data/processed/data_final.parquet
+2025-09-18 22:34:06|SUCCESS |53761|src.utils.elt.run:157|🎉 Pipeline ELT completada
+2025-09-18 22:34:06|SUCCESS |53761|__main__.main:52|🎯 Pipeline ELT ejecutada con éxito. Registros procesados: 149,960
+2025-09-18 22:34:06|ERROR   |53761|__main__.main:63|❌ Error al ejecutar pipeline ELT: [Errno 13] Permission denied: '/mlflow'
+2025-09-18 22:35:04|SUCCESS |54618|config.settings.get_settings:41|✅ Configuración cargada y validada con éxito.
+2025-09-18 22:35:04|INFO    |54618|__main__.main:27|🧭 MLflow tracking_uri = http://localhost:5555
+2025-09-18 22:35:04|INFO    |54618|__main__.main:28|🧪 MLflow experiment   = digital_orders
+2025-09-18 22:35:05|INFO    |54618|src.utils.elt.run:152|🚀 Iniciando pipeline ELT
+2025-09-18 22:35:05|INFO    |54618|src.utils.elt.read_parquet_folder:34|📁 Archivos encontrados: ['part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet', 'part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet', 'part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet', 'part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet', 'part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet', 'part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet', 'part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet', 'part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet']
+2025-09-18 22:35:05|DEBUG   |54618|src.utils.elt.read_parquet_folder:44|part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 22:35:05|DEBUG   |54618|src.utils.elt.read_parquet_folder:44|part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:35:05|DEBUG   |54618|src.utils.elt.read_parquet_folder:44|part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 22:35:05|DEBUG   |54618|src.utils.elt.read_parquet_folder:44|part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:35:05|DEBUG   |54618|src.utils.elt.read_parquet_folder:44|part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:35:05|DEBUG   |54618|src.utils.elt.read_parquet_folder:44|part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 22:35:05|DEBUG   |54618|src.utils.elt.read_parquet_folder:44|part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:35:05|DEBUG   |54618|src.utils.elt.read_parquet_folder:44|part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet: 156,368 filas × 14 columnas
+2025-09-18 22:35:05|INFO    |54618|src.utils.elt.read_parquet_folder:47|==================================================
+2025-09-18 22:35:05|INFO    |54618|src.utils.elt.read_parquet_folder:48|CONCATENANDO ARCHIVOS
+2025-09-18 22:35:05|INFO    |54618|src.utils.elt.read_parquet_folder:49|==================================================
+2025-09-18 22:35:05|INFO    |54618|src.utils.elt.read_parquet_folder:54|Total esperado: 1,250,000 filas
+2025-09-18 22:35:05|INFO    |54618|src.utils.elt.read_parquet_folder:55|Dataset final: 1,250,000 filas × 14 columnas
+2025-09-18 22:35:05|SUCCESS |54618|src.utils.elt.read_parquet_folder:57|✅ Concatenación exitosa - todas las filas conservadas
+2025-09-18 22:35:05|INFO    |54618|src.utils.elt.read_parquet_folder:64|Clientes únicos: 149,960
+2025-09-18 22:35:05|INFO    |54618|src.utils.elt.read_parquet_folder:65|Total registros: 1,250,000
+2025-09-18 22:35:05|INFO    |54618|src.utils.elt.read_parquet_folder:66|Promedio registros por cliente: 8.3
+2025-09-18 22:35:05|SUCCESS |54618|src.utils.elt.validate_and_cast:95|✅ Validación y casting completados
+2025-09-18 22:35:05|SUCCESS |54618|src.utils.elt.aggregate_to_customer:128|✅ Agregación completada: 149,960 clientes únicos
+2025-09-18 22:35:05|INFO    |54618|src.utils.elt.write_processed:140|💾 Archivo procesado guardado en: data/processed/data_final.parquet
+2025-09-18 22:35:05|SUCCESS |54618|src.utils.elt.run:157|🎉 Pipeline ELT completada
+2025-09-18 22:35:05|SUCCESS |54618|__main__.main:55|🎯 Pipeline ELT ejecutada con éxito. Registros procesados: 149,960
+2025-09-18 22:35:05|ERROR   |54618|__main__.main:66|❌ Error al ejecutar pipeline ELT: [Errno 13] Permission denied: '/mlflow'
+2025-09-18 22:37:53|SUCCESS |58133|config.settings.get_settings:41|✅ Configuración cargada y validada con éxito.
+2025-09-18 22:37:54|INFO    |58133|__main__.main:24|🧭 MLflow tracking_uri = http://localhost:5555
+2025-09-18 22:37:54|INFO    |58133|__main__.main:25|🧪 MLflow experiment   = digital_orders
+2025-09-18 22:37:54|INFO    |58133|src.utils.elt.run:152|🚀 Iniciando pipeline ELT
+2025-09-18 22:37:54|INFO    |58133|src.utils.elt.read_parquet_folder:34|📁 Archivos encontrados: ['part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet', 'part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet', 'part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet', 'part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet', 'part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet', 'part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet', 'part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet', 'part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet']
+2025-09-18 22:37:54|DEBUG   |58133|src.utils.elt.read_parquet_folder:44|part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 22:37:54|DEBUG   |58133|src.utils.elt.read_parquet_folder:44|part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:37:54|DEBUG   |58133|src.utils.elt.read_parquet_folder:44|part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 22:37:54|DEBUG   |58133|src.utils.elt.read_parquet_folder:44|part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:37:54|DEBUG   |58133|src.utils.elt.read_parquet_folder:44|part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:37:54|DEBUG   |58133|src.utils.elt.read_parquet_folder:44|part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 22:37:54|DEBUG   |58133|src.utils.elt.read_parquet_folder:44|part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:37:54|DEBUG   |58133|src.utils.elt.read_parquet_folder:44|part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet: 156,368 filas × 14 columnas
+2025-09-18 22:37:54|INFO    |58133|src.utils.elt.read_parquet_folder:47|==================================================
+2025-09-18 22:37:54|INFO    |58133|src.utils.elt.read_parquet_folder:48|CONCATENANDO ARCHIVOS
+2025-09-18 22:37:54|INFO    |58133|src.utils.elt.read_parquet_folder:49|==================================================
+2025-09-18 22:37:54|INFO    |58133|src.utils.elt.read_parquet_folder:54|Total esperado: 1,250,000 filas
+2025-09-18 22:37:54|INFO    |58133|src.utils.elt.read_parquet_folder:55|Dataset final: 1,250,000 filas × 14 columnas
+2025-09-18 22:37:54|SUCCESS |58133|src.utils.elt.read_parquet_folder:57|✅ Concatenación exitosa - todas las filas conservadas
+2025-09-18 22:37:54|INFO    |58133|src.utils.elt.read_parquet_folder:64|Clientes únicos: 149,960
+2025-09-18 22:37:54|INFO    |58133|src.utils.elt.read_parquet_folder:65|Total registros: 1,250,000
+2025-09-18 22:37:54|INFO    |58133|src.utils.elt.read_parquet_folder:66|Promedio registros por cliente: 8.3
+2025-09-18 22:37:54|SUCCESS |58133|src.utils.elt.validate_and_cast:95|✅ Validación y casting completados
+2025-09-18 22:37:54|SUCCESS |58133|src.utils.elt.aggregate_to_customer:128|✅ Agregación completada: 149,960 clientes únicos
+2025-09-18 22:37:54|INFO    |58133|src.utils.elt.write_processed:140|💾 Archivo procesado guardado en: data/processed/data_final.parquet
+2025-09-18 22:37:54|SUCCESS |58133|src.utils.elt.run:157|🎉 Pipeline ELT completada
+2025-09-18 22:37:54|SUCCESS |58133|__main__.main:52|🎯 Pipeline ELT ejecutada con éxito. Registros procesados: 149,960
+2025-09-18 22:37:54|ERROR   |58133|__main__.main:63|❌ Error al ejecutar pipeline ELT: [Errno 13] Permission denied: '/mlflow'
+2025-09-18 22:39:59|SUCCESS |59744|config.settings.get_settings:41|✅ Configuración cargada y validada con éxito.
+2025-09-18 22:39:59|INFO    |59744|__main__.main:24|🧭 MLflow tracking_uri = http://localhost:5555
+2025-09-18 22:39:59|INFO    |59744|__main__.main:25|🧪 MLflow experiment   = digital_orders
+2025-09-18 22:40:38|SUCCESS |60447|config.settings.get_settings:41|✅ Configuración cargada y validada con éxito.
+2025-09-18 22:40:38|INFO    |60447|__main__.main:24|🧭 MLflow tracking_uri = http://localhost:5555
+2025-09-18 22:40:38|INFO    |60447|__main__.main:25|🧪 MLflow experiment   = digital_orders
+2025-09-18 22:40:39|INFO    |60447|src.utils.elt.run:152|🚀 Iniciando pipeline ELT
+2025-09-18 22:40:39|INFO    |60447|src.utils.elt.read_parquet_folder:34|📁 Archivos encontrados: ['part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet', 'part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet', 'part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet', 'part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet', 'part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet', 'part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet', 'part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet', 'part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet']
+2025-09-18 22:40:39|DEBUG   |60447|src.utils.elt.read_parquet_folder:44|part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 22:40:39|DEBUG   |60447|src.utils.elt.read_parquet_folder:44|part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:40:39|DEBUG   |60447|src.utils.elt.read_parquet_folder:44|part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 22:40:39|DEBUG   |60447|src.utils.elt.read_parquet_folder:44|part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:40:39|DEBUG   |60447|src.utils.elt.read_parquet_folder:44|part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:40:39|DEBUG   |60447|src.utils.elt.read_parquet_folder:44|part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 22:40:39|DEBUG   |60447|src.utils.elt.read_parquet_folder:44|part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:40:39|DEBUG   |60447|src.utils.elt.read_parquet_folder:44|part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet: 156,368 filas × 14 columnas
+2025-09-18 22:40:39|INFO    |60447|src.utils.elt.read_parquet_folder:47|==================================================
+2025-09-18 22:40:39|INFO    |60447|src.utils.elt.read_parquet_folder:48|CONCATENANDO ARCHIVOS
+2025-09-18 22:40:39|INFO    |60447|src.utils.elt.read_parquet_folder:49|==================================================
+2025-09-18 22:40:39|INFO    |60447|src.utils.elt.read_parquet_folder:54|Total esperado: 1,250,000 filas
+2025-09-18 22:40:39|INFO    |60447|src.utils.elt.read_parquet_folder:55|Dataset final: 1,250,000 filas × 14 columnas
+2025-09-18 22:40:39|SUCCESS |60447|src.utils.elt.read_parquet_folder:57|✅ Concatenación exitosa - todas las filas conservadas
+2025-09-18 22:40:39|INFO    |60447|src.utils.elt.read_parquet_folder:64|Clientes únicos: 149,960
+2025-09-18 22:40:39|INFO    |60447|src.utils.elt.read_parquet_folder:65|Total registros: 1,250,000
+2025-09-18 22:40:39|INFO    |60447|src.utils.elt.read_parquet_folder:66|Promedio registros por cliente: 8.3
+2025-09-18 22:40:39|SUCCESS |60447|src.utils.elt.validate_and_cast:95|✅ Validación y casting completados
+2025-09-18 22:40:39|SUCCESS |60447|src.utils.elt.aggregate_to_customer:128|✅ Agregación completada: 149,960 clientes únicos
+2025-09-18 22:40:39|INFO    |60447|src.utils.elt.write_processed:140|💾 Archivo procesado guardado en: data/processed/data_final.parquet
+2025-09-18 22:40:39|SUCCESS |60447|src.utils.elt.run:157|🎉 Pipeline ELT completada
+2025-09-18 22:40:39|SUCCESS |60447|__main__.main:52|🎯 Pipeline ELT ejecutada con éxito. Registros procesados: 149,960
+2025-09-18 22:40:39|ERROR   |60447|__main__.main:63|❌ Error al ejecutar pipeline ELT: [Errno 13] Permission denied: '/mlflow'
+2025-09-18 22:43:24|SUCCESS |62423|config.settings.get_settings:41|✅ Configuración cargada y validada con éxito.
+2025-09-18 22:44:25|SUCCESS |64247|config.settings.get_settings:41|✅ Configuración cargada y validada con éxito.
+2025-09-18 22:45:41|SUCCESS |65309|config.settings.get_settings:41|✅ Configuración cargada y validada con éxito.
+2025-09-18 22:45:41|INFO    |65309|__main__.main:24|🧭 MLflow tracking_uri = http://localhost:5555
+2025-09-18 22:45:41|INFO    |65309|__main__.main:25|🧪 MLflow experiment   = digital_orders_new
+2025-09-18 22:45:41|INFO    |65309|src.utils.elt.run:152|🚀 Iniciando pipeline ELT
+2025-09-18 22:45:41|INFO    |65309|src.utils.elt.read_parquet_folder:34|📁 Archivos encontrados: ['part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet', 'part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet', 'part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet', 'part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet', 'part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet', 'part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet', 'part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet', 'part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet']
+2025-09-18 22:45:41|DEBUG   |65309|src.utils.elt.read_parquet_folder:44|part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 22:45:41|DEBUG   |65309|src.utils.elt.read_parquet_folder:44|part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:45:41|DEBUG   |65309|src.utils.elt.read_parquet_folder:44|part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 22:45:41|DEBUG   |65309|src.utils.elt.read_parquet_folder:44|part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:45:41|DEBUG   |65309|src.utils.elt.read_parquet_folder:44|part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:45:41|DEBUG   |65309|src.utils.elt.read_parquet_folder:44|part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 22:45:41|DEBUG   |65309|src.utils.elt.read_parquet_folder:44|part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:45:41|DEBUG   |65309|src.utils.elt.read_parquet_folder:44|part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet: 156,368 filas × 14 columnas
+2025-09-18 22:45:41|INFO    |65309|src.utils.elt.read_parquet_folder:47|==================================================
+2025-09-18 22:45:41|INFO    |65309|src.utils.elt.read_parquet_folder:48|CONCATENANDO ARCHIVOS
+2025-09-18 22:45:41|INFO    |65309|src.utils.elt.read_parquet_folder:49|==================================================
+2025-09-18 22:45:41|INFO    |65309|src.utils.elt.read_parquet_folder:54|Total esperado: 1,250,000 filas
+2025-09-18 22:45:41|INFO    |65309|src.utils.elt.read_parquet_folder:55|Dataset final: 1,250,000 filas × 14 columnas
+2025-09-18 22:45:41|SUCCESS |65309|src.utils.elt.read_parquet_folder:57|✅ Concatenación exitosa - todas las filas conservadas
+2025-09-18 22:45:41|INFO    |65309|src.utils.elt.read_parquet_folder:64|Clientes únicos: 149,960
+2025-09-18 22:45:41|INFO    |65309|src.utils.elt.read_parquet_folder:65|Total registros: 1,250,000
+2025-09-18 22:45:41|INFO    |65309|src.utils.elt.read_parquet_folder:66|Promedio registros por cliente: 8.3
+2025-09-18 22:45:42|SUCCESS |65309|src.utils.elt.validate_and_cast:95|✅ Validación y casting completados
+2025-09-18 22:45:42|SUCCESS |65309|src.utils.elt.aggregate_to_customer:128|✅ Agregación completada: 149,960 clientes únicos
+2025-09-18 22:45:42|INFO    |65309|src.utils.elt.write_processed:140|💾 Archivo procesado guardado en: data/processed/data_final.parquet
+2025-09-18 22:45:42|SUCCESS |65309|src.utils.elt.run:157|🎉 Pipeline ELT completada
+2025-09-18 22:45:42|SUCCESS |65309|__main__.main:52|🎯 Pipeline ELT ejecutada con éxito. Registros procesados: 149,960
+2025-09-18 22:45:42|INFO    |65309|src.split.split_train_val_test:39|🚀 Iniciando split_train_val_test()
+2025-09-18 22:45:42|INFO    |65309|src.split.split_train_val_test:43|🔤 Variables discretas detectadas: ['estrellas_txt']
+2025-09-18 22:45:42|SUCCESS |65309|src.split.split_train_val_test:52|✅ Casteo de discretas completado
+2025-09-18 22:45:42|SUCCESS |65309|src.split.split_train_val_test:74|🎯 Split completado -> Train: (89976, 13), Val: (29992, 13), Test: (29992, 13)
+2025-09-18 22:45:42|SUCCESS |65309|__main__.main:76|📊 División realizada: Train=(89976, 13), Val=(29992, 13), Test=(29992, 13)
+2025-09-18 22:45:42|INFO    |65309|src.selection.feature_selection:35|🏷️ Columnas originales: ['cliente_id', 'pais_cd', 'region_comercial_txt', 'agencia_id', 'ruta_id', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'facturacion_usd_val', 'materiales_distintos_val', 'cajas_fisicas', 'fecha_pedido_dt']
+2025-09-18 22:45:42|INFO    |65309|src.selection.feature_selection:40|⏰ Variables datetime detectadas: ['fecha_pedido_dt']
+2025-09-18 22:45:42|INFO    |65309|src.selection.feature_selection:44|🧾 IDs detectados para eliminar: ['cliente_id', 'agencia_id', 'ruta_id']
+2025-09-18 22:45:42|INFO    |65309|src.selection.feature_selection:59|⏰ Extrayendo día de semana y trimestre de: ['fecha_pedido_dt']
+2025-09-18 22:45:42|INFO    |65309|src.selection.feature_selection:69|⏰ Nuevas features datetime: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:45:42|INFO    |65309|src.selection.feature_selection:85|📦 Candidatas a casi-constantes: 11
+2025-09-18 22:45:42|INFO    |65309|src.selection.feature_selection:86|🔣 Categóricas para Cramér's V: 8 (incluye datetime)
+2025-09-18 22:45:42|INFO    |65309|src.selection.feature_selection:87|📈 Numéricas para Pearson: 3
+2025-09-18 22:45:42|INFO    |65309|src.selection.feature_selection:126|🛠️ Ajustando pipeline de selección…
+2025-09-18 22:45:42|INFO    |65309|src.selection.feature_selection:142|⏰ Features datetime creadas: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:45:42|INFO    |65309|src.selection.feature_selection:145|🧾 Eliminadas por ID: ['cliente_id', 'agencia_id', 'ruta_id']
+2025-09-18 22:45:42|INFO    |65309|src.selection.feature_selection:148|📦 Eliminadas por casi-constantes: ninguna
+2025-09-18 22:45:43|INFO    |65309|src.selection.feature_selection:151|🔣 Eliminadas por Cramér's V: ['region_comercial_txt']
+2025-09-18 22:45:43|INFO    |65309|src.selection.feature_selection:154|📈 Eliminadas por Pearson: ['facturacion_usd_val', 'materiales_distintos_val']
+2025-09-18 22:45:43|SUCCESS |65309|src.selection.feature_selection:156|✅ Pipeline de selección ajustado.
+2025-09-18 22:45:43|INFO    |65309|src.selection.feature_selection:167|🏷️ Casteando features datetime a category: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:45:43|INFO    |65309|src.selection.feature_selection:180|   fecha_pedido_dt_day_of_week: category
+2025-09-18 22:45:43|INFO    |65309|src.selection.feature_selection:180|   fecha_pedido_dt_quarter: category
+2025-09-18 22:45:43|SUCCESS |65309|src.selection.feature_selection:182|🎯 Feature selection completa. Train=(89976, 8), Val=(29992, 8), Test=(29992, 8)
+2025-09-18 22:45:43|INFO    |65309|src.selection.feature_selection:186|🏷️ Columnas finales: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:45:43|INFO    |65309|src.selection.feature_selection:187|⏰ Features datetime finales: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:45:43|SUCCESS |65309|__main__.main:100|✨ Feature selection completa. Train=(89976, 8), Val=(29992, 8), Test=(29992, 8)
+2025-09-18 22:45:43|INFO    |65309|src.training.train_models:112|🚀 Iniciando entrenamiento con XGBoost...
+2025-09-18 22:45:43|INFO    |65309|src.training.prepare_categorical_features:39|🏷️ Casteadas a 'category': ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:45:43|INFO    |65309|src.training.encode_target_like_train:63|🎯 Clases (orden): ['DIGITAL', 'TELEFONO', 'VENDEDOR']
+2025-09-18 22:45:43|INFO    |65309|src.training.train_models:141|🟢 Se intentará entrenar con GPU (gpu_hist).
+2025-09-18 22:45:43|INFO    |65309|src.training.train_models:153|⚖️  Usando sample_weight balanceado por clase.
+2025-09-18 22:45:43|ERROR   |65309|__main__.main:135|❌ Error en entrenamiento: cannot access local variable 'mlflow' where it is not associated with a value
+2025-09-18 22:46:32|SUCCESS |66178|config.settings.get_settings:41|✅ Configuración cargada y validada con éxito.
+2025-09-18 22:46:32|INFO    |66178|__main__.main:24|🧭 MLflow tracking_uri = http://localhost:5555
+2025-09-18 22:46:32|INFO    |66178|__main__.main:25|🧪 MLflow experiment   = digital_orders_new
+2025-09-18 22:46:32|INFO    |66178|src.utils.elt.run:152|🚀 Iniciando pipeline ELT
+2025-09-18 22:46:32|INFO    |66178|src.utils.elt.read_parquet_folder:34|📁 Archivos encontrados: ['part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet', 'part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet', 'part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet', 'part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet', 'part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet', 'part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet', 'part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet', 'part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet']
+2025-09-18 22:46:32|DEBUG   |66178|src.utils.elt.read_parquet_folder:44|part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 22:46:33|DEBUG   |66178|src.utils.elt.read_parquet_folder:44|part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:46:33|DEBUG   |66178|src.utils.elt.read_parquet_folder:44|part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 22:46:33|DEBUG   |66178|src.utils.elt.read_parquet_folder:44|part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:46:33|DEBUG   |66178|src.utils.elt.read_parquet_folder:44|part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:46:33|DEBUG   |66178|src.utils.elt.read_parquet_folder:44|part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 22:46:33|DEBUG   |66178|src.utils.elt.read_parquet_folder:44|part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:46:33|DEBUG   |66178|src.utils.elt.read_parquet_folder:44|part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet: 156,368 filas × 14 columnas
+2025-09-18 22:46:33|INFO    |66178|src.utils.elt.read_parquet_folder:47|==================================================
+2025-09-18 22:46:33|INFO    |66178|src.utils.elt.read_parquet_folder:48|CONCATENANDO ARCHIVOS
+2025-09-18 22:46:33|INFO    |66178|src.utils.elt.read_parquet_folder:49|==================================================
+2025-09-18 22:46:33|INFO    |66178|src.utils.elt.read_parquet_folder:54|Total esperado: 1,250,000 filas
+2025-09-18 22:46:33|INFO    |66178|src.utils.elt.read_parquet_folder:55|Dataset final: 1,250,000 filas × 14 columnas
+2025-09-18 22:46:33|SUCCESS |66178|src.utils.elt.read_parquet_folder:57|✅ Concatenación exitosa - todas las filas conservadas
+2025-09-18 22:46:33|INFO    |66178|src.utils.elt.read_parquet_folder:64|Clientes únicos: 149,960
+2025-09-18 22:46:33|INFO    |66178|src.utils.elt.read_parquet_folder:65|Total registros: 1,250,000
+2025-09-18 22:46:33|INFO    |66178|src.utils.elt.read_parquet_folder:66|Promedio registros por cliente: 8.3
+2025-09-18 22:46:33|SUCCESS |66178|src.utils.elt.validate_and_cast:95|✅ Validación y casting completados
+2025-09-18 22:46:33|SUCCESS |66178|src.utils.elt.aggregate_to_customer:128|✅ Agregación completada: 149,960 clientes únicos
+2025-09-18 22:46:33|INFO    |66178|src.utils.elt.write_processed:140|💾 Archivo procesado guardado en: data/processed/data_final.parquet
+2025-09-18 22:46:33|SUCCESS |66178|src.utils.elt.run:157|🎉 Pipeline ELT completada
+2025-09-18 22:46:33|SUCCESS |66178|__main__.main:52|🎯 Pipeline ELT ejecutada con éxito. Registros procesados: 149,960
+2025-09-18 22:46:33|INFO    |66178|src.split.split_train_val_test:39|🚀 Iniciando split_train_val_test()
+2025-09-18 22:46:33|INFO    |66178|src.split.split_train_val_test:43|🔤 Variables discretas detectadas: ['estrellas_txt']
+2025-09-18 22:46:33|SUCCESS |66178|src.split.split_train_val_test:52|✅ Casteo de discretas completado
+2025-09-18 22:46:33|SUCCESS |66178|src.split.split_train_val_test:74|🎯 Split completado -> Train: (89976, 13), Val: (29992, 13), Test: (29992, 13)
+2025-09-18 22:46:33|SUCCESS |66178|__main__.main:76|📊 División realizada: Train=(89976, 13), Val=(29992, 13), Test=(29992, 13)
+2025-09-18 22:46:34|INFO    |66178|src.selection.feature_selection:35|🏷️ Columnas originales: ['cliente_id', 'pais_cd', 'region_comercial_txt', 'agencia_id', 'ruta_id', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'facturacion_usd_val', 'materiales_distintos_val', 'cajas_fisicas', 'fecha_pedido_dt']
+2025-09-18 22:46:34|INFO    |66178|src.selection.feature_selection:40|⏰ Variables datetime detectadas: ['fecha_pedido_dt']
+2025-09-18 22:46:34|INFO    |66178|src.selection.feature_selection:44|🧾 IDs detectados para eliminar: ['cliente_id', 'agencia_id', 'ruta_id']
+2025-09-18 22:46:34|INFO    |66178|src.selection.feature_selection:59|⏰ Extrayendo día de semana y trimestre de: ['fecha_pedido_dt']
+2025-09-18 22:46:34|INFO    |66178|src.selection.feature_selection:69|⏰ Nuevas features datetime: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:46:34|INFO    |66178|src.selection.feature_selection:85|📦 Candidatas a casi-constantes: 11
+2025-09-18 22:46:34|INFO    |66178|src.selection.feature_selection:86|🔣 Categóricas para Cramér's V: 8 (incluye datetime)
+2025-09-18 22:46:34|INFO    |66178|src.selection.feature_selection:87|📈 Numéricas para Pearson: 3
+2025-09-18 22:46:34|INFO    |66178|src.selection.feature_selection:126|🛠️ Ajustando pipeline de selección…
+2025-09-18 22:46:34|INFO    |66178|src.selection.feature_selection:142|⏰ Features datetime creadas: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:46:34|INFO    |66178|src.selection.feature_selection:145|🧾 Eliminadas por ID: ['cliente_id', 'agencia_id', 'ruta_id']
+2025-09-18 22:46:34|INFO    |66178|src.selection.feature_selection:148|📦 Eliminadas por casi-constantes: ninguna
+2025-09-18 22:46:34|INFO    |66178|src.selection.feature_selection:151|🔣 Eliminadas por Cramér's V: ['region_comercial_txt']
+2025-09-18 22:46:34|INFO    |66178|src.selection.feature_selection:154|📈 Eliminadas por Pearson: ['facturacion_usd_val', 'materiales_distintos_val']
+2025-09-18 22:46:34|SUCCESS |66178|src.selection.feature_selection:156|✅ Pipeline de selección ajustado.
+2025-09-18 22:46:34|INFO    |66178|src.selection.feature_selection:167|🏷️ Casteando features datetime a category: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:46:34|INFO    |66178|src.selection.feature_selection:180|   fecha_pedido_dt_day_of_week: category
+2025-09-18 22:46:34|INFO    |66178|src.selection.feature_selection:180|   fecha_pedido_dt_quarter: category
+2025-09-18 22:46:34|SUCCESS |66178|src.selection.feature_selection:182|🎯 Feature selection completa. Train=(89976, 8), Val=(29992, 8), Test=(29992, 8)
+2025-09-18 22:46:34|INFO    |66178|src.selection.feature_selection:186|🏷️ Columnas finales: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:46:34|INFO    |66178|src.selection.feature_selection:187|⏰ Features datetime finales: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:46:34|SUCCESS |66178|__main__.main:100|✨ Feature selection completa. Train=(89976, 8), Val=(29992, 8), Test=(29992, 8)
+2025-09-18 22:46:34|INFO    |66178|src.training.train_models:113|🚀 Iniciando entrenamiento con XGBoost...
+2025-09-18 22:46:34|INFO    |66178|src.training.prepare_categorical_features:40|🏷️ Casteadas a 'category': ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:46:34|INFO    |66178|src.training.encode_target_like_train:64|🎯 Clases (orden): ['DIGITAL', 'TELEFONO', 'VENDEDOR']
+2025-09-18 22:46:34|INFO    |66178|src.training.train_models:142|🟢 Se intentará entrenar con GPU (gpu_hist).
+2025-09-18 22:46:34|INFO    |66178|src.training.train_models:154|⚖️  Usando sample_weight balanceado por clase.
+2025-09-18 22:46:34|ERROR   |66178|__main__.main:135|❌ Error en entrenamiento: cannot access local variable 'mlflow' where it is not associated with a value
+2025-09-18 22:49:01|SUCCESS |68036|config.settings.get_settings:41|✅ Configuración cargada y validada con éxito.
+2025-09-18 22:49:01|INFO    |68036|__main__.main:24|🧭 MLflow tracking_uri = http://localhost:5555
+2025-09-18 22:49:01|INFO    |68036|__main__.main:25|🧪 MLflow experiment   = digital_orders_new
+2025-09-18 22:49:01|INFO    |68036|src.utils.elt.run:152|🚀 Iniciando pipeline ELT
+2025-09-18 22:49:01|INFO    |68036|src.utils.elt.read_parquet_folder:34|📁 Archivos encontrados: ['part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet', 'part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet', 'part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet', 'part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet', 'part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet', 'part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet', 'part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet', 'part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet']
+2025-09-18 22:49:01|DEBUG   |68036|src.utils.elt.read_parquet_folder:44|part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 22:49:01|DEBUG   |68036|src.utils.elt.read_parquet_folder:44|part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:49:01|DEBUG   |68036|src.utils.elt.read_parquet_folder:44|part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 22:49:01|DEBUG   |68036|src.utils.elt.read_parquet_folder:44|part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:49:01|DEBUG   |68036|src.utils.elt.read_parquet_folder:44|part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:49:01|DEBUG   |68036|src.utils.elt.read_parquet_folder:44|part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 22:49:01|DEBUG   |68036|src.utils.elt.read_parquet_folder:44|part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:49:01|DEBUG   |68036|src.utils.elt.read_parquet_folder:44|part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet: 156,368 filas × 14 columnas
+2025-09-18 22:49:01|INFO    |68036|src.utils.elt.read_parquet_folder:47|==================================================
+2025-09-18 22:49:01|INFO    |68036|src.utils.elt.read_parquet_folder:48|CONCATENANDO ARCHIVOS
+2025-09-18 22:49:01|INFO    |68036|src.utils.elt.read_parquet_folder:49|==================================================
+2025-09-18 22:49:01|INFO    |68036|src.utils.elt.read_parquet_folder:54|Total esperado: 1,250,000 filas
+2025-09-18 22:49:01|INFO    |68036|src.utils.elt.read_parquet_folder:55|Dataset final: 1,250,000 filas × 14 columnas
+2025-09-18 22:49:01|SUCCESS |68036|src.utils.elt.read_parquet_folder:57|✅ Concatenación exitosa - todas las filas conservadas
+2025-09-18 22:49:01|INFO    |68036|src.utils.elt.read_parquet_folder:64|Clientes únicos: 149,960
+2025-09-18 22:49:01|INFO    |68036|src.utils.elt.read_parquet_folder:65|Total registros: 1,250,000
+2025-09-18 22:49:01|INFO    |68036|src.utils.elt.read_parquet_folder:66|Promedio registros por cliente: 8.3
+2025-09-18 22:49:01|SUCCESS |68036|src.utils.elt.validate_and_cast:95|✅ Validación y casting completados
+2025-09-18 22:49:02|SUCCESS |68036|src.utils.elt.aggregate_to_customer:128|✅ Agregación completada: 149,960 clientes únicos
+2025-09-18 22:49:02|INFO    |68036|src.utils.elt.write_processed:140|💾 Archivo procesado guardado en: data/processed/data_final.parquet
+2025-09-18 22:49:02|SUCCESS |68036|src.utils.elt.run:157|🎉 Pipeline ELT completada
+2025-09-18 22:49:02|SUCCESS |68036|__main__.main:52|🎯 Pipeline ELT ejecutada con éxito. Registros procesados: 149,960
+2025-09-18 22:49:02|INFO    |68036|src.split.split_train_val_test:39|🚀 Iniciando split_train_val_test()
+2025-09-18 22:49:02|INFO    |68036|src.split.split_train_val_test:43|🔤 Variables discretas detectadas: ['estrellas_txt']
+2025-09-18 22:49:02|SUCCESS |68036|src.split.split_train_val_test:52|✅ Casteo de discretas completado
+2025-09-18 22:49:02|SUCCESS |68036|src.split.split_train_val_test:74|🎯 Split completado -> Train: (89976, 13), Val: (29992, 13), Test: (29992, 13)
+2025-09-18 22:49:02|SUCCESS |68036|__main__.main:76|📊 División realizada: Train=(89976, 13), Val=(29992, 13), Test=(29992, 13)
+2025-09-18 22:49:02|INFO    |68036|src.selection.feature_selection:35|🏷️ Columnas originales: ['cliente_id', 'pais_cd', 'region_comercial_txt', 'agencia_id', 'ruta_id', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'facturacion_usd_val', 'materiales_distintos_val', 'cajas_fisicas', 'fecha_pedido_dt']
+2025-09-18 22:49:02|INFO    |68036|src.selection.feature_selection:40|⏰ Variables datetime detectadas: ['fecha_pedido_dt']
+2025-09-18 22:49:02|INFO    |68036|src.selection.feature_selection:44|🧾 IDs detectados para eliminar: ['cliente_id', 'agencia_id', 'ruta_id']
+2025-09-18 22:49:02|INFO    |68036|src.selection.feature_selection:59|⏰ Extrayendo día de semana y trimestre de: ['fecha_pedido_dt']
+2025-09-18 22:49:02|INFO    |68036|src.selection.feature_selection:69|⏰ Nuevas features datetime: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:49:02|INFO    |68036|src.selection.feature_selection:85|📦 Candidatas a casi-constantes: 11
+2025-09-18 22:49:02|INFO    |68036|src.selection.feature_selection:86|🔣 Categóricas para Cramér's V: 8 (incluye datetime)
+2025-09-18 22:49:02|INFO    |68036|src.selection.feature_selection:87|📈 Numéricas para Pearson: 3
+2025-09-18 22:49:02|INFO    |68036|src.selection.feature_selection:126|🛠️ Ajustando pipeline de selección…
+2025-09-18 22:49:02|INFO    |68036|src.selection.feature_selection:142|⏰ Features datetime creadas: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:49:02|INFO    |68036|src.selection.feature_selection:145|🧾 Eliminadas por ID: ['cliente_id', 'agencia_id', 'ruta_id']
+2025-09-18 22:49:02|INFO    |68036|src.selection.feature_selection:148|📦 Eliminadas por casi-constantes: ninguna
+2025-09-18 22:49:02|INFO    |68036|src.selection.feature_selection:151|🔣 Eliminadas por Cramér's V: ['region_comercial_txt']
+2025-09-18 22:49:02|INFO    |68036|src.selection.feature_selection:154|📈 Eliminadas por Pearson: ['facturacion_usd_val', 'materiales_distintos_val']
+2025-09-18 22:49:02|SUCCESS |68036|src.selection.feature_selection:156|✅ Pipeline de selección ajustado.
+2025-09-18 22:49:03|INFO    |68036|src.selection.feature_selection:167|🏷️ Casteando features datetime a category: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:49:03|INFO    |68036|src.selection.feature_selection:180|   fecha_pedido_dt_day_of_week: category
+2025-09-18 22:49:03|INFO    |68036|src.selection.feature_selection:180|   fecha_pedido_dt_quarter: category
+2025-09-18 22:49:03|SUCCESS |68036|src.selection.feature_selection:182|🎯 Feature selection completa. Train=(89976, 8), Val=(29992, 8), Test=(29992, 8)
+2025-09-18 22:49:03|INFO    |68036|src.selection.feature_selection:186|🏷️ Columnas finales: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:49:03|INFO    |68036|src.selection.feature_selection:187|⏰ Features datetime finales: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:49:03|SUCCESS |68036|__main__.main:100|✨ Feature selection completa. Train=(89976, 8), Val=(29992, 8), Test=(29992, 8)
+2025-09-18 22:49:03|INFO    |68036|src.training.train_models:114|🚀 Iniciando entrenamiento con XGBoost...
+2025-09-18 22:49:03|INFO    |68036|src.training.prepare_categorical_features:41|🏷️ Casteadas a 'category': ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:49:03|INFO    |68036|src.training.encode_target_like_train:65|🎯 Clases (orden): ['DIGITAL', 'TELEFONO', 'VENDEDOR']
+2025-09-18 22:49:03|INFO    |68036|src.training.train_models:143|🟢 Se intentará entrenar con GPU (gpu_hist).
+2025-09-18 22:49:03|INFO    |68036|src.training.train_models:155|⚖️  Usando sample_weight balanceado por clase.
+2025-09-18 22:49:03|INFO    |68036|src.training.train_models:163|🔗 Run de entrenamiento anidado al run activo de MLflow.
+2025-09-18 22:49:03|INFO    |68036|src.training.train_models:164|📊 Entrenando XGBoost con early stopping…
+2025-09-18 22:49:03|WARNING |68036|src.training.train_models:193|⚠️ Entrenamiento con GPU falló (XGBClassifier.fit() got an unexpected keyword argument 'early_stopping_rounds'). Reintentando en CPU…
+2025-09-18 22:49:03|ERROR   |68036|__main__.main:135|❌ Error en entrenamiento: XGBClassifier.fit() got an unexpected keyword argument 'early_stopping_rounds'
+2025-09-18 22:50:01|SUCCESS |68996|config.settings.get_settings:41|✅ Configuración cargada y validada con éxito.
+2025-09-18 22:50:02|INFO    |68996|__main__.main:24|🧭 MLflow tracking_uri = http://localhost:5555
+2025-09-18 22:50:02|INFO    |68996|__main__.main:25|🧪 MLflow experiment   = digital_orders_new
+2025-09-18 22:50:02|INFO    |68996|src.utils.elt.run:152|🚀 Iniciando pipeline ELT
+2025-09-18 22:50:02|INFO    |68996|src.utils.elt.read_parquet_folder:34|📁 Archivos encontrados: ['part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet', 'part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet', 'part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet', 'part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet', 'part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet', 'part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet', 'part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet', 'part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet']
+2025-09-18 22:50:02|DEBUG   |68996|src.utils.elt.read_parquet_folder:44|part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 22:50:02|DEBUG   |68996|src.utils.elt.read_parquet_folder:44|part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:50:02|DEBUG   |68996|src.utils.elt.read_parquet_folder:44|part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 22:50:02|DEBUG   |68996|src.utils.elt.read_parquet_folder:44|part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:50:02|DEBUG   |68996|src.utils.elt.read_parquet_folder:44|part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:50:02|DEBUG   |68996|src.utils.elt.read_parquet_folder:44|part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 22:50:02|DEBUG   |68996|src.utils.elt.read_parquet_folder:44|part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:50:02|DEBUG   |68996|src.utils.elt.read_parquet_folder:44|part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet: 156,368 filas × 14 columnas
+2025-09-18 22:50:02|INFO    |68996|src.utils.elt.read_parquet_folder:47|==================================================
+2025-09-18 22:50:02|INFO    |68996|src.utils.elt.read_parquet_folder:48|CONCATENANDO ARCHIVOS
+2025-09-18 22:50:02|INFO    |68996|src.utils.elt.read_parquet_folder:49|==================================================
+2025-09-18 22:50:02|INFO    |68996|src.utils.elt.read_parquet_folder:54|Total esperado: 1,250,000 filas
+2025-09-18 22:50:02|INFO    |68996|src.utils.elt.read_parquet_folder:55|Dataset final: 1,250,000 filas × 14 columnas
+2025-09-18 22:50:02|SUCCESS |68996|src.utils.elt.read_parquet_folder:57|✅ Concatenación exitosa - todas las filas conservadas
+2025-09-18 22:50:02|INFO    |68996|src.utils.elt.read_parquet_folder:64|Clientes únicos: 149,960
+2025-09-18 22:50:02|INFO    |68996|src.utils.elt.read_parquet_folder:65|Total registros: 1,250,000
+2025-09-18 22:50:02|INFO    |68996|src.utils.elt.read_parquet_folder:66|Promedio registros por cliente: 8.3
+2025-09-18 22:50:02|SUCCESS |68996|src.utils.elt.validate_and_cast:95|✅ Validación y casting completados
+2025-09-18 22:50:02|SUCCESS |68996|src.utils.elt.aggregate_to_customer:128|✅ Agregación completada: 149,960 clientes únicos
+2025-09-18 22:50:02|INFO    |68996|src.utils.elt.write_processed:140|💾 Archivo procesado guardado en: data/processed/data_final.parquet
+2025-09-18 22:50:02|SUCCESS |68996|src.utils.elt.run:157|🎉 Pipeline ELT completada
+2025-09-18 22:50:02|SUCCESS |68996|__main__.main:52|🎯 Pipeline ELT ejecutada con éxito. Registros procesados: 149,960
+2025-09-18 22:50:02|INFO    |68996|src.split.split_train_val_test:39|🚀 Iniciando split_train_val_test()
+2025-09-18 22:50:02|INFO    |68996|src.split.split_train_val_test:43|🔤 Variables discretas detectadas: ['estrellas_txt']
+2025-09-18 22:50:02|SUCCESS |68996|src.split.split_train_val_test:52|✅ Casteo de discretas completado
+2025-09-18 22:50:03|SUCCESS |68996|src.split.split_train_val_test:74|🎯 Split completado -> Train: (89976, 13), Val: (29992, 13), Test: (29992, 13)
+2025-09-18 22:50:03|SUCCESS |68996|__main__.main:76|📊 División realizada: Train=(89976, 13), Val=(29992, 13), Test=(29992, 13)
+2025-09-18 22:50:03|INFO    |68996|src.selection.feature_selection:35|🏷️ Columnas originales: ['cliente_id', 'pais_cd', 'region_comercial_txt', 'agencia_id', 'ruta_id', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'facturacion_usd_val', 'materiales_distintos_val', 'cajas_fisicas', 'fecha_pedido_dt']
+2025-09-18 22:50:03|INFO    |68996|src.selection.feature_selection:40|⏰ Variables datetime detectadas: ['fecha_pedido_dt']
+2025-09-18 22:50:03|INFO    |68996|src.selection.feature_selection:44|🧾 IDs detectados para eliminar: ['cliente_id', 'agencia_id', 'ruta_id']
+2025-09-18 22:50:03|INFO    |68996|src.selection.feature_selection:59|⏰ Extrayendo día de semana y trimestre de: ['fecha_pedido_dt']
+2025-09-18 22:50:03|INFO    |68996|src.selection.feature_selection:69|⏰ Nuevas features datetime: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:50:03|INFO    |68996|src.selection.feature_selection:85|📦 Candidatas a casi-constantes: 11
+2025-09-18 22:50:03|INFO    |68996|src.selection.feature_selection:86|🔣 Categóricas para Cramér's V: 8 (incluye datetime)
+2025-09-18 22:50:03|INFO    |68996|src.selection.feature_selection:87|📈 Numéricas para Pearson: 3
+2025-09-18 22:50:03|INFO    |68996|src.selection.feature_selection:126|🛠️ Ajustando pipeline de selección…
+2025-09-18 22:50:03|INFO    |68996|src.selection.feature_selection:142|⏰ Features datetime creadas: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:50:03|INFO    |68996|src.selection.feature_selection:145|🧾 Eliminadas por ID: ['cliente_id', 'agencia_id', 'ruta_id']
+2025-09-18 22:50:03|INFO    |68996|src.selection.feature_selection:148|📦 Eliminadas por casi-constantes: ninguna
+2025-09-18 22:50:03|INFO    |68996|src.selection.feature_selection:151|🔣 Eliminadas por Cramér's V: ['region_comercial_txt']
+2025-09-18 22:50:03|INFO    |68996|src.selection.feature_selection:154|📈 Eliminadas por Pearson: ['facturacion_usd_val', 'materiales_distintos_val']
+2025-09-18 22:50:03|SUCCESS |68996|src.selection.feature_selection:156|✅ Pipeline de selección ajustado.
+2025-09-18 22:50:03|INFO    |68996|src.selection.feature_selection:167|🏷️ Casteando features datetime a category: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:50:03|INFO    |68996|src.selection.feature_selection:180|   fecha_pedido_dt_day_of_week: category
+2025-09-18 22:50:03|INFO    |68996|src.selection.feature_selection:180|   fecha_pedido_dt_quarter: category
+2025-09-18 22:50:03|SUCCESS |68996|src.selection.feature_selection:182|🎯 Feature selection completa. Train=(89976, 8), Val=(29992, 8), Test=(29992, 8)
+2025-09-18 22:50:03|INFO    |68996|src.selection.feature_selection:186|🏷️ Columnas finales: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:50:03|INFO    |68996|src.selection.feature_selection:187|⏰ Features datetime finales: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:50:03|SUCCESS |68996|__main__.main:100|✨ Feature selection completa. Train=(89976, 8), Val=(29992, 8), Test=(29992, 8)
+2025-09-18 22:50:03|INFO    |68996|src.training.train_models:114|🚀 Iniciando entrenamiento con XGBoost...
+2025-09-18 22:50:03|INFO    |68996|src.training.prepare_categorical_features:41|🏷️ Casteadas a 'category': ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 22:50:03|INFO    |68996|src.training.encode_target_like_train:65|🎯 Clases (orden): ['DIGITAL', 'TELEFONO', 'VENDEDOR']
+2025-09-18 22:50:03|INFO    |68996|src.training.train_models:143|🟢 Se intentará entrenar con GPU (gpu_hist).
+2025-09-18 22:50:03|INFO    |68996|src.training.train_models:155|⚖️  Usando sample_weight balanceado por clase.
+2025-09-18 22:50:03|INFO    |68996|src.training.train_models:163|🔗 Run de entrenamiento anidado al run activo de MLflow.
+2025-09-18 22:50:03|INFO    |68996|src.training.train_models:164|📊 Entrenando XGBoost con early stopping…
+2025-09-18 22:50:22|INFO    |68996|src.training.train_models:279|📈 Métricas de Rendimiento:
+2025-09-18 22:50:22|INFO    |68996|src.training.train_models:280|   🎯 LogLoss → Train 0.8516 | Val 1.0868 | Test 1.0836
+2025-09-18 22:50:22|INFO    |68996|src.training.train_models:281|   📊 Acc    → Train 0.6307 | Val 0.4206 | Test 0.4241
+2025-09-18 22:50:22|SUCCESS |68996|__main__.main:129|🤖 Entrenamiento completado con XGBoost. LogLoss de validación: 1.0868
+2025-09-18 22:53:58|SUCCESS |72066|config.settings.get_settings:41|✅ Configuración cargada y validada con éxito.
+2025-09-18 22:54:28|SUCCESS |72580|config.settings.get_settings:41|✅ Configuración cargada y validada con éxito.
+2025-09-18 22:58:43|SUCCESS |75385|config.settings.get_settings:41|✅ Configuración cargada y validada con éxito.
+2025-09-18 22:59:01|SUCCESS |75808|config.settings.get_settings:41|✅ Configuración cargada y validada con éxito.
+2025-09-18 22:59:02|INFO    |75808|__main__.main:25|🧭 MLflow tracking_uri = http://localhost:5555
+2025-09-18 22:59:02|INFO    |75808|__main__.main:26|🧪 MLflow experiment   = digital_orders (id=1)
+2025-09-18 22:59:02|INFO    |75808|src.utils.elt.run:152|🚀 Iniciando pipeline ELT
+2025-09-18 22:59:02|INFO    |75808|src.utils.elt.read_parquet_folder:34|📁 Archivos encontrados: ['part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet', 'part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet', 'part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet', 'part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet', 'part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet', 'part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet', 'part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet', 'part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet']
+2025-09-18 22:59:02|DEBUG   |75808|src.utils.elt.read_parquet_folder:44|part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 22:59:02|DEBUG   |75808|src.utils.elt.read_parquet_folder:44|part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:59:02|DEBUG   |75808|src.utils.elt.read_parquet_folder:44|part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 22:59:02|DEBUG   |75808|src.utils.elt.read_parquet_folder:44|part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:59:02|DEBUG   |75808|src.utils.elt.read_parquet_folder:44|part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:59:02|DEBUG   |75808|src.utils.elt.read_parquet_folder:44|part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 22:59:02|DEBUG   |75808|src.utils.elt.read_parquet_folder:44|part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 22:59:02|DEBUG   |75808|src.utils.elt.read_parquet_folder:44|part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet: 156,368 filas × 14 columnas
+2025-09-18 22:59:02|INFO    |75808|src.utils.elt.read_parquet_folder:47|==================================================
+2025-09-18 22:59:02|INFO    |75808|src.utils.elt.read_parquet_folder:48|CONCATENANDO ARCHIVOS
+2025-09-18 22:59:02|INFO    |75808|src.utils.elt.read_parquet_folder:49|==================================================
+2025-09-18 22:59:02|INFO    |75808|src.utils.elt.read_parquet_folder:54|Total esperado: 1,250,000 filas
+2025-09-18 22:59:02|INFO    |75808|src.utils.elt.read_parquet_folder:55|Dataset final: 1,250,000 filas × 14 columnas
+2025-09-18 22:59:02|SUCCESS |75808|src.utils.elt.read_parquet_folder:57|✅ Concatenación exitosa - todas las filas conservadas
+2025-09-18 22:59:02|INFO    |75808|src.utils.elt.read_parquet_folder:64|Clientes únicos: 149,960
+2025-09-18 22:59:02|INFO    |75808|src.utils.elt.read_parquet_folder:65|Total registros: 1,250,000
+2025-09-18 22:59:02|INFO    |75808|src.utils.elt.read_parquet_folder:66|Promedio registros por cliente: 8.3
+2025-09-18 22:59:02|SUCCESS |75808|src.utils.elt.validate_and_cast:95|✅ Validación y casting completados
+2025-09-18 22:59:02|SUCCESS |75808|src.utils.elt.aggregate_to_customer:128|✅ Agregación completada: 149,960 clientes únicos
+2025-09-18 22:59:02|INFO    |75808|src.utils.elt.write_processed:140|💾 Archivo procesado guardado en: data/processed/data_final.parquet
+2025-09-18 22:59:02|SUCCESS |75808|src.utils.elt.run:157|🎉 Pipeline ELT completada
+2025-09-18 22:59:02|SUCCESS |75808|__main__.main:53|🎯 Pipeline ELT ejecutada con éxito. Registros procesados: 149,960
+2025-09-18 22:59:03|ERROR   |75808|__main__.main:64|❌ Error al ejecutar pipeline ELT: [Errno 13] Permission denied: '/mlflow'
+2025-09-18 23:00:55|SUCCESS |77201|config.settings.get_settings:41|✅ Configuración cargada y validada con éxito.
+2025-09-18 23:00:56|INFO    |77201|__main__.main:25|🧭 MLflow tracking_uri = http://localhost:5555
+2025-09-18 23:00:56|INFO    |77201|__main__.main:26|🧪 MLflow experiment   = digital_orders (id=1)
+2025-09-18 23:02:30|SUCCESS |78493|config.settings.get_settings:41|✅ Configuración cargada y validada con éxito.
+2025-09-18 23:02:31|INFO    |78493|__main__.main:25|🧭 MLflow tracking_uri = http://localhost:5555
+2025-09-18 23:02:31|INFO    |78493|__main__.main:26|🧪 MLflow experiment   = digital_orders_new (id=2)
+2025-09-18 23:02:31|INFO    |78493|src.utils.elt.run:152|🚀 Iniciando pipeline ELT
+2025-09-18 23:02:31|INFO    |78493|src.utils.elt.read_parquet_folder:34|📁 Archivos encontrados: ['part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet', 'part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet', 'part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet', 'part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet', 'part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet', 'part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet', 'part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet', 'part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet']
+2025-09-18 23:02:31|DEBUG   |78493|src.utils.elt.read_parquet_folder:44|part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 23:02:31|DEBUG   |78493|src.utils.elt.read_parquet_folder:44|part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 23:02:31|DEBUG   |78493|src.utils.elt.read_parquet_folder:44|part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 23:02:31|DEBUG   |78493|src.utils.elt.read_parquet_folder:44|part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 23:02:31|DEBUG   |78493|src.utils.elt.read_parquet_folder:44|part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 23:02:31|DEBUG   |78493|src.utils.elt.read_parquet_folder:44|part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 23:02:31|DEBUG   |78493|src.utils.elt.read_parquet_folder:44|part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 23:02:31|DEBUG   |78493|src.utils.elt.read_parquet_folder:44|part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet: 156,368 filas × 14 columnas
+2025-09-18 23:02:31|INFO    |78493|src.utils.elt.read_parquet_folder:47|==================================================
+2025-09-18 23:02:31|INFO    |78493|src.utils.elt.read_parquet_folder:48|CONCATENANDO ARCHIVOS
+2025-09-18 23:02:31|INFO    |78493|src.utils.elt.read_parquet_folder:49|==================================================
+2025-09-18 23:02:31|INFO    |78493|src.utils.elt.read_parquet_folder:54|Total esperado: 1,250,000 filas
+2025-09-18 23:02:31|INFO    |78493|src.utils.elt.read_parquet_folder:55|Dataset final: 1,250,000 filas × 14 columnas
+2025-09-18 23:02:31|SUCCESS |78493|src.utils.elt.read_parquet_folder:57|✅ Concatenación exitosa - todas las filas conservadas
+2025-09-18 23:02:31|INFO    |78493|src.utils.elt.read_parquet_folder:64|Clientes únicos: 149,960
+2025-09-18 23:02:31|INFO    |78493|src.utils.elt.read_parquet_folder:65|Total registros: 1,250,000
+2025-09-18 23:02:31|INFO    |78493|src.utils.elt.read_parquet_folder:66|Promedio registros por cliente: 8.3
+2025-09-18 23:02:32|SUCCESS |78493|src.utils.elt.validate_and_cast:95|✅ Validación y casting completados
+2025-09-18 23:02:32|SUCCESS |78493|src.utils.elt.aggregate_to_customer:128|✅ Agregación completada: 149,960 clientes únicos
+2025-09-18 23:02:32|INFO    |78493|src.utils.elt.write_processed:140|💾 Archivo procesado guardado en: data/processed/data_final.parquet
+2025-09-18 23:02:32|SUCCESS |78493|src.utils.elt.run:157|🎉 Pipeline ELT completada
+2025-09-18 23:02:32|SUCCESS |78493|__main__.main:53|🎯 Pipeline ELT ejecutada con éxito. Registros procesados: 149,960
+2025-09-18 23:02:32|INFO    |78493|src.split.split_train_val_test:39|🚀 Iniciando split_train_val_test()
+2025-09-18 23:02:32|INFO    |78493|src.split.split_train_val_test:43|🔤 Variables discretas detectadas: ['estrellas_txt']
+2025-09-18 23:02:32|SUCCESS |78493|src.split.split_train_val_test:52|✅ Casteo de discretas completado
+2025-09-18 23:02:32|SUCCESS |78493|src.split.split_train_val_test:74|🎯 Split completado -> Train: (89976, 13), Val: (29992, 13), Test: (29992, 13)
+2025-09-18 23:02:32|SUCCESS |78493|__main__.main:77|📊 División realizada: Train=(89976, 13), Val=(29992, 13), Test=(29992, 13)
+2025-09-18 23:02:32|INFO    |78493|src.selection.feature_selection:35|🏷️ Columnas originales: ['cliente_id', 'pais_cd', 'region_comercial_txt', 'agencia_id', 'ruta_id', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'facturacion_usd_val', 'materiales_distintos_val', 'cajas_fisicas', 'fecha_pedido_dt']
+2025-09-18 23:02:32|INFO    |78493|src.selection.feature_selection:40|⏰ Variables datetime detectadas: ['fecha_pedido_dt']
+2025-09-18 23:02:32|INFO    |78493|src.selection.feature_selection:44|🧾 IDs detectados para eliminar: ['cliente_id', 'agencia_id', 'ruta_id']
+2025-09-18 23:02:32|INFO    |78493|src.selection.feature_selection:59|⏰ Extrayendo día de semana y trimestre de: ['fecha_pedido_dt']
+2025-09-18 23:02:32|INFO    |78493|src.selection.feature_selection:69|⏰ Nuevas features datetime: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 23:02:32|INFO    |78493|src.selection.feature_selection:85|📦 Candidatas a casi-constantes: 11
+2025-09-18 23:02:32|INFO    |78493|src.selection.feature_selection:86|🔣 Categóricas para Cramér's V: 8 (incluye datetime)
+2025-09-18 23:02:32|INFO    |78493|src.selection.feature_selection:87|📈 Numéricas para Pearson: 3
+2025-09-18 23:02:32|INFO    |78493|src.selection.feature_selection:126|🛠️ Ajustando pipeline de selección…
+2025-09-18 23:02:32|INFO    |78493|src.selection.feature_selection:142|⏰ Features datetime creadas: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 23:02:32|INFO    |78493|src.selection.feature_selection:145|🧾 Eliminadas por ID: ['cliente_id', 'agencia_id', 'ruta_id']
+2025-09-18 23:02:32|INFO    |78493|src.selection.feature_selection:148|📦 Eliminadas por casi-constantes: ninguna
+2025-09-18 23:02:33|INFO    |78493|src.selection.feature_selection:151|🔣 Eliminadas por Cramér's V: ['region_comercial_txt']
+2025-09-18 23:02:33|INFO    |78493|src.selection.feature_selection:154|📈 Eliminadas por Pearson: ['facturacion_usd_val', 'materiales_distintos_val']
+2025-09-18 23:02:33|SUCCESS |78493|src.selection.feature_selection:156|✅ Pipeline de selección ajustado.
+2025-09-18 23:02:33|INFO    |78493|src.selection.feature_selection:167|🏷️ Casteando features datetime a category: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 23:02:33|INFO    |78493|src.selection.feature_selection:180|   fecha_pedido_dt_day_of_week: category
+2025-09-18 23:02:33|INFO    |78493|src.selection.feature_selection:180|   fecha_pedido_dt_quarter: category
+2025-09-18 23:02:33|SUCCESS |78493|src.selection.feature_selection:182|🎯 Feature selection completa. Train=(89976, 8), Val=(29992, 8), Test=(29992, 8)
+2025-09-18 23:02:33|INFO    |78493|src.selection.feature_selection:186|🏷️ Columnas finales: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 23:02:33|INFO    |78493|src.selection.feature_selection:187|⏰ Features datetime finales: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 23:02:33|SUCCESS |78493|__main__.main:100|✨ Feature selection completa. Train=(89976, 8), Val=(29992, 8), Test=(29992, 8)
+2025-09-18 23:02:33|INFO    |78493|src.training.train_models:115|🚀 Iniciando entrenamiento con XGBoost...
+2025-09-18 23:02:33|INFO    |78493|src.training.prepare_categorical_features:42|🏷️ Casteadas a 'category': ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 23:02:33|INFO    |78493|src.training.encode_target_like_train:66|🎯 Clases (orden): ['DIGITAL', 'TELEFONO', 'VENDEDOR']
+2025-09-18 23:02:33|INFO    |78493|src.training.train_models:144|🟢 Se intentará entrenar con GPU (gpu_hist).
+2025-09-18 23:02:33|INFO    |78493|src.training.train_models:156|⚖️  Usando sample_weight balanceado por clase.
+2025-09-18 23:02:33|INFO    |78493|src.training.train_models:164|🔗 Run de entrenamiento anidado al run activo de MLflow.
+2025-09-18 23:02:33|INFO    |78493|src.training.train_models:165|📊 Entrenando XGBoost con early stopping…
+2025-09-18 23:02:52|INFO    |78493|src.training.train_models:285|📈 Métricas de Rendimiento:
+2025-09-18 23:02:52|INFO    |78493|src.training.train_models:286|   🎯 LogLoss → Train 0.8516 | Val 1.0868 | Test 1.0836
+2025-09-18 23:02:52|INFO    |78493|src.training.train_models:287|   📊 Acc    → Train 0.6307 | Val 0.4206 | Test 0.4241
+2025-09-18 23:02:52|SUCCESS |78493|__main__.main:128|🤖 Entrenamiento completado con XGBoost. LogLoss de validación: 1.0868
+2025-09-18 23:10:02|SUCCESS |83552|config.settings.get_settings:41|✅ Configuración cargada y validada con éxito.
+2025-09-18 23:10:03|INFO    |83552|__main__.main:25|🧭 MLflow tracking_uri = http://localhost:5555
+2025-09-18 23:10:03|INFO    |83552|__main__.main:26|🧪 MLflow experiment   = digital_orders_new (id=2)
+2025-09-18 23:10:03|INFO    |83552|src.utils.elt.run:152|🚀 Iniciando pipeline ELT
+2025-09-18 23:10:03|INFO    |83552|src.utils.elt.read_parquet_folder:34|📁 Archivos encontrados: ['part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet', 'part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet', 'part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet', 'part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet', 'part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet', 'part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet', 'part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet', 'part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet']
+2025-09-18 23:10:03|DEBUG   |83552|src.utils.elt.read_parquet_folder:44|part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 23:10:03|DEBUG   |83552|src.utils.elt.read_parquet_folder:44|part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 23:10:03|DEBUG   |83552|src.utils.elt.read_parquet_folder:44|part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 23:10:03|DEBUG   |83552|src.utils.elt.read_parquet_folder:44|part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 23:10:03|DEBUG   |83552|src.utils.elt.read_parquet_folder:44|part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 23:10:03|DEBUG   |83552|src.utils.elt.read_parquet_folder:44|part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-18 23:10:03|DEBUG   |83552|src.utils.elt.read_parquet_folder:44|part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-18 23:10:03|DEBUG   |83552|src.utils.elt.read_parquet_folder:44|part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet: 156,368 filas × 14 columnas
+2025-09-18 23:10:03|INFO    |83552|src.utils.elt.read_parquet_folder:47|==================================================
+2025-09-18 23:10:03|INFO    |83552|src.utils.elt.read_parquet_folder:48|CONCATENANDO ARCHIVOS
+2025-09-18 23:10:03|INFO    |83552|src.utils.elt.read_parquet_folder:49|==================================================
+2025-09-18 23:10:03|INFO    |83552|src.utils.elt.read_parquet_folder:54|Total esperado: 1,250,000 filas
+2025-09-18 23:10:03|INFO    |83552|src.utils.elt.read_parquet_folder:55|Dataset final: 1,250,000 filas × 14 columnas
+2025-09-18 23:10:03|SUCCESS |83552|src.utils.elt.read_parquet_folder:57|✅ Concatenación exitosa - todas las filas conservadas
+2025-09-18 23:10:03|INFO    |83552|src.utils.elt.read_parquet_folder:64|Clientes únicos: 149,960
+2025-09-18 23:10:03|INFO    |83552|src.utils.elt.read_parquet_folder:65|Total registros: 1,250,000
+2025-09-18 23:10:03|INFO    |83552|src.utils.elt.read_parquet_folder:66|Promedio registros por cliente: 8.3
+2025-09-18 23:10:03|SUCCESS |83552|src.utils.elt.validate_and_cast:95|✅ Validación y casting completados
+2025-09-18 23:10:03|SUCCESS |83552|src.utils.elt.aggregate_to_customer:128|✅ Agregación completada: 149,960 clientes únicos
+2025-09-18 23:10:03|INFO    |83552|src.utils.elt.write_processed:140|💾 Archivo procesado guardado en: data/processed/data_final.parquet
+2025-09-18 23:10:03|SUCCESS |83552|src.utils.elt.run:157|🎉 Pipeline ELT completada
+2025-09-18 23:10:03|SUCCESS |83552|__main__.main:53|🎯 Pipeline ELT ejecutada con éxito. Registros procesados: 149,960
+2025-09-18 23:10:04|INFO    |83552|src.split.split_train_val_test:39|🚀 Iniciando split_train_val_test()
+2025-09-18 23:10:04|INFO    |83552|src.split.split_train_val_test:43|🔤 Variables discretas detectadas: ['estrellas_txt']
+2025-09-18 23:10:04|SUCCESS |83552|src.split.split_train_val_test:52|✅ Casteo de discretas completado
+2025-09-18 23:10:04|SUCCESS |83552|src.split.split_train_val_test:74|🎯 Split completado -> Train: (89976, 13), Val: (29992, 13), Test: (29992, 13)
+2025-09-18 23:10:04|SUCCESS |83552|__main__.main:77|📊 División realizada: Train=(89976, 13), Val=(29992, 13), Test=(29992, 13)
+2025-09-18 23:10:04|INFO    |83552|src.selection.feature_selection:35|🏷️ Columnas originales: ['cliente_id', 'pais_cd', 'region_comercial_txt', 'agencia_id', 'ruta_id', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'facturacion_usd_val', 'materiales_distintos_val', 'cajas_fisicas', 'fecha_pedido_dt']
+2025-09-18 23:10:04|INFO    |83552|src.selection.feature_selection:40|⏰ Variables datetime detectadas: ['fecha_pedido_dt']
+2025-09-18 23:10:04|INFO    |83552|src.selection.feature_selection:44|🧾 IDs detectados para eliminar: ['cliente_id', 'agencia_id', 'ruta_id']
+2025-09-18 23:10:04|INFO    |83552|src.selection.feature_selection:59|⏰ Extrayendo día de semana y trimestre de: ['fecha_pedido_dt']
+2025-09-18 23:10:04|INFO    |83552|src.selection.feature_selection:69|⏰ Nuevas features datetime: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 23:10:04|INFO    |83552|src.selection.feature_selection:85|📦 Candidatas a casi-constantes: 11
+2025-09-18 23:10:04|INFO    |83552|src.selection.feature_selection:86|🔣 Categóricas para Cramér's V: 8 (incluye datetime)
+2025-09-18 23:10:04|INFO    |83552|src.selection.feature_selection:87|📈 Numéricas para Pearson: 3
+2025-09-18 23:10:04|INFO    |83552|src.selection.feature_selection:126|🛠️ Ajustando pipeline de selección…
+2025-09-18 23:10:04|INFO    |83552|src.selection.feature_selection:142|⏰ Features datetime creadas: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 23:10:04|INFO    |83552|src.selection.feature_selection:145|🧾 Eliminadas por ID: ['cliente_id', 'agencia_id', 'ruta_id']
+2025-09-18 23:10:04|INFO    |83552|src.selection.feature_selection:148|📦 Eliminadas por casi-constantes: ninguna
+2025-09-18 23:10:04|INFO    |83552|src.selection.feature_selection:151|🔣 Eliminadas por Cramér's V: ['region_comercial_txt']
+2025-09-18 23:10:04|INFO    |83552|src.selection.feature_selection:154|📈 Eliminadas por Pearson: ['facturacion_usd_val', 'materiales_distintos_val']
+2025-09-18 23:10:04|SUCCESS |83552|src.selection.feature_selection:156|✅ Pipeline de selección ajustado.
+2025-09-18 23:10:04|INFO    |83552|src.selection.feature_selection:167|🏷️ Casteando features datetime a category: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 23:10:04|INFO    |83552|src.selection.feature_selection:180|   fecha_pedido_dt_day_of_week: category
+2025-09-18 23:10:04|INFO    |83552|src.selection.feature_selection:180|   fecha_pedido_dt_quarter: category
+2025-09-18 23:10:04|SUCCESS |83552|src.selection.feature_selection:182|🎯 Feature selection completa. Train=(89976, 8), Val=(29992, 8), Test=(29992, 8)
+2025-09-18 23:10:04|INFO    |83552|src.selection.feature_selection:186|🏷️ Columnas finales: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 23:10:04|INFO    |83552|src.selection.feature_selection:187|⏰ Features datetime finales: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 23:10:04|SUCCESS |83552|__main__.main:100|✨ Feature selection completa. Train=(89976, 8), Val=(29992, 8), Test=(29992, 8)
+2025-09-18 23:10:04|INFO    |83552|src.training.train_models:115|🚀 Iniciando entrenamiento con XGBoost...
+2025-09-18 23:10:04|INFO    |83552|src.training.prepare_categorical_features:42|🏷️ Casteadas a 'category': ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-18 23:10:04|INFO    |83552|src.training.encode_target_like_train:66|🎯 Clases (orden): ['DIGITAL', 'TELEFONO', 'VENDEDOR']
+2025-09-18 23:10:04|INFO    |83552|src.training.train_models:144|🟢 Se intentará entrenar con GPU (gpu_hist).
+2025-09-18 23:10:04|INFO    |83552|src.training.train_models:156|⚖️  Usando sample_weight balanceado por clase.
+2025-09-18 23:10:04|INFO    |83552|src.training.train_models:164|🔗 Run de entrenamiento anidado al run activo de MLflow.
+2025-09-18 23:10:04|INFO    |83552|src.training.train_models:165|📊 Entrenando XGBoost con early stopping…
+2025-09-18 23:10:23|INFO    |83552|src.training.train_models:283|📈 Métricas de Rendimiento:
+2025-09-18 23:10:23|INFO    |83552|src.training.train_models:284|   🎯 LogLoss → Train 0.8516 | Val 1.0868 | Test 1.0836
+2025-09-18 23:10:23|INFO    |83552|src.training.train_models:285|   📊 Acc    → Train 0.6307 | Val 0.4206 | Test 0.4241
+2025-09-18 23:10:23|SUCCESS |83552|__main__.main:128|🤖 Entrenamiento completado con XGBoost. LogLoss de validación: 1.0868
+2025-09-19 00:06:08|SUCCESS |125491|config.settings.get_settings:41|✅ Configuración cargada y validada con éxito.
+2025-09-19 00:06:32|SUCCESS |125896|config.settings.get_settings:41|✅ Configuración cargada y validada con éxito.
+2025-09-19 00:06:33|INFO    |125896|__main__.main:25|🧭 MLflow tracking_uri = http://localhost:5555
+2025-09-19 00:06:33|INFO    |125896|__main__.main:26|🧪 MLflow experiment   = digital_orders_new (id=1)
+2025-09-19 00:06:33|INFO    |125896|src.utils.elt.run:152|🚀 Iniciando pipeline ELT
+2025-09-19 00:06:33|INFO    |125896|src.utils.elt.read_parquet_folder:34|📁 Archivos encontrados: ['part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet', 'part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet', 'part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet', 'part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet', 'part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet', 'part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet', 'part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet', 'part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet']
+2025-09-19 00:06:33|DEBUG   |125896|src.utils.elt.read_parquet_folder:44|part-00000-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2513-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-19 00:06:33|DEBUG   |125896|src.utils.elt.read_parquet_folder:44|part-00001-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2514-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-19 00:06:33|DEBUG   |125896|src.utils.elt.read_parquet_folder:44|part-00002-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2515-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-19 00:06:33|DEBUG   |125896|src.utils.elt.read_parquet_folder:44|part-00003-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2516-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-19 00:06:33|DEBUG   |125896|src.utils.elt.read_parquet_folder:44|part-00004-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2517-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-19 00:06:33|DEBUG   |125896|src.utils.elt.read_parquet_folder:44|part-00005-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2518-1-c000.snappy.parquet: 155,648 filas × 14 columnas
+2025-09-19 00:06:33|DEBUG   |125896|src.utils.elt.read_parquet_folder:44|part-00006-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2519-1-c000.snappy.parquet: 156,672 filas × 14 columnas
+2025-09-19 00:06:33|DEBUG   |125896|src.utils.elt.read_parquet_folder:44|part-00007-tid-4846308366011599585-72d1a41b-9ea0-4c9f-95c6-325ac28a2af6-2520-1-c000.snappy.parquet: 156,368 filas × 14 columnas
+2025-09-19 00:06:33|INFO    |125896|src.utils.elt.read_parquet_folder:47|==================================================
+2025-09-19 00:06:33|INFO    |125896|src.utils.elt.read_parquet_folder:48|CONCATENANDO ARCHIVOS
+2025-09-19 00:06:33|INFO    |125896|src.utils.elt.read_parquet_folder:49|==================================================
+2025-09-19 00:06:33|INFO    |125896|src.utils.elt.read_parquet_folder:54|Total esperado: 1,250,000 filas
+2025-09-19 00:06:33|INFO    |125896|src.utils.elt.read_parquet_folder:55|Dataset final: 1,250,000 filas × 14 columnas
+2025-09-19 00:06:33|SUCCESS |125896|src.utils.elt.read_parquet_folder:57|✅ Concatenación exitosa - todas las filas conservadas
+2025-09-19 00:06:33|INFO    |125896|src.utils.elt.read_parquet_folder:64|Clientes únicos: 149,960
+2025-09-19 00:06:33|INFO    |125896|src.utils.elt.read_parquet_folder:65|Total registros: 1,250,000
+2025-09-19 00:06:33|INFO    |125896|src.utils.elt.read_parquet_folder:66|Promedio registros por cliente: 8.3
+2025-09-19 00:06:33|SUCCESS |125896|src.utils.elt.validate_and_cast:95|✅ Validación y casting completados
+2025-09-19 00:06:33|SUCCESS |125896|src.utils.elt.aggregate_to_customer:128|✅ Agregación completada: 149,960 clientes únicos
+2025-09-19 00:06:33|INFO    |125896|src.utils.elt.write_processed:140|💾 Archivo procesado guardado en: data/processed/data_final.parquet
+2025-09-19 00:06:33|SUCCESS |125896|src.utils.elt.run:157|🎉 Pipeline ELT completada
+2025-09-19 00:06:33|SUCCESS |125896|__main__.main:53|🎯 Pipeline ELT ejecutada con éxito. Registros procesados: 149,960
+2025-09-19 00:06:34|INFO    |125896|src.split.split_train_val_test:39|🚀 Iniciando split_train_val_test()
+2025-09-19 00:06:34|INFO    |125896|src.split.split_train_val_test:43|🔤 Variables discretas detectadas: ['estrellas_txt']
+2025-09-19 00:06:34|SUCCESS |125896|src.split.split_train_val_test:52|✅ Casteo de discretas completado
+2025-09-19 00:06:34|SUCCESS |125896|src.split.split_train_val_test:74|🎯 Split completado -> Train: (89976, 13), Val: (29992, 13), Test: (29992, 13)
+2025-09-19 00:06:34|SUCCESS |125896|__main__.main:77|📊 División realizada: Train=(89976, 13), Val=(29992, 13), Test=(29992, 13)
+2025-09-19 00:06:34|INFO    |125896|src.selection.feature_selection:35|🏷️ Columnas originales: ['cliente_id', 'pais_cd', 'region_comercial_txt', 'agencia_id', 'ruta_id', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'facturacion_usd_val', 'materiales_distintos_val', 'cajas_fisicas', 'fecha_pedido_dt']
+2025-09-19 00:06:34|INFO    |125896|src.selection.feature_selection:40|⏰ Variables datetime detectadas: ['fecha_pedido_dt']
+2025-09-19 00:06:34|INFO    |125896|src.selection.feature_selection:44|🧾 IDs detectados para eliminar: ['cliente_id', 'agencia_id', 'ruta_id']
+2025-09-19 00:06:34|INFO    |125896|src.selection.feature_selection:59|⏰ Extrayendo día de semana y trimestre de: ['fecha_pedido_dt']
+2025-09-19 00:06:34|INFO    |125896|src.selection.feature_selection:69|⏰ Nuevas features datetime: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 00:06:34|INFO    |125896|src.selection.feature_selection:85|📦 Candidatas a casi-constantes: 11
+2025-09-19 00:06:34|INFO    |125896|src.selection.feature_selection:86|🔣 Categóricas para Cramér's V: 8 (incluye datetime)
+2025-09-19 00:06:34|INFO    |125896|src.selection.feature_selection:87|📈 Numéricas para Pearson: 3
+2025-09-19 00:06:34|INFO    |125896|src.selection.feature_selection:126|🛠️ Ajustando pipeline de selección…
+2025-09-19 00:06:34|INFO    |125896|src.selection.feature_selection:142|⏰ Features datetime creadas: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 00:06:34|INFO    |125896|src.selection.feature_selection:145|🧾 Eliminadas por ID: ['cliente_id', 'agencia_id', 'ruta_id']
+2025-09-19 00:06:34|INFO    |125896|src.selection.feature_selection:148|📦 Eliminadas por casi-constantes: ninguna
+2025-09-19 00:06:34|INFO    |125896|src.selection.feature_selection:151|🔣 Eliminadas por Cramér's V: ['region_comercial_txt']
+2025-09-19 00:06:34|INFO    |125896|src.selection.feature_selection:154|📈 Eliminadas por Pearson: ['facturacion_usd_val', 'materiales_distintos_val']
+2025-09-19 00:06:34|SUCCESS |125896|src.selection.feature_selection:156|✅ Pipeline de selección ajustado.
+2025-09-19 00:06:34|INFO    |125896|src.selection.feature_selection:167|🏷️ Casteando features datetime a category: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 00:06:34|INFO    |125896|src.selection.feature_selection:180|   fecha_pedido_dt_day_of_week: category
+2025-09-19 00:06:34|INFO    |125896|src.selection.feature_selection:180|   fecha_pedido_dt_quarter: category
+2025-09-19 00:06:34|SUCCESS |125896|src.selection.feature_selection:182|🎯 Feature selection completa. Train=(89976, 8), Val=(29992, 8), Test=(29992, 8)
+2025-09-19 00:06:34|INFO    |125896|src.selection.feature_selection:186|🏷️ Columnas finales: ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'cajas_fisicas', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 00:06:34|INFO    |125896|src.selection.feature_selection:187|⏰ Features datetime finales: ['fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 00:06:34|SUCCESS |125896|__main__.main:100|✨ Feature selection completa. Train=(89976, 8), Val=(29992, 8), Test=(29992, 8)
+2025-09-19 00:06:34|INFO    |125896|src.training.train_models:115|🚀 Iniciando entrenamiento con XGBoost...
+2025-09-19 00:06:34|INFO    |125896|src.training.prepare_categorical_features:42|🏷️ Casteadas a 'category': ['pais_cd', 'tipo_cliente_cd', 'madurez_digital_cd', 'estrellas_txt', 'frecuencia_visitas_cd', 'fecha_pedido_dt_day_of_week', 'fecha_pedido_dt_quarter']
+2025-09-19 00:06:34|INFO    |125896|src.training.encode_target_like_train:66|🎯 Clases (orden): ['DIGITAL', 'TELEFONO', 'VENDEDOR']
+2025-09-19 00:06:34|INFO    |125896|src.training.train_models:144|🟢 Se intentará entrenar con GPU (gpu_hist).
+2025-09-19 00:06:34|INFO    |125896|src.training.train_models:156|⚖️  Usando sample_weight balanceado por clase.
+2025-09-19 00:06:35|INFO    |125896|src.training.train_models:164|🔗 Run de entrenamiento anidado al run activo de MLflow.
+2025-09-19 00:06:35|INFO    |125896|src.training.train_models:165|📊 Entrenando XGBoost con early stopping…
+2025-09-19 00:06:53|INFO    |125896|src.training.train_models:283|📈 Métricas de Rendimiento:
+2025-09-19 00:06:53|INFO    |125896|src.training.train_models:284|   🎯 LogLoss → Train 0.8516 | Val 1.0868 | Test 1.0836
+2025-09-19 00:06:53|INFO    |125896|src.training.train_models:285|   📊 Acc    → Train 0.6307 | Val 0.4206 | Test 0.4241
+2025-09-19 00:06:53|SUCCESS |125896|__main__.main:128|🤖 Entrenamiento completado con XGBoost. LogLoss de validación: 1.0868
