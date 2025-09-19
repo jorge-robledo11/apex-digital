@@ -92,7 +92,7 @@ async def main() -> None:
             logger.info("🚀 Iniciando inferencia asíncrona...")
             
             # ✅ CORRECTO: Desempacar la tupla
-            test_sample, sample_metadata = prepare_test_sample(X_test_sel, y_test, n_samples=100)
+            test_sample, sample_metadata = prepare_test_sample(X_test_sel, y_test, n_samples=50)
             
             # Log metadata del sample
             mlflow.log_params({

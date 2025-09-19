@@ -6,7 +6,7 @@ import sys
 from pathlib import Path
 from typing import Protocol, runtime_checkable, overload
 
-from loguru import logger as _logger  # instancia global de Loguru
+from loguru import logger as _logger
 from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 

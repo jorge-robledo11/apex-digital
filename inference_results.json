@@ -1,0 +1,602 @@
+[
+  {
+    "index": 0,
+    "predicted_class": "DIGITAL",
+    "confidence": 0.5983935594558716,
+    "probabilities": [
+      0.5983935594558716,
+      0.12545627355575562,
+      0.276150107383728
+    ],
+    "processing_time_ms": 25.721073150634766,
+    "model_version": "2"
+  },
+  {
+    "index": 1,
+    "predicted_class": "DIGITAL",
+    "confidence": 0.5954400897026062,
+    "probabilities": [
+      0.5954400897026062,
+      0.17210571467876434,
+      0.23245413601398468
+    ],
+    "processing_time_ms": 23.149967193603516,
+    "model_version": "2"
+  },
+  {
+    "index": 2,
+    "predicted_class": "DIGITAL",
+    "confidence": 0.6344612240791321,
+    "probabilities": [
+      0.6344612240791321,
+      0.12589111924171448,
+      0.23964765667915344
+    ],
+    "processing_time_ms": 20.4315185546875,
+    "model_version": "2"
+  },
+  {
+    "index": 3,
+    "predicted_class": "DIGITAL",
+    "confidence": 0.6652689576148987,
+    "probabilities": [
+      0.6652689576148987,
+      0.10930787026882172,
+      0.2254231572151184
+    ],
+    "processing_time_ms": 17.821788787841797,
+    "model_version": "2"
+  },
+  {
+    "index": 4,
+    "predicted_class": "TELEFONO",
+    "confidence": 0.39698097109794617,
+    "probabilities": [
+      0.2596682012081146,
+      0.39698097109794617,
+      0.3433507978916168
+    ],
+    "processing_time_ms": 15.122175216674805,
+    "model_version": "2"
+  },
+  {
+    "index": 5,
+    "predicted_class": "TELEFONO",
+    "confidence": 0.41546183824539185,
+    "probabilities": [
+      0.25178033113479614,
+      0.41546183824539185,
+      0.3327578902244568
+    ],
+    "processing_time_ms": 12.395143508911133,
+    "model_version": "2"
+  },
+  {
+    "index": 6,
+    "predicted_class": "TELEFONO",
+    "confidence": 0.3987998068332672,
+    "probabilities": [
+      0.24108584225177765,
+      0.3987998068332672,
+      0.36011433601379395
+    ],
+    "processing_time_ms": 9.302139282226562,
+    "model_version": "2"
+  },
+  {
+    "index": 7,
+    "predicted_class": "DIGITAL",
+    "confidence": 0.38343483209609985,
+    "probabilities": [
+      0.38343483209609985,
+      0.29322823882102966,
+      0.3233368992805481
+    ],
+    "processing_time_ms": 7.091760635375977,
+    "model_version": "2"
+  },
+  {
+    "index": 8,
+    "predicted_class": "TELEFONO",
+    "confidence": 0.41278737783432007,
+    "probabilities": [
+      0.24175924062728882,
+      0.41278737783432007,
+      0.3454534113407135
+    ],
+    "processing_time_ms": 23.38099479675293,
+    "model_version": "2"
+  },
+  {
+    "index": 9,
+    "predicted_class": "DIGITAL",
+    "confidence": 0.6400293707847595,
+    "probabilities": [
+      0.6400293707847595,
+      0.11806448549032211,
+      0.24190615117549896
+    ],
+    "processing_time_ms": 21.02041244506836,
+    "model_version": "2"
+  },
+  {
+    "index": 10,
+    "predicted_class": "TELEFONO",
+    "confidence": 0.41752952337265015,
+    "probabilities": [
+      0.267391562461853,
+      0.41752952337265015,
+      0.3150789141654968
+    ],
+    "processing_time_ms": 17.931699752807617,
+    "model_version": "2"
+  },
+  {
+    "index": 11,
+    "predicted_class": "DIGITAL",
+    "confidence": 0.6493658423423767,
+    "probabilities": [
+      0.6493658423423767,
+      0.1298503428697586,
+      0.2207837849855423
+    ],
+    "processing_time_ms": 16.36219024658203,
+    "model_version": "2"
+  },
+  {
+    "index": 12,
+    "predicted_class": "TELEFONO",
+    "confidence": 0.40111929178237915,
+    "probabilities": [
+      0.2404603660106659,
+      0.40111929178237915,
+      0.3584202826023102
+    ],
+    "processing_time_ms": 14.31894302368164,
+    "model_version": "2"
+  },
+  {
+    "index": 13,
+    "predicted_class": "TELEFONO",
+    "confidence": 0.4055302143096924,
+    "probabilities": [
+      0.2375054955482483,
+      0.4055302143096924,
+      0.3569642901420593
+    ],
+    "processing_time_ms": 11.372089385986328,
+    "model_version": "2"
+  },
+  {
+    "index": 14,
+    "predicted_class": "DIGITAL",
+    "confidence": 0.6528424620628357,
+    "probabilities": [
+      0.6528424620628357,
+      0.12199999392032623,
+      0.22515751421451569
+    ],
+    "processing_time_ms": 8.866548538208008,
+    "model_version": "2"
+  },
+  {
+    "index": 15,
+    "predicted_class": "DIGITAL",
+    "confidence": 0.6609959006309509,
+    "probabilities": [
+      0.6609959006309509,
+      0.13327892124652863,
+      0.20572516322135925
+    ],
+    "processing_time_ms": 7.17473030090332,
+    "model_version": "2"
+  },
+  {
+    "index": 16,
+    "predicted_class": "DIGITAL",
+    "confidence": 0.4214836061000824,
+    "probabilities": [
+      0.4214836061000824,
+      0.2811051607131958,
+      0.2974112331867218
+    ],
+    "processing_time_ms": 24.294137954711914,
+    "model_version": "2"
+  },
+  {
+    "index": 17,
+    "predicted_class": "DIGITAL",
+    "confidence": 0.6150734424591064,
+    "probabilities": [
+      0.6150734424591064,
+      0.1508072018623352,
+      0.23411931097507477
+    ],
+    "processing_time_ms": 21.782636642456055,
+    "model_version": "2"
+  },
+  {
+    "index": 18,
+    "predicted_class": "DIGITAL",
+    "confidence": 0.41346508264541626,
+    "probabilities": [
+      0.41346508264541626,
+      0.27296212315559387,
+      0.31357282400131226
+    ],
+    "processing_time_ms": 19.45638656616211,
+    "model_version": "2"
+  },
+  {
+    "index": 19,
+    "predicted_class": "DIGITAL",
+    "confidence": 0.612920880317688,
+    "probabilities": [
+      0.612920880317688,
+      0.1488722562789917,
+      0.23820683360099792
+    ],
+    "processing_time_ms": 17.252445220947266,
+    "model_version": "2"
+  },
+  {
+    "index": 20,
+    "predicted_class": "TELEFONO",
+    "confidence": 0.4170339107513428,
+    "probabilities": [
+      0.22541005909442902,
+      0.4170339107513428,
+      0.357556015253067
+    ],
+    "processing_time_ms": 15.005826950073242,
+    "model_version": "2"
+  },
+  {
+    "index": 21,
+    "predicted_class": "VENDEDOR",
+    "confidence": 0.38873350620269775,
+    "probabilities": [
+      0.22660399973392487,
+      0.3846624791622162,
+      0.38873350620269775
+    ],
+    "processing_time_ms": 12.773513793945312,
+    "model_version": "2"
+  },
+  {
+    "index": 22,
+    "predicted_class": "DIGITAL",
+    "confidence": 0.6429369449615479,
+    "probabilities": [
+      0.6429369449615479,
+      0.11877846717834473,
+      0.23828458786010742
+    ],
+    "processing_time_ms": 10.437250137329102,
+    "model_version": "2"
+  },
+  {
+    "index": 23,
+    "predicted_class": "DIGITAL",
+    "confidence": 0.6103361248970032,
+    "probabilities": [
+      0.6103361248970032,
+      0.14002472162246704,
+      0.2496391385793686
+    ],
+    "processing_time_ms": 7.214069366455078,
+    "model_version": "2"
+  },
+  {
+    "index": 24,
+    "predicted_class": "DIGITAL",
+    "confidence": 0.5945219993591309,
+    "probabilities": [
+      0.5945219993591309,
+      0.16504013538360596,
+      0.24043786525726318
+    ],
+    "processing_time_ms": 22.4151611328125,
+    "model_version": "2"
+  },
+  {
+    "index": 25,
+    "predicted_class": "TELEFONO",
+    "confidence": 0.4345475733280182,
+    "probabilities": [
+      0.20524996519088745,
+      0.4345475733280182,
+      0.36020252108573914
+    ],
+    "processing_time_ms": 19.205570220947266,
+    "model_version": "2"
+  },
+  {
+    "index": 26,
+    "predicted_class": "DIGITAL",
+    "confidence": 0.6125699281692505,
+    "probabilities": [
+      0.6125699281692505,
+      0.13707999885082245,
+      0.25035008788108826
+    ],
+    "processing_time_ms": 16.877174377441406,
+    "model_version": "2"
+  },
+  {
+    "index": 27,
+    "predicted_class": "TELEFONO",
+    "confidence": 0.4176572263240814,
+    "probabilities": [
+      0.2453959733247757,
+      0.4176572263240814,
+      0.3369468152523041
+    ],
+    "processing_time_ms": 15.335798263549805,
+    "model_version": "2"
+  },
+  {
+    "index": 28,
+    "predicted_class": "DIGITAL",
+    "confidence": 0.6467536687850952,
+    "probabilities": [
+      0.6467536687850952,
+      0.11962148547172546,
+      0.23362481594085693
+    ],
+    "processing_time_ms": 13.174295425415039,
+    "model_version": "2"
+  },
+  {
+    "index": 29,
+    "predicted_class": "VENDEDOR",
+    "confidence": 0.3908332586288452,
+    "probabilities": [
+      0.24297106266021729,
+      0.3661957085132599,
+      0.3908332586288452
+    ],
+    "processing_time_ms": 11.040210723876953,
+    "model_version": "2"
+  },
+  {
+    "index": 30,
+    "predicted_class": "DIGITAL",
+    "confidence": 0.4189033806324005,
+    "probabilities": [
+      0.4189033806324005,
+      0.2502844035625458,
+      0.3308121860027313
+    ],
+    "processing_time_ms": 8.489608764648438,
+    "model_version": "2"
+  },
+  {
+    "index": 31,
+    "predicted_class": "DIGITAL",
+    "confidence": 0.6457188129425049,
+    "probabilities": [
+      0.6457188129425049,
+      0.13420389592647552,
+      0.2200772762298584
+    ],
+    "processing_time_ms": 6.224632263183594,
+    "model_version": "2"
+  },
+  {
+    "index": 32,
+    "predicted_class": "TELEFONO",
+    "confidence": 0.43132275342941284,
+    "probabilities": [
+      0.26233038306236267,
+      0.43132275342941284,
+      0.30634692311286926
+    ],
+    "processing_time_ms": 22.40586280822754,
+    "model_version": "2"
+  },
+  {
+    "index": 33,
+    "predicted_class": "TELEFONO",
+    "confidence": 0.41770312190055847,
+    "probabilities": [
+      0.23798002302646637,
+      0.41770312190055847,
+      0.34431686997413635
+    ],
+    "processing_time_ms": 20.784854888916016,
+    "model_version": "2"
+  },
+  {
+    "index": 34,
+    "predicted_class": "DIGITAL",
+    "confidence": 0.5991579294204712,
+    "probabilities": [
+      0.5991579294204712,
+      0.1354207992553711,
+      0.2654213011264801
+    ],
+    "processing_time_ms": 18.418550491333008,
+    "model_version": "2"
+  },
+  {
+    "index": 35,
+    "predicted_class": "DIGITAL",
+    "confidence": 0.6254280209541321,
+    "probabilities": [
+      0.6254280209541321,
+      0.12611740827560425,
+      0.24845460057258606
+    ],
+    "processing_time_ms": 16.16644859313965,
+    "model_version": "2"
+  },
+  {
+    "index": 36,
+    "predicted_class": "DIGITAL",
+    "confidence": 0.6039005517959595,
+    "probabilities": [
+      0.6039005517959595,
+      0.14429119229316711,
+      0.2518082857131958
+    ],
+    "processing_time_ms": 13.961315155029297,
+    "model_version": "2"
+  },
+  {
+    "index": 37,
+    "predicted_class": "TELEFONO",
+    "confidence": 0.43000322580337524,
+    "probabilities": [
+      0.23578204214572906,
+      0.43000322580337524,
+      0.3342147171497345
+    ],
+    "processing_time_ms": 11.046886444091797,
+    "model_version": "2"
+  },
+  {
+    "index": 38,
+    "predicted_class": "DIGITAL",
+    "confidence": 0.6344090700149536,
+    "probabilities": [
+      0.6344090700149536,
+      0.12179754674434662,
+      0.24379338324069977
+    ],
+    "processing_time_ms": 9.418964385986328,
+    "model_version": "2"
+  },
+  {
+    "index": 39,
+    "predicted_class": "DIGITAL",
+    "confidence": 0.4202444553375244,
+    "probabilities": [
+      0.4202444553375244,
+      0.27455535531044006,
+      0.3052001893520355
+    ],
+    "processing_time_ms": 21.524667739868164,
+    "model_version": "2"
+  },
+  {
+    "index": 40,
+    "predicted_class": "DIGITAL",
+    "confidence": 0.4129128158092499,
+    "probabilities": [
+      0.4129128158092499,
+      0.2874426543712616,
+      0.2996445298194885
+    ],
+    "processing_time_ms": 19.357681274414062,
+    "model_version": "2"
+  },
+  {
+    "index": 41,
+    "predicted_class": "DIGITAL",
+    "confidence": 0.6060474514961243,
+    "probabilities": [
+      0.6060474514961243,
+      0.1309185028076172,
+      0.26303407549858093
+    ],
+    "processing_time_ms": 17.701148986816406,
+    "model_version": "2"
+  },
+  {
+    "index": 42,
+    "predicted_class": "DIGITAL",
+    "confidence": 0.6590865254402161,
+    "probabilities": [
+      0.6590865254402161,
+      0.12990689277648926,
+      0.21100658178329468
+    ],
+    "processing_time_ms": 15.183687210083008,
+    "model_version": "2"
+  },
+  {
+    "index": 43,
+    "predicted_class": "TELEFONO",
+    "confidence": 0.41551265120506287,
+    "probabilities": [
+      0.23119570314884186,
+      0.41551265120506287,
+      0.3532916307449341
+    ],
+    "processing_time_ms": 12.253999710083008,
+    "model_version": "2"
+  },
+  {
+    "index": 44,
+    "predicted_class": "TELEFONO",
+    "confidence": 0.3869951367378235,
+    "probabilities": [
+      0.24203234910964966,
+      0.3869951367378235,
+      0.37097248435020447
+    ],
+    "processing_time_ms": 10.078907012939453,
+    "model_version": "2"
+  },
+  {
+    "index": 45,
+    "predicted_class": "DIGITAL",
+    "confidence": 0.7000038623809814,
+    "probabilities": [
+      0.7000038623809814,
+      0.12726837396621704,
+      0.1727277636528015
+    ],
+    "processing_time_ms": 8.037567138671875,
+    "model_version": "2"
+  },
+  {
+    "index": 46,
+    "predicted_class": "DIGITAL",
+    "confidence": 0.674797773361206,
+    "probabilities": [
+      0.674797773361206,
+      0.10490594059228897,
+      0.22029629349708557
+    ],
+    "processing_time_ms": 6.540536880493164,
+    "model_version": "2"
+  },
+  {
+    "index": 47,
+    "predicted_class": "TELEFONO",
+    "confidence": 0.3911731541156769,
+    "probabilities": [
+      0.24534107744693756,
+      0.3911731541156769,
+      0.36348581314086914
+    ],
+    "processing_time_ms": 7.248401641845703,
+    "model_version": "2"
+  },
+  {
+    "index": 48,
+    "predicted_class": "DIGITAL",
+    "confidence": 0.6248244643211365,
+    "probabilities": [
+      0.6248244643211365,
+      0.12953905761241913,
+      0.2456364780664444
+    ],
+    "processing_time_ms": 5.782604217529297,
+    "model_version": "2"
+  },
+  {
+    "index": 49,
+    "predicted_class": "DIGITAL",
+    "confidence": 0.608357846736908,
+    "probabilities": [
+      0.608357846736908,
+      0.1434013992547989,
+      0.24824073910713196
+    ],
+    "processing_time_ms": 3.6458969116210938,
+    "model_version": "2"
+  }
+]

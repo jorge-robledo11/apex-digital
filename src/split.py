@@ -1,7 +1,7 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from config.settings import get_settings
-from src.utils.utils_fn import capture_variables  # para identificar las discretas
+from src.utils.utils_fn import capture_variables
 
 settings = get_settings()
 logger = settings.logger

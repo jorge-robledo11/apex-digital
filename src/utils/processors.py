@@ -5,7 +5,6 @@ from scipy.stats import chi2_contingency
 
 
 def _prep_cat(s: pd.Series, na_token: str) -> pd.Series:
-    # Evita FutureWarning: primero object, luego NA→token sin downcasting silencioso, luego category
     return s.astype("object").where(s.notna(), na_token).astype("category")
 
 
